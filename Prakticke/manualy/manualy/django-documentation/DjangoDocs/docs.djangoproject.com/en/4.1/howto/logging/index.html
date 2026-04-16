@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from docs.djangoproject.com/en/4.1/howto/logging/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Mar 2023 18:03:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="ROBOTS" content="ALL" />
+    <meta name="MSSmartTagsPreventParsing" content="true" />
+    <meta name="Copyright" content="Django Software Foundation" />
+    <meta name="keywords" content="Python, Django, framework, open-source" />
+    <meta name="description" content="" />
+
+    
+  
+    
+      
+    
+  
+  <link rel="canonical" href="index.html">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="el"
+       href="https://docs.djangoproject.com/el/4.1/howto/logging/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="en"
+       href="index.html">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="es"
+       href="https://docs.djangoproject.com/es/4.1/howto/logging/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="fr"
+       href="https://docs.djangoproject.com/fr/4.1/howto/logging/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="id"
+       href="https://docs.djangoproject.com/id/4.1/howto/logging/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="it"
+       href="https://docs.djangoproject.com/it/4.1/howto/logging/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="ja"
+       href="https://docs.djangoproject.com/ja/4.1/howto/logging/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="ko"
+       href="https://docs.djangoproject.com/ko/4.1/howto/logging/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="pl"
+       href="https://docs.djangoproject.com/pl/4.1/howto/logging/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="pt-br"
+       href="https://docs.djangoproject.com/pt-br/4.1/howto/logging/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="zh-hans"
+       href="https://docs.djangoproject.com/zh-hans/4.1/howto/logging/">
+  
+
+  <link rel="search"
+        type="application/opensearchdescription+xml"
+        href="../../search/description/index.html"
+        title="Django documentation">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="../../../../../static.djangoproject.com/img/icon-touch.e4872c4da341.png">
+    <link rel="icon" sizes="192x192" href="../../../../../static.djangoproject.com/img/icon-touch.e4872c4da341.png">
+    <link rel="shortcut icon" href="https://static.djangoproject.com/img/favicon.6dbf28c0650e.ico">
+    <meta name="msapplication-TileColor" content="#113228">
+    <meta name="msapplication-TileImage" content="../../../../../static.djangoproject.com/img/icon-tile.b01ac0ef9f67.png">
+    <meta name="theme-color" content="#0C4B33">
+
+    
+    <meta property="og:title" content="Django" />
+    <meta property="og:description" content="The web framework for perfectionists with deadlines." />
+    <meta property="og:image" content="../../../../../static.djangoproject.com/img/logos/django-logo-negative.1d528e2cb5fb.png" />
+    <meta property="og:image:alt" content="Django logo" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="546" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:url" content="index.html" />
+    <meta property="og:site_name" content="Django Project" />
+
+    <meta property="twitter:creator" content="djangoproject" />
+    <meta property="twitter:site" content="djangoproject" />
+    <meta property="twitter:card" content="summary">
+    
+
+    <title>How to configure and use logging | Django documentation | Django</title>
+
+    <link rel="stylesheet" href="../../../../../static.djangoproject.com/css/output.1adc4207e45f.css" >
+    <script src="../../../../../static.djangoproject.com/js/lib/webfontloader/webfontloader.e75218f5f090.js"></script>
+    <script>
+    WebFont.load({
+      custom: {
+        families: ['FontAwesome', 'Fira+Mono'],
+      },
+      google: {
+        families: ['Roboto:400italic,700italic,300,700,400:latin'
+        ]
+      },
+      classes: false,
+      events: false,
+      timeout: 1000
+    });
+    </script>
+    <script src="../../../../../static.djangoproject.com/js/lib/modernizr.3b36762e418a.js"></script>
+    <script src="../../../../../static.djangoproject.com/js/mod/switch-dark-mode.a0e0dca32970.js"></script>
+    
+  </head>
+
+  <body id="generic" class="">
+
+    <div role="banner" id="top">
+  <div class="container">
+    <a class="logo" href="https://www.djangoproject.com/">Django</a>
+    <p class="meta">The web framework for perfectionists with deadlines.</p>
+    <div class="mobile-toggle">
+      
+
+<button class="theme-toggle">
+  <div class="visually-hidden theme-label-when-auto">Toggle theme (current theme: auto)</div>
+  <div class="visually-hidden theme-label-when-light">Toggle theme (current theme: light)</div>
+  <div class="visually-hidden theme-label-when-dark">Toggle theme (current theme: dark)</div>
+
+  <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+  <svg aria-hidden="true" class="theme-icon-when-auto">
+    <use xlink:href="#icon-auto" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-dark">
+    <use xlink:href="#icon-moon" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-light">
+    <use xlink:href="#icon-sun" />
+  </svg>
+</button>
+
+    </div>
+    <div role="navigation">
+      <ul>
+        <li>
+          <a href="https://www.djangoproject.com/start/overview/">Overview</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/download/">Download</a>
+        </li>
+        <li class="active">
+          <a href="https://docs.djangoproject.com/">Documentation</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/weblog/">News</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/community/">Community</a>
+        </li>
+        <li>
+          <a href="https://github.com/django/django" target="_blank" rel="noopener">Code</a>
+        </li>
+        <li>
+          <a href="https://code.djangoproject.com/">Issues</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/foundation/">About</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/fundraising/">&#9829; Donate</a>
+        </li>
+        <li>
+          
+
+<button class="theme-toggle">
+  <div class="visually-hidden theme-label-when-auto">Toggle theme (current theme: auto)</div>
+  <div class="visually-hidden theme-label-when-light">Toggle theme (current theme: light)</div>
+  <div class="visually-hidden theme-label-when-dark">Toggle theme (current theme: dark)</div>
+
+  <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+  <svg aria-hidden="true" class="theme-icon-when-auto">
+    <use xlink:href="#icon-auto" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-dark">
+    <use xlink:href="#icon-moon" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-light">
+    <use xlink:href="#icon-sun" />
+  </svg>
+</button>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+    <div class="copy-banner">
+      <div class="container 
+container--flex container--flex--wrap--mobile
+">
+        
+<h1><a href="../../index.html">Documentation</a></h1>
+
+
+<form action="https://docs.djangoproject.com/en/4.1/search/" class="search form-input" role="search">
+  <label class="visuallyhidden" for="id_q">Search:</label>
+    <input type="search" name="q" placeholder="Search 4.1 documentation" id="id_q">
+
+    <button type="submit">
+      <i class="icon icon-search"></i>
+      <span class="visuallyhidden">Search</span>
+    </button>
+</form>
+
+
+      </div>
+    </div>
+    <div id="billboard"></div>
+
+    <div class="container sidebar-right">
+      <div role="main">
+
+        
+          
+        
+
+        
+<div id="version-switcher">
+  <ul id="faq-link">
+    <li class="current-link">
+      <a href="../../faq/help/index.html">
+        <span>Getting Help</span>
+      </a>
+    </li>
+  </ul>
+  <ul id="doc-languages" class="language-switcher doc-switcher">
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/el/4.1/howto/logging/">el</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/es/4.1/howto/logging/">es</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/fr/4.1/howto/logging/">fr</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/id/4.1/howto/logging/">id</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/it/4.1/howto/logging/">it</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/ja/4.1/howto/logging/">ja</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/ko/4.1/howto/logging/">ko</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/pl/4.1/howto/logging/">pl</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/pt-br/4.1/howto/logging/">pt-br</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/zh-hans/4.1/howto/logging/">zh-hans</a>
+  </li>
+  
+  
+    <li class="current"
+        title="Click on the links on the left to switch to another language.">
+      <span>Language: <strong>en</strong></span>
+    </li>
+  </ul>
+
+  
+  <ul id="doc-versions" class="version-switcher doc-switcher">
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/4.0/howto/logging/">4.0</a>
+    </li>
+    
+    
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/4.2/howto/logging/">4.2</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/dev/howto/logging/">dev</a>
+    </li>
+    
+    
+    <li class="current"
+        title="This document describes Django 4.1. Click on the links on the left to see other versions.">
+       <span>Documentation version:
+         <strong>4.1</strong>
+       </span>
+    </li>
+  </ul>
+</div>
+
+
+<div id="docs-content">
+<div class="section" id="s-how-to-configure-and-use-logging">
+<span id="s-logging-how-to"></span><span id="how-to-configure-and-use-logging"></span><span id="logging-how-to"></span><h1>How to configure and use logging<a class="headerlink" href="#how-to-configure-and-use-logging" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li><a class="reference internal" href="../../ref/logging/index.html#logging-ref"><span class="std std-ref">Django logging reference</span></a></li>
+<li><a class="reference internal" href="../../topics/logging/index.html#logging-explanation"><span class="std std-ref">Django logging overview</span></a></li>
+</ul>
+</div>
+<p>Django provides a working <a class="reference internal" href="../../ref/logging/index.html#default-logging-configuration"><span class="std std-ref">default logging configuration</span></a> that is readily extended.</p>
+<div class="section" id="s-make-a-basic-logging-call">
+<span id="make-a-basic-logging-call"></span><h2>Make a basic logging call<a class="headerlink" href="#make-a-basic-logging-call" title="Permalink to this headline">¶</a></h2>
+<p>To send a log message from within your code, you place a logging call into it.</p>
+<div class="admonition-don-t-be-tempted-to-use-logging-calls-in-settings-py admonition">
+<p class="first admonition-title">Don’t be tempted to use logging calls in <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>.</p>
+<p class="last">The way that Django logging is configured as part of the <code class="docutils literal notranslate"><span class="pre">setup()</span></code>
+function means that logging calls placed in <code class="docutils literal notranslate"><span class="pre">settings.py</span></code> may not work as
+expected, because <em>logging will not be set up at that point</em>. To explore
+logging, use a view function as suggested in the example below.</p>
+</div>
+<p>First, import the Python logging library, and then obtain a logger instance
+with <a class="reference external" href="https://docs.python.org/3/library/logging.html#logging.getLogger" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">logging.getLogger()</span></code></a>. Provide the <code class="docutils literal notranslate"><span class="pre">getLogger()</span></code> method with a
+name to identify it and the records it emits. A good option is to use
+<code class="docutils literal notranslate"><span class="pre">__name__</span></code> (see <a class="reference internal" href="#naming-loggers"><span class="std std-ref">Use logger namespacing</span></a> below for more on this) which will
+provide the name of the current Python module as a dotted path:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It’s a good convention to perform this declaration at module level.</p>
+<p>And then in a function, for example in a view, send a record to the logger:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">some_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">if</span> <span class="n">some_risky_state</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Platform is running at risk&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When this code is executed, a <a class="reference external" href="https://docs.python.org/3/library/logging.html#logging.LogRecord" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a> containing that
+message will be sent to the logger. If you’re using Django’s default logging
+configuration, the message will appear in the console.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">WARNING</span></code> level used in the example above is one of several
+<a class="reference internal" href="../../topics/logging/index.html#topic-logging-parts-loggers"><span class="std std-ref">logging severity levels</span></a>: <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>,
+<code class="docutils literal notranslate"><span class="pre">INFO</span></code>, <code class="docutils literal notranslate"><span class="pre">WARNING</span></code>, <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>, <code class="docutils literal notranslate"><span class="pre">CRITICAL</span></code>. So, another example might be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;Payment system is not responding&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Records with a level lower than <code class="docutils literal notranslate"><span class="pre">WARNING</span></code> will not appear in the console
+by default. Changing this behavior requires additional configuration.</p>
+</div>
+</div>
+<div class="section" id="s-customize-logging-configuration">
+<span id="customize-logging-configuration"></span><h2>Customize logging configuration<a class="headerlink" href="#customize-logging-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Although Django’s logging configuration works out of the box, you can control
+exactly how your logs are sent to various destinations - to log files, external
+services, email and so on - with some additional configuration.</p>
+<p>You can configure:</p>
+<ul class="simple">
+<li>logger mappings, to determine which records are sent to which handlers</li>
+<li>handlers, to determine what they do with the records they receive</li>
+<li>filters, to provide additional control over the transfer of records, and
+even modify records in-place</li>
+<li>formatters, to convert <a class="reference external" href="https://docs.python.org/3/library/logging.html#logging.LogRecord" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a> objects to a string or
+other form for consumption by human beings or another system</li>
+</ul>
+<p>There are various ways of configuring logging. In Django, the
+<a class="reference internal" href="../../ref/settings/index.html#std-setting-LOGGING"><code class="xref std std-setting docutils literal notranslate"><span class="pre">LOGGING</span></code></a> setting is most commonly used. The setting uses the
+<a class="reference external" href="https://docs.python.org/3/library/logging.config.html#logging-config-dictschema" title="(in Python v3.11)"><span class="xref std std-ref">dictConfig format</span></a>, and extends the
+<a class="reference internal" href="../../ref/logging/index.html#default-logging-definition"><span class="std std-ref">default logging configuration</span></a>.</p>
+<p>See <a class="reference internal" href="../../topics/logging/index.html#configuring-logging"><span class="std std-ref">Configuring logging</span></a> for an explanation of how your custom settings
+are merged with Django’s defaults.</p>
+<p>See the <a class="reference external" href="https://docs.python.org/3/library/logging.config.html#module-logging.config" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Python</span> <span class="pre">logging</span> <span class="pre">documentation</span></code></a> for
+details of other ways of configuring logging. For the sake of simplicity, this
+documentation will only consider configuration via the <code class="docutils literal notranslate"><span class="pre">LOGGING</span></code> setting.</p>
+<div class="section" id="s-basic-logging-configuration">
+<span id="s-basic-logger-configuration"></span><span id="basic-logging-configuration"></span><span id="basic-logger-configuration"></span><h3>Basic logging configuration<a class="headerlink" href="#basic-logging-configuration" title="Permalink to this headline">¶</a></h3>
+<p>When configuring logging, it makes sense to</p>
+<div class="section" id="s-create-a-logging-dictionary">
+<span id="create-a-logging-dictionary"></span><h4>Create a <code class="docutils literal notranslate"><span class="pre">LOGGING</span></code> dictionary<a class="headerlink" href="#create-a-logging-dictionary" title="Permalink to this headline">¶</a></h4>
+<p>In your <code class="docutils literal notranslate"><span class="pre">settings.py</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>                       <span class="c1"># the dictConfig format version</span>
+    <span class="s1">&#39;disable_existing_loggers&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>  <span class="c1"># retain the default loggers</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>It nearly always makes sense to retain and extend the default logging
+configuration by setting <code class="docutils literal notranslate"><span class="pre">disable_existing_loggers</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</div>
+<div class="section" id="s-configure-a-handler">
+<span id="configure-a-handler"></span><h4>Configure a handler<a class="headerlink" href="#configure-a-handler" title="Permalink to this headline">¶</a></h4>
+<p>This example configures a single handler named <code class="docutils literal notranslate"><span class="pre">file</span></code>, that uses Python’s
+<a class="reference external" href="https://docs.python.org/3/library/logging.handlers.html#logging.FileHandler" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileHandler</span></code></a> to save logs of level <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> and higher to the
+file <code class="docutils literal notranslate"><span class="pre">general.log</span></code> (at the project root):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+<span class="hll">    <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">        <span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.FileHandler&#39;</span><span class="p">,</span>
+</span><span class="hll">            <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="s1">&#39;general.log&#39;</span><span class="p">,</span>
+</span><span class="hll">        <span class="p">},</span>
+</span><span class="hll">    <span class="p">},</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Different handler classes take different configuration options. For more
+information on available handler classes, see the
+<a class="reference internal" href="../../ref/logging/index.html#django.utils.log.AdminEmailHandler" title="django.utils.log.AdminEmailHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">AdminEmailHandler</span></code></a> provided by Django and the various
+<a class="reference external" href="https://docs.python.org/3/library/logging.handlers.html#module-logging.handlers" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">handler</span> <span class="pre">classes</span></code></a> provided by Python.</p>
+<p>Logging levels can also be set on the handlers (by default, they accept log
+messages of all levels). Using the example above, adding:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.FileHandler&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="s1">&#39;general.log&#39;</span><span class="p">,</span>
+<span class="hll">    <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>would define a handler configuration that only accepts records of level
+<code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> and higher.</p>
+</div>
+<div class="section" id="s-configure-a-logger-mapping">
+<span id="configure-a-logger-mapping"></span><h4>Configure a logger mapping<a class="headerlink" href="#configure-a-logger-mapping" title="Permalink to this headline">¶</a></h4>
+<p>To send records to this handler, configure a logger mapping to use it for
+example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+<span class="hll">    <span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">        <span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span>
+</span><span class="hll">            <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">],</span>
+</span><span class="hll">        <span class="p">},</span>
+</span><span class="hll">    <span class="p">},</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The mapping’s name determines which log records it will process. This
+configuration (<code class="docutils literal notranslate"><span class="pre">''</span></code>) is <em>unnamed</em>. That means that it will process records
+from <em>all</em> loggers (see <a class="reference internal" href="#naming-loggers"><span class="std std-ref">Use logger namespacing</span></a> below on how to use the mapping
+name to determine the loggers for which it will process records).</p>
+<p>It will forward messages of levels <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> and higher to the handler named
+<code class="docutils literal notranslate"><span class="pre">file</span></code>.</p>
+<p>Note that a logger can forward messages to multiple handlers, so the relation
+between loggers and handlers is many-to-many.</p>
+<p>If you execute:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Attempting to connect to API&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>in your code, you will find that message in the file <code class="docutils literal notranslate"><span class="pre">general.log</span></code> in the
+root of the project.</p>
+</div>
+<div class="section" id="s-configure-a-formatter">
+<span id="configure-a-formatter"></span><h4>Configure a formatter<a class="headerlink" href="#configure-a-formatter" title="Permalink to this headline">¶</a></h4>
+<p>By default, the final log output contains the message part of each <a class="reference external" href="https://docs.python.org/3/library/logging.html#logging.LogRecord" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">log</span>
+<span class="pre">record</span></code></a>. Use a formatter if you want to include additional
+data. First name and define your formatters - this example defines
+formatters named <code class="docutils literal notranslate"><span class="pre">verbose</span></code> and <code class="docutils literal notranslate"><span class="pre">simple</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+<span class="hll">    <span class="s1">&#39;formatters&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">        <span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">            <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{name}</span><span class="s1"> </span><span class="si">{levelname}</span><span class="s1"> </span><span class="si">{asctime}</span><span class="s1"> </span><span class="si">{module}</span><span class="s1"> </span><span class="si">{process:d}</span><span class="s1"> </span><span class="si">{thread:d}</span><span class="s1"> </span><span class="si">{message}</span><span class="s1">&#39;</span><span class="p">,</span>
+</span><span class="hll">            <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="s1">&#39;{&#39;</span><span class="p">,</span>
+</span><span class="hll">        <span class="p">},</span>
+</span><span class="hll">        <span class="s1">&#39;simple&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">            <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{levelname}</span><span class="s1"> </span><span class="si">{message}</span><span class="s1">&#39;</span><span class="p">,</span>
+</span><span class="hll">            <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="s1">&#39;{&#39;</span><span class="p">,</span>
+</span><span class="hll">        <span class="p">},</span>
+</span><span class="hll">    <span class="p">},</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">style</span></code> keyword allows you to specify <code class="docutils literal notranslate"><span class="pre">{</span></code> for <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.format" title="(in Python v3.11)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.format()</span></code></a> or
+<code class="docutils literal notranslate"><span class="pre">$</span></code> for <a class="reference external" href="https://docs.python.org/3/library/string.html#string.Template" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">string.Template</span></code></a> formatting; the default is <code class="docutils literal notranslate"><span class="pre">$</span></code>.</p>
+<p>See <a class="reference external" href="https://docs.python.org/3/library/logging.html#logrecord-attributes" title="(in Python v3.11)"><span>LogRecord attributes</span></a> for the <a class="reference external" href="https://docs.python.org/3/library/logging.html#logging.LogRecord" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRecord</span></code></a> attributes
+you can include.</p>
+<p>To apply a formatter to a handler, add a <code class="docutils literal notranslate"><span class="pre">formatter</span></code> entry to the handler’s
+dictionary referring to the formatter by name, for example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.FileHandler&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="s1">&#39;general.log&#39;</span><span class="p">,</span>
+<span class="hll">        <span class="s1">&#39;formatter&#39;</span><span class="p">:</span> <span class="s1">&#39;verbose&#39;</span><span class="p">,</span>
+</span>    <span class="p">},</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="s-use-logger-namespacing">
+<span id="s-naming-loggers"></span><span id="use-logger-namespacing"></span><span id="naming-loggers"></span><h4>Use logger namespacing<a class="headerlink" href="#use-logger-namespacing" title="Permalink to this headline">¶</a></h4>
+<p>The unnamed logging configuration <code class="docutils literal notranslate"><span class="pre">''</span></code> captures logs from any Python
+application. A named logging configuration will capture logs only from loggers
+with matching names.</p>
+<p>The namespace of a logger instance is defined using
+<a class="reference external" href="https://docs.python.org/3/library/logging.html#logging.getLogger" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">getLogger()</span></code></a>. For example in <code class="docutils literal notranslate"><span class="pre">views.py</span></code> of <code class="docutils literal notranslate"><span class="pre">my_app</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>will create a logger in the <code class="docutils literal notranslate"><span class="pre">my_app.views</span></code> namespace. <code class="docutils literal notranslate"><span class="pre">__name__</span></code> allows you
+to organize log messages according to their provenance within your project’s
+applications automatically. It also ensures that you will not experience name
+collisions.</p>
+<p>A logger mapping named <code class="docutils literal notranslate"><span class="pre">my_app.views</span></code> will capture records from this logger:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+    <span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
+<span class="hll">        <span class="s1">&#39;my_app.views&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span>            <span class="o">...</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A logger mapping named <code class="docutils literal notranslate"><span class="pre">my_app</span></code> will be more permissive, capturing records
+from loggers anywhere within the <code class="docutils literal notranslate"><span class="pre">my_app</span></code> namespace (including
+<code class="docutils literal notranslate"><span class="pre">my_app.views</span></code>, <code class="docutils literal notranslate"><span class="pre">my_app.utils</span></code>, and so on):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+    <span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
+<span class="hll">        <span class="s1">&#39;my_app&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span>            <span class="o">...</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can also define logger namespacing explicitly:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;project.payment&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and set up logger mappings accordingly.</p>
+<div class="section" id="s-using-logger-hierarchies-and-propagation">
+<span id="s-naming-loggers-hierarchy"></span><span id="using-logger-hierarchies-and-propagation"></span><span id="naming-loggers-hierarchy"></span><h5>Using logger hierarchies and propagation<a class="headerlink" href="#using-logger-hierarchies-and-propagation" title="Permalink to this headline">¶</a></h5>
+<p>Logger naming is <em>hierarchical</em>. <code class="docutils literal notranslate"><span class="pre">my_app</span></code> is the parent of <code class="docutils literal notranslate"><span class="pre">my_app.views</span></code>,
+which is the parent of <code class="docutils literal notranslate"><span class="pre">my_app.views.private</span></code>. Unless specified otherwise,
+logger mappings will propagate the records they process to their parents - a
+record from a logger in the <code class="docutils literal notranslate"><span class="pre">my_app.views.private</span></code> namespace will be handled
+by a mapping for both <code class="docutils literal notranslate"><span class="pre">my_app</span></code> and <code class="docutils literal notranslate"><span class="pre">my_app.views</span></code>.</p>
+<p>To manage this behavior, set the propagation key on the mappings you define:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+    <span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;my_app&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;my_app.views&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;my_app.views.private&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+            <span class="s1">&#39;propagate&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">propagate</span></code> defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>. In this example, the logs from
+<code class="docutils literal notranslate"><span class="pre">my_app.views.private</span></code> will not be handled by the parent, but logs from
+<code class="docutils literal notranslate"><span class="pre">my_app.views</span></code> will.</p>
+</div>
+</div>
+</div>
+<div class="section" id="s-configure-responsive-logging">
+<span id="configure-responsive-logging"></span><h3>Configure responsive logging<a class="headerlink" href="#configure-responsive-logging" title="Permalink to this headline">¶</a></h3>
+<p>Logging is most useful when it contains as much information as possible, but
+not information that you don’t need - and how much you need depends upon what
+you’re doing. When you’re debugging, you need a level of information that would
+be excessive and unhelpful if you had to deal with it in production.</p>
+<p>You can configure logging to provide you with the level of detail you need,
+when you need it. Rather than manually change configuration to achieve this, a
+better way is to apply configuration automatically according to the
+environment.</p>
+<p>For example, you could set an environment variable <code class="docutils literal notranslate"><span class="pre">DJANGO_LOG_LEVEL</span></code>
+appropriately in your development and staging environments, and make use of it
+in a logger mapping thus:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;DJANGO_LOG_LEVEL&#39;</span><span class="p">,</span> <span class="s1">&#39;WARNING&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>- so that unless the environment specifies a lower log level, this
+configuration will only forward records of severity <code class="docutils literal notranslate"><span class="pre">WARNING</span></code> and above to
+its handler.</p>
+<p>Other options in the configuration (such as the <code class="docutils literal notranslate"><span class="pre">level</span></code> or <code class="docutils literal notranslate"><span class="pre">formatter</span></code>
+option of handlers) can be similarly managed.</p>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="browse-horizontal">
+  
+  <div class="left"><a href="../legacy-databases/index.html"><i class="icon icon-chevron-left"></i> How to integrate Django with a legacy database</a></div>
+  
+  
+  <div class="right"><a href="../outputting-csv/index.html">How to create CSV output <i class="icon icon-chevron-right"></i></a></div>
+  
+</div>
+
+
+
+        <a href="#top" class="backtotop"><i class="icon icon-chevron-up"></i> Back to Top</a>
+      </div>
+
+      
+<h1 class="visuallyhidden">Additional Information</h1>
+<div role="complementary">
+
+  
+
+
+  <div class="fundraising-sidebar">
+    <h2>Support Django!</h2>
+
+    <div class="small-heart">
+      <img src="https://static.djangoproject.com/img/fundraising-heart.cd6bb84ffd33.svg" alt="Support Django!" />
+    </div>
+
+    <div class="small-cta">
+      <ul class="list-links-small">
+        <li><a href="https://www.djangoproject.com/fundraising/">
+          Issac Kelly donated to the Django Software Foundation to
+          support Django development. Donate today!
+        </a></li>
+      </ul>
+    </div>
+  </div>
+
+
+
+  
+    <h2>Contents</h2>
+    
+    <ul>
+<li><a class="reference internal" href="#">How to configure and use logging</a><ul>
+<li><a class="reference internal" href="#make-a-basic-logging-call">Make a basic logging call</a></li>
+<li><a class="reference internal" href="#customize-logging-configuration">Customize logging configuration</a><ul>
+<li><a class="reference internal" href="#basic-logging-configuration">Basic logging configuration</a><ul>
+<li><a class="reference internal" href="#create-a-logging-dictionary">Create a <code class="docutils literal notranslate"><span class="pre">LOGGING</span></code> dictionary</a></li>
+<li><a class="reference internal" href="#configure-a-handler">Configure a handler</a></li>
+<li><a class="reference internal" href="#configure-a-logger-mapping">Configure a logger mapping</a></li>
+<li><a class="reference internal" href="#configure-a-formatter">Configure a formatter</a></li>
+<li><a class="reference internal" href="#use-logger-namespacing">Use logger namespacing</a><ul>
+<li><a class="reference internal" href="#using-logger-hierarchies-and-propagation">Using logger hierarchies and propagation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configure-responsive-logging">Configure responsive logging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    
+  
+
+  
+  <h2>Browse</h2>
+  <ul>
+    
+    
+    <li>Prev: <a href="../legacy-databases/index.html">How to integrate Django with a legacy database</a></li>
+    
+    
+    <li>Next: <a href="../outputting-csv/index.html">How to create CSV output</a></li>
+    
+    <li><a href="../../contents/index.html">Table of contents</a></li>
+    
+    <li><a href="../../genindex/index.html">General Index</a></li>
+    
+    <li><a href="../../py-modindex/index.html">Python Module Index</a></li>
+    
+    
+  </ul>
+  
+
+  
+  <h2>You are here:</h2>
+  <ul>
+    <li>
+      <a href="../../index.html">Django 4.1 documentation</a>
+      
+      <ul><li><a href="../index.html">“How-to” guides</a>
+      
+      <ul><li>How to configure and use logging</li></ul>
+      </li></ul>
+    </li>
+  </ul>
+  
+
+  
+  <h2 id="getting-help-sidebar">Getting help</h2>
+  <dl class="list-links">
+    <dt><a href="../../faq/index.html">FAQ</a></dt>
+    <dd>Try the FAQ — it's got answers to many common questions.</dd>
+
+    <dt><a href="https://docs.djangoproject.com/en/stable/genindex/">Index</a>, <a href="https://docs.djangoproject.com/en/stable/py-modindex/">Module Index</a>, or <a href="https://docs.djangoproject.com/en/stable/contents/">Table of Contents</a></dt>
+    <dd>Handy when looking for specific information.</dd>
+
+    <dt><a href="https://groups.google.com/group/django-users/">django-users mailing list</a></dt>
+    <dd>Search for information in the archives of the django-users mailing list, or post a question.</dd>
+
+    <dt><a href="irc://irc.libera.chat/django">#django IRC channel</a></dt>
+    <dd>Ask a question in the #django IRC channel, or search the IRC logs to see if it’s been asked before.</dd>
+
+    <dt><a href="https://discord.gg/xcRH6mN4fa">Django Discord Server</a></dt>
+    <dd>Join the Django Discord Community.</dd>
+
+    <dt><a href="https://forum.djangoproject.com/">Official Django Forum</a></dt>
+    <dd>Join the community on the Django Forum.</dd>
+
+    <dt><a href="https://code.djangoproject.com/">Ticket tracker</a></dt>
+    <dd>Report bugs with Django or Django documentation in our ticket tracker.</dd>
+  </dl>
+  
+
+  
+  <h2>Download:</h2>
+  <p>
+    Offline (Django 4.1):
+    <a href="https://media.djangoproject.com/docs/django-docs-4.1-en.zip">HTML</a> |
+    <a href="https://media.readthedocs.org/pdf/django/4.1.x/django.pdf">PDF</a> |
+    <a href="https://media.readthedocs.org/epub/django/4.1.x/django.epub">ePub</a>
+    <br>
+    <span class="quiet">
+      Provided by <a href="https://readthedocs.org/">Read the Docs</a>.
+    </span>
+  </p>
+  
+</div>
+
+      
+
+    </div>
+
+     
+     
+
+    
+    
+    
+
+    <!-- SVGs -->
+    <svg xmlns="http://www.w3.org/2000/svg">
+      <symbol viewBox="0 0 24 24" id="icon-auto"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2V4a8 8 0 1 0 0 16z"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icon-moon"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icon-sun"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol>
+    </svg>
+    <!-- END SVGs -->
+
+    
+      <div role="contentinfo">
+  <div class="subfooter">
+    <div class="container">
+      <h1 class="visuallyhidden">Django Links</h1>
+      <div class="column-container">
+        <div class="col-learn-more">
+          <h2>Learn More</h2>
+          <ul>
+            <li><a href="https://www.djangoproject.com/start/overview/">About Django</a></li>
+            
+            <li><a href="https://www.djangoproject.com/start/">Getting Started with Django</a></li>
+            <li><a href="https://docs.djangoproject.com/en/dev/internals/organization/">Team
+              Organization</a></li>
+            <li><a href="https://www.djangoproject.com/foundation/">Django Software Foundation</a></li>
+            <li><a href="https://www.djangoproject.com/conduct/">Code of Conduct</a></li>
+            <li><a href="https://www.djangoproject.com/diversity/">Diversity Statement</a></li>
+          </ul>
+        </div>
+
+        <div class="col-get-involved">
+          <h2>Get Involved</h2>
+          <ul>
+            <li><a href="https://www.djangoproject.com/community/">Join a Group</a></li>
+            <li><a href="https://docs.djangoproject.com/en/dev/internals/contributing/">Contribute
+              to Django</a></li>
+            <li><a
+              href="https://docs.djangoproject.com/en/dev/internals/contributing/bugs-and-features/">Submit
+              a Bug</a></li>
+            <li><a
+              href="https://docs.djangoproject.com/en/dev/internals/security/#reporting-security-issues">Report
+              a Security Issue</a></li>
+          </ul>
+        </div>
+
+        <div class="col-get-help">
+          <h2>Get Help</h2>
+          <ul>
+            <li><a href="https://docs.djangoproject.com/en/stable/faq/">Getting Help FAQ</a>
+            </li>
+            <li><a href="irc://irc.libera.chat/django">#django IRC channel</a></li>
+            <li><a href="https://discord.gg/xcRH6mN4fa" target="_blank">Django Discord</a></li>
+            <li><a href="https://forum.djangoproject.com/" target="_blank">Official Django Forum</a></li>
+          </ul>
+        </div>
+
+        <div class="col-follow-us">
+          <h2>Follow Us</h2>
+          <ul>
+            <li><a href="https://github.com/django">GitHub</a></li>
+            <li><a href="https://twitter.com/djangoproject">Twitter</a></li>
+            <li><a href="https://www.djangoproject.com/rss/weblog/">News RSS</a></li>
+            <li><a href="https://groups.google.com/forum/#!forum/django-users">Django Users Mailing List</a></li>
+          </ul>
+        </div>
+
+        <div class="col-support-us">
+          <h2>Support Us</h2>
+          <ul>
+            <li><a href="https://www.djangoproject.com/fundraising/">Sponsor Django</a></li>
+            <li><a href="https://django.threadless.com/" target="_blank">Official merchandise store</a></li>
+            <li><a href="https://docs.djangoproject.com/foundation/donate/#benevity-giving">Benevity Workplace Giving Program</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="container">
+      <div class="footer-logo">
+        <a class="logo" href="https://www.djangoproject.com/">Django</a>
+      </div>
+      <ul class="thanks">
+        <li>
+          <span>Hosting by</span> <a class="in-kind-donors" href="https://www.djangoproject.com/fundraising/#in-kind-donors">In-kind
+          donors</a>
+        </li>
+        <li class="design"><span>Design by</span> <a class="threespot" href="https://www.threespot.com/">Threespot</a>
+          <span class="ampersand">&amp;</span> <a class="andrevv" href="http://andrevv.com/">andrevv</a></li>
+      </ul>
+      <p class="copyright">&copy; 2005-2023
+        <a href="https://www.djangoproject.com/foundation/"> Django Software
+          Foundation</a> and individual contributors. Django is a
+        <a href="https://www.djangoproject.com/trademarks/">registered
+          trademark</a> of the Django Software Foundation.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+    
+
+    
+    <script>
+    function extless(input) {
+        return input.replace(/(.*)\.[^.]+$/, '$1');
+    }
+    var require = {
+        shim: {
+            'jquery': [],
+            'jquery.inview': ["jquery"],
+            'jquery.payment': ["jquery"],
+            'jquery.flot': ["jquery"],
+            'jquery.unveil': ["jquery"],
+            'stripe': {
+              exports: 'Stripe'
+            }
+        },
+        paths: {
+            "jquery": extless("../../../../../static.djangoproject.com/js/lib/jquery/dist/jquery.min.87e69028f78d.js"),
+            "jquery.inview": extless("../../../../../static.djangoproject.com/js/lib/jquery.inview/jquery.inview.min.4edba1c65592.js"),
+            "jquery.payment": extless("../../../../../static.djangoproject.com/js/lib/jquery.payment/lib/jquery.payment.e99c05ca79ae.js"),
+            "jquery.unveil": extless("../../../../../static.djangoproject.com/js/lib/unveil/jquery.unveil.min.ac79eb277093.js"),
+            "jquery.flot": extless("../../../../../static.djangoproject.com/js/lib/jquery-flot/jquery.flot.min.9964206e9d7f.js"),
+            "clipboard": extless("../../../../../static.djangoproject.com/js/lib/clipboard/dist/clipboard.min.bd70fd596a23.js"),
+            "mod/floating-warning": extless("../../../../../static.djangoproject.com/js/mod/floating-warning.a21b2abd2884.js"),
+            "mod/list-collapsing": extless("../../../../../static.djangoproject.com/js/mod/list-collapsing.c1a08d3ef9e9.js"),
+            "mod/list-feature": extless("../../../../../static.djangoproject.com/js/mod/list-feature.73529480f25b.js"),
+            "mod/mobile-menu": extless("../../../../../static.djangoproject.com/js/mod/mobile-menu.6012f4745df8.js"),
+            "mod/version-switcher": extless("../../../../../static.djangoproject.com/js/mod/version-switcher.c56ff7ed5481.js"),
+            "mod/search-key": extless("../../../../../static.djangoproject.com/js/mod/search-key.ae7292327b47.js"),
+            "mod/stripe-change-card": extless("../../../../../static.djangoproject.com/js/mod/stripe-change-card.682c710317a8.js"),
+            "mod/switch-dark-mode": extless("../../../../../static.djangoproject.com/js/mod/switch-dark-mode.a0e0dca32970.js"),
+            "mod/console-tabs": extless("../../../../../static.djangoproject.com/js/mod/console-tabs.70ce882faaf3.js"),
+            "stripe-checkout": "https://checkout.stripe.com/checkout",
+            "stripe": "https://js.stripe.com/v3/?" // ? needed due to require.js
+        }
+    };
+    </script>
+    <script data-main="https://static.djangoproject.com/js/main.48270eac7c0b.js" src="../../../../../static.djangoproject.com/js/lib/require.177879fbe7dd.js"></script>
+    
+
+
+  </body>
+
+<!-- Mirrored from docs.djangoproject.com/en/4.1/howto/logging/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Mar 2023 18:03:00 GMT -->
+</html>

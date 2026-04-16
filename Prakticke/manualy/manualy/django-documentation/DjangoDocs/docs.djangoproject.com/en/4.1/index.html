@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from docs.djangoproject.com/en/4.1/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Mar 2023 17:59:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="ROBOTS" content="ALL" />
+    <meta name="MSSmartTagsPreventParsing" content="true" />
+    <meta name="Copyright" content="Django Software Foundation" />
+    <meta name="keywords" content="Python, Django, framework, open-source" />
+    <meta name="description" content="" />
+
+    
+  
+    
+  
+  <link rel="canonical" href="index.html">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="el"
+       href="https://docs.djangoproject.com/el/4.1/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="en"
+       href="index.html">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="es"
+       href="https://docs.djangoproject.com/es/4.1/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="fr"
+       href="https://docs.djangoproject.com/fr/4.1/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="id"
+       href="https://docs.djangoproject.com/id/4.1/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="it"
+       href="https://docs.djangoproject.com/it/4.1/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="ja"
+       href="https://docs.djangoproject.com/ja/4.1/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="ko"
+       href="https://docs.djangoproject.com/ko/4.1/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="pl"
+       href="https://docs.djangoproject.com/pl/4.1/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="pt-br"
+       href="https://docs.djangoproject.com/pt-br/4.1/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="zh-hans"
+       href="https://docs.djangoproject.com/zh-hans/4.1/">
+  
+
+  <link rel="search"
+        type="application/opensearchdescription+xml"
+        href="search/description/index.html"
+        title="Django documentation">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="../../../static.djangoproject.com/img/icon-touch.e4872c4da341.png">
+    <link rel="icon" sizes="192x192" href="../../../static.djangoproject.com/img/icon-touch.e4872c4da341.png">
+    <link rel="shortcut icon" href="https://static.djangoproject.com/img/favicon.6dbf28c0650e.ico">
+    <meta name="msapplication-TileColor" content="#113228">
+    <meta name="msapplication-TileImage" content="../../../static.djangoproject.com/img/icon-tile.b01ac0ef9f67.png">
+    <meta name="theme-color" content="#0C4B33">
+
+    
+    <meta property="og:title" content="Django" />
+    <meta property="og:description" content="The web framework for perfectionists with deadlines." />
+    <meta property="og:image" content="../../../static.djangoproject.com/img/logos/django-logo-negative.1d528e2cb5fb.png" />
+    <meta property="og:image:alt" content="Django logo" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="546" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:url" content="index.html" />
+    <meta property="og:site_name" content="Django Project" />
+
+    <meta property="twitter:creator" content="djangoproject" />
+    <meta property="twitter:site" content="djangoproject" />
+    <meta property="twitter:card" content="summary">
+    
+
+    <title>Django documentation | Django documentation | Django</title>
+
+    <link rel="stylesheet" href="../../../static.djangoproject.com/css/output.1adc4207e45f.css" >
+    <script src="../../../static.djangoproject.com/js/lib/webfontloader/webfontloader.e75218f5f090.js"></script>
+    <script>
+    WebFont.load({
+      custom: {
+        families: ['FontAwesome', 'Fira+Mono'],
+      },
+      google: {
+        families: ['Roboto:400italic,700italic,300,700,400:latin'
+        ]
+      },
+      classes: false,
+      events: false,
+      timeout: 1000
+    });
+    </script>
+    <script src="../../../static.djangoproject.com/js/lib/modernizr.3b36762e418a.js"></script>
+    <script src="../../../static.djangoproject.com/js/mod/switch-dark-mode.a0e0dca32970.js"></script>
+    
+  </head>
+
+  <body id="generic" class="">
+
+    <div role="banner" id="top">
+  <div class="container">
+    <a class="logo" href="https://www.djangoproject.com/">Django</a>
+    <p class="meta">The web framework for perfectionists with deadlines.</p>
+    <div class="mobile-toggle">
+      
+
+<button class="theme-toggle">
+  <div class="visually-hidden theme-label-when-auto">Toggle theme (current theme: auto)</div>
+  <div class="visually-hidden theme-label-when-light">Toggle theme (current theme: light)</div>
+  <div class="visually-hidden theme-label-when-dark">Toggle theme (current theme: dark)</div>
+
+  <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+  <svg aria-hidden="true" class="theme-icon-when-auto">
+    <use xlink:href="#icon-auto" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-dark">
+    <use xlink:href="#icon-moon" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-light">
+    <use xlink:href="#icon-sun" />
+  </svg>
+</button>
+
+    </div>
+    <div role="navigation">
+      <ul>
+        <li>
+          <a href="https://www.djangoproject.com/start/overview/">Overview</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/download/">Download</a>
+        </li>
+        <li class="active">
+          <a href="https://docs.djangoproject.com/">Documentation</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/weblog/">News</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/community/">Community</a>
+        </li>
+        <li>
+          <a href="https://github.com/django/django" target="_blank" rel="noopener">Code</a>
+        </li>
+        <li>
+          <a href="https://code.djangoproject.com/">Issues</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/foundation/">About</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/fundraising/">&#9829; Donate</a>
+        </li>
+        <li>
+          
+
+<button class="theme-toggle">
+  <div class="visually-hidden theme-label-when-auto">Toggle theme (current theme: auto)</div>
+  <div class="visually-hidden theme-label-when-light">Toggle theme (current theme: light)</div>
+  <div class="visually-hidden theme-label-when-dark">Toggle theme (current theme: dark)</div>
+
+  <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+  <svg aria-hidden="true" class="theme-icon-when-auto">
+    <use xlink:href="#icon-auto" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-dark">
+    <use xlink:href="#icon-moon" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-light">
+    <use xlink:href="#icon-sun" />
+  </svg>
+</button>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+    <div class="copy-banner">
+      <div class="container 
+container--flex container--flex--wrap--mobile
+">
+        
+<h1><a href="index.html">Documentation</a></h1>
+
+
+<form action="https://docs.djangoproject.com/en/4.1/search/" class="search form-input" role="search">
+  <label class="visuallyhidden" for="id_q">Search:</label>
+    <input type="search" name="q" placeholder="Search 4.1 documentation" id="id_q">
+
+    <button type="submit">
+      <i class="icon icon-search"></i>
+      <span class="visuallyhidden">Search</span>
+    </button>
+</form>
+
+
+      </div>
+    </div>
+    <div id="billboard"></div>
+
+    <div class="container sidebar-right">
+      <div role="main">
+
+        
+          
+        
+
+        
+<div id="version-switcher">
+  <ul id="faq-link">
+    <li class="current-link">
+      <a href="faq/help/index.html">
+        <span>Getting Help</span>
+      </a>
+    </li>
+  </ul>
+  <ul id="doc-languages" class="language-switcher doc-switcher">
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/el/4.1/">el</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/es/4.1/">es</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/fr/4.1/">fr</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/id/4.1/">id</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/it/4.1/">it</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/ja/4.1/">ja</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/ko/4.1/">ko</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/pl/4.1/">pl</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/pt-br/4.1/">pt-br</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/zh-hans/4.1/">zh-hans</a>
+  </li>
+  
+  
+    <li class="current"
+        title="Click on the links on the left to switch to another language.">
+      <span>Language: <strong>en</strong></span>
+    </li>
+  </ul>
+
+  
+  <ul id="doc-versions" class="version-switcher doc-switcher">
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/1.8/">1.8</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/1.10/">1.10</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/1.11/">1.11</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/2.0/">2.0</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/2.1/">2.1</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/2.2/">2.2</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/3.0/">3.0</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/3.1/">3.1</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/3.2/">3.2</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/4.0/">4.0</a>
+    </li>
+    
+    
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/4.2/">4.2</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/dev/">dev</a>
+    </li>
+    
+    
+    <li class="current"
+        title="This document describes Django 4.1. Click on the links on the left to see other versions.">
+       <span>Documentation version:
+         <strong>4.1</strong>
+       </span>
+    </li>
+  </ul>
+</div>
+
+
+<div id="docs-content">
+<div class="section" id="s-django-documentation">
+<span id="django-documentation"></span><h1>Django documentation<a class="headerlink" href="#django-documentation" title="Permalink to this headline">¶</a></h1>
+<p class="rubric">Everything you need to know about Django.</p>
+<div class="section" id="s-first-steps">
+<span id="s-index-first-steps"></span><span id="first-steps"></span><span id="index-first-steps"></span><h2>First steps<a class="headerlink" href="#first-steps" title="Permalink to this headline">¶</a></h2>
+<p>Are you new to Django or to programming? This is the place to start!</p>
+<ul class="simple">
+<li><strong>From scratch:</strong>
+<a class="reference internal" href="intro/overview/index.html"><span class="doc">Overview</span></a> |
+<a class="reference internal" href="intro/install/index.html"><span class="doc">Installation</span></a></li>
+<li><strong>Tutorial:</strong>
+<a class="reference internal" href="intro/tutorial01/index.html"><span class="doc">Part 1: Requests and responses</span></a> |
+<a class="reference internal" href="intro/tutorial02/index.html"><span class="doc">Part 2: Models and the admin site</span></a> |
+<a class="reference internal" href="intro/tutorial03/index.html"><span class="doc">Part 3: Views and templates</span></a> |
+<a class="reference internal" href="intro/tutorial04/index.html"><span class="doc">Part 4: Forms and generic views</span></a> |
+<a class="reference internal" href="intro/tutorial05/index.html"><span class="doc">Part 5: Testing</span></a> |
+<a class="reference internal" href="intro/tutorial06/index.html"><span class="doc">Part 6: Static files</span></a> |
+<a class="reference internal" href="intro/tutorial07/index.html"><span class="doc">Part 7: Customizing the admin site</span></a></li>
+<li><strong>Advanced Tutorials:</strong>
+<a class="reference internal" href="intro/reusable-apps/index.html"><span class="doc">How to write reusable apps</span></a> |
+<a class="reference internal" href="intro/contributing/index.html"><span class="doc">Writing your first patch for Django</span></a></li>
+</ul>
+</div>
+<div class="section" id="s-getting-help">
+<span id="getting-help"></span><h2>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h2>
+<p>Having trouble? We’d like to help!</p>
+<ul class="simple">
+<li>Try the <a class="reference internal" href="faq/index.html"><span class="doc">FAQ</span></a> – it’s got answers to many common questions.</li>
+<li>Looking for specific information? Try the <a class="reference internal" href="genindex/index.html"><span class="std std-ref">Index</span></a>, <a class="reference internal" href="py-modindex/index.html"><span class="std std-ref">Module Index</span></a> or
+the <a class="reference internal" href="contents/index.html"><span class="doc">detailed table of contents</span></a>.</li>
+<li>Not found anything? See <a class="reference internal" href="faq/help/index.html"><span class="doc">FAQ: Getting Help</span></a> for information on getting support
+and asking questions to the community.</li>
+<li>Report bugs with Django in our <a class="reference external" href="https://code.djangoproject.com/">ticket tracker</a>.</li>
+</ul>
+</div>
+<div class="section" id="s-how-the-documentation-is-organized">
+<span id="how-the-documentation-is-organized"></span><h2>How the documentation is organized<a class="headerlink" href="#how-the-documentation-is-organized" title="Permalink to this headline">¶</a></h2>
+<p>Django has a lot of documentation. A high-level overview of how it’s organized
+will help you know where to look for certain things:</p>
+<ul class="simple">
+<li><a class="reference internal" href="intro/index.html"><span class="doc">Tutorials</span></a> take you by the hand through a series of
+steps to create a web application. Start here if you’re new to Django or web
+application development. Also look at the “<a class="reference internal" href="#index-first-steps"><span class="std std-ref">First steps</span></a>”.</li>
+<li><a class="reference internal" href="topics/index.html"><span class="doc">Topic guides</span></a> discuss key topics and concepts at a
+fairly high level and provide useful background information and explanation.</li>
+<li><a class="reference internal" href="ref/index.html"><span class="doc">Reference guides</span></a> contain technical reference for APIs and
+other aspects of Django’s machinery. They describe how it works and how to
+use it but assume that you have a basic understanding of key concepts.</li>
+<li><a class="reference internal" href="howto/index.html"><span class="doc">How-to guides</span></a> are recipes. They guide you through the
+steps involved in addressing key problems and use-cases. They are more
+advanced than tutorials and assume some knowledge of how Django works.</li>
+</ul>
+</div>
+<div class="section" id="s-the-model-layer">
+<span id="the-model-layer"></span><h2>The model layer<a class="headerlink" href="#the-model-layer" title="Permalink to this headline">¶</a></h2>
+<p>Django provides an abstraction layer (the “models”) for structuring and
+manipulating the data of your web application. Learn more about it below:</p>
+<ul class="simple">
+<li><strong>Models:</strong>
+<a class="reference internal" href="topics/db/models/index.html"><span class="doc">Introduction to models</span></a> |
+<a class="reference internal" href="ref/models/fields/index.html"><span class="doc">Field types</span></a> |
+<a class="reference internal" href="ref/models/indexes/index.html"><span class="doc">Indexes</span></a> |
+<a class="reference internal" href="ref/models/options/index.html"><span class="doc">Meta options</span></a> |
+<a class="reference internal" href="ref/models/class/index.html"><span class="doc">Model class</span></a></li>
+<li><strong>QuerySets:</strong>
+<a class="reference internal" href="topics/db/queries/index.html"><span class="doc">Making queries</span></a> |
+<a class="reference internal" href="ref/models/querysets/index.html"><span class="doc">QuerySet method reference</span></a> |
+<a class="reference internal" href="ref/models/lookups/index.html"><span class="doc">Lookup expressions</span></a></li>
+<li><strong>Model instances:</strong>
+<a class="reference internal" href="ref/models/instances/index.html"><span class="doc">Instance methods</span></a> |
+<a class="reference internal" href="ref/models/relations/index.html"><span class="doc">Accessing related objects</span></a></li>
+<li><strong>Migrations:</strong>
+<a class="reference internal" href="topics/migrations/index.html"><span class="doc">Introduction to Migrations</span></a> |
+<a class="reference internal" href="ref/migration-operations/index.html"><span class="doc">Operations reference</span></a> |
+<a class="reference internal" href="ref/schema-editor/index.html"><span class="doc">SchemaEditor</span></a> |
+<a class="reference internal" href="howto/writing-migrations/index.html"><span class="doc">Writing migrations</span></a></li>
+<li><strong>Advanced:</strong>
+<a class="reference internal" href="topics/db/managers/index.html"><span class="doc">Managers</span></a> |
+<a class="reference internal" href="topics/db/sql/index.html"><span class="doc">Raw SQL</span></a> |
+<a class="reference internal" href="topics/db/transactions/index.html"><span class="doc">Transactions</span></a> |
+<a class="reference internal" href="topics/db/aggregation/index.html"><span class="doc">Aggregation</span></a> |
+<a class="reference internal" href="topics/db/search/index.html"><span class="doc">Search</span></a> |
+<a class="reference internal" href="howto/custom-model-fields/index.html"><span class="doc">Custom fields</span></a> |
+<a class="reference internal" href="topics/db/multi-db/index.html"><span class="doc">Multiple databases</span></a> |
+<a class="reference internal" href="howto/custom-lookups/index.html"><span class="doc">Custom lookups</span></a> |
+<a class="reference internal" href="ref/models/expressions/index.html"><span class="doc">Query Expressions</span></a> |
+<a class="reference internal" href="ref/models/conditional-expressions/index.html"><span class="doc">Conditional Expressions</span></a> |
+<a class="reference internal" href="ref/models/database-functions/index.html"><span class="doc">Database Functions</span></a></li>
+<li><strong>Other:</strong>
+<a class="reference internal" href="ref/databases/index.html"><span class="doc">Supported databases</span></a> |
+<a class="reference internal" href="howto/legacy-databases/index.html"><span class="doc">Legacy databases</span></a> |
+<a class="reference internal" href="howto/initial-data/index.html"><span class="doc">Providing initial data</span></a> |
+<a class="reference internal" href="topics/db/optimization/index.html"><span class="doc">Optimize database access</span></a> |
+<a class="reference internal" href="ref/contrib/postgres/index.html"><span class="doc">PostgreSQL specific features</span></a></li>
+</ul>
+</div>
+<div class="section" id="s-the-view-layer">
+<span id="the-view-layer"></span><h2>The view layer<a class="headerlink" href="#the-view-layer" title="Permalink to this headline">¶</a></h2>
+<p>Django has the concept of “views” to encapsulate the logic responsible for
+processing a user’s request and for returning the response. Find all you need
+to know about views via the links below:</p>
+<ul class="simple">
+<li><strong>The basics:</strong>
+<a class="reference internal" href="topics/http/urls/index.html"><span class="doc">URLconfs</span></a> |
+<a class="reference internal" href="topics/http/views/index.html"><span class="doc">View functions</span></a> |
+<a class="reference internal" href="topics/http/shortcuts/index.html"><span class="doc">Shortcuts</span></a> |
+<a class="reference internal" href="topics/http/decorators/index.html"><span class="doc">Decorators</span></a> |
+<a class="reference internal" href="topics/async/index.html"><span class="doc">Asynchronous Support</span></a></li>
+<li><strong>Reference:</strong>
+<a class="reference internal" href="ref/views/index.html"><span class="doc">Built-in Views</span></a> |
+<a class="reference internal" href="ref/request-response/index.html"><span class="doc">Request/response objects</span></a> |
+<a class="reference internal" href="ref/template-response/index.html"><span class="doc">TemplateResponse objects</span></a></li>
+<li><strong>File uploads:</strong>
+<a class="reference internal" href="topics/http/file-uploads/index.html"><span class="doc">Overview</span></a> |
+<a class="reference internal" href="ref/files/file/index.html"><span class="doc">File objects</span></a> |
+<a class="reference internal" href="ref/files/storage/index.html"><span class="doc">Storage API</span></a> |
+<a class="reference internal" href="topics/files/index.html"><span class="doc">Managing files</span></a> |
+<a class="reference internal" href="howto/custom-file-storage/index.html"><span class="doc">Custom storage</span></a></li>
+<li><strong>Class-based views:</strong>
+<a class="reference internal" href="topics/class-based-views/index.html"><span class="doc">Overview</span></a> |
+<a class="reference internal" href="topics/class-based-views/generic-display/index.html"><span class="doc">Built-in display views</span></a> |
+<a class="reference internal" href="topics/class-based-views/generic-editing/index.html"><span class="doc">Built-in editing views</span></a> |
+<a class="reference internal" href="topics/class-based-views/mixins/index.html"><span class="doc">Using mixins</span></a> |
+<a class="reference internal" href="ref/class-based-views/index.html"><span class="doc">API reference</span></a> |
+<a class="reference internal" href="ref/class-based-views/flattened-index/index.html"><span class="doc">Flattened index</span></a></li>
+<li><strong>Advanced:</strong>
+<a class="reference internal" href="howto/outputting-csv/index.html"><span class="doc">Generating CSV</span></a> |
+<a class="reference internal" href="howto/outputting-pdf/index.html"><span class="doc">Generating PDF</span></a></li>
+<li><strong>Middleware:</strong>
+<a class="reference internal" href="topics/http/middleware/index.html"><span class="doc">Overview</span></a> |
+<a class="reference internal" href="ref/middleware/index.html"><span class="doc">Built-in middleware classes</span></a></li>
+</ul>
+</div>
+<div class="section" id="s-the-template-layer">
+<span id="the-template-layer"></span><h2>The template layer<a class="headerlink" href="#the-template-layer" title="Permalink to this headline">¶</a></h2>
+<p>The template layer provides a designer-friendly syntax for rendering the
+information to be presented to the user. Learn how this syntax can be used by
+designers and how it can be extended by programmers:</p>
+<ul class="simple">
+<li><strong>The basics:</strong>
+<a class="reference internal" href="topics/templates/index.html"><span class="doc">Overview</span></a></li>
+<li><strong>For designers:</strong>
+<a class="reference internal" href="ref/templates/language/index.html"><span class="doc">Language overview</span></a> |
+<a class="reference internal" href="ref/templates/builtins/index.html"><span class="doc">Built-in tags and filters</span></a> |
+<a class="reference internal" href="ref/contrib/humanize/index.html"><span class="doc">Humanization</span></a></li>
+<li><strong>For programmers:</strong>
+<a class="reference internal" href="ref/templates/api/index.html"><span class="doc">Template API</span></a> |
+<a class="reference internal" href="howto/custom-template-tags/index.html"><span class="doc">Custom tags and filters</span></a> |
+<a class="reference internal" href="howto/custom-template-backend/index.html"><span class="doc">Custom template backend</span></a></li>
+</ul>
+</div>
+<div class="section" id="s-forms">
+<span id="forms"></span><h2>Forms<a class="headerlink" href="#forms" title="Permalink to this headline">¶</a></h2>
+<p>Django provides a rich framework to facilitate the creation of forms and the
+manipulation of form data.</p>
+<ul class="simple">
+<li><strong>The basics:</strong>
+<a class="reference internal" href="topics/forms/index.html"><span class="doc">Overview</span></a> |
+<a class="reference internal" href="ref/forms/api/index.html"><span class="doc">Form API</span></a> |
+<a class="reference internal" href="ref/forms/fields/index.html"><span class="doc">Built-in fields</span></a> |
+<a class="reference internal" href="ref/forms/widgets/index.html"><span class="doc">Built-in widgets</span></a></li>
+<li><strong>Advanced:</strong>
+<a class="reference internal" href="topics/forms/modelforms/index.html"><span class="doc">Forms for models</span></a> |
+<a class="reference internal" href="topics/forms/media/index.html"><span class="doc">Integrating media</span></a> |
+<a class="reference internal" href="topics/forms/formsets/index.html"><span class="doc">Formsets</span></a> |
+<a class="reference internal" href="ref/forms/validation/index.html"><span class="doc">Customizing validation</span></a></li>
+</ul>
+</div>
+<div class="section" id="s-the-development-process">
+<span id="the-development-process"></span><h2>The development process<a class="headerlink" href="#the-development-process" title="Permalink to this headline">¶</a></h2>
+<p>Learn about the various components and tools to help you in the development and
+testing of Django applications:</p>
+<ul class="simple">
+<li><strong>Settings:</strong>
+<a class="reference internal" href="topics/settings/index.html"><span class="doc">Overview</span></a> |
+<a class="reference internal" href="ref/settings/index.html"><span class="doc">Full list of settings</span></a></li>
+<li><strong>Applications:</strong>
+<a class="reference internal" href="ref/applications/index.html"><span class="doc">Overview</span></a></li>
+<li><strong>Exceptions:</strong>
+<a class="reference internal" href="ref/exceptions/index.html"><span class="doc">Overview</span></a></li>
+<li><strong>django-admin and manage.py:</strong>
+<a class="reference internal" href="ref/django-admin/index.html"><span class="doc">Overview</span></a> |
+<a class="reference internal" href="howto/custom-management-commands/index.html"><span class="doc">Adding custom commands</span></a></li>
+<li><strong>Testing:</strong>
+<a class="reference internal" href="topics/testing/index.html"><span class="doc">Introduction</span></a> |
+<a class="reference internal" href="topics/testing/overview/index.html"><span class="doc">Writing and running tests</span></a> |
+<a class="reference internal" href="topics/testing/tools/index.html"><span class="doc">Included testing tools</span></a> |
+<a class="reference internal" href="topics/testing/advanced/index.html"><span class="doc">Advanced topics</span></a></li>
+<li><strong>Deployment:</strong>
+<a class="reference internal" href="howto/deployment/index.html"><span class="doc">Overview</span></a> |
+<a class="reference internal" href="howto/deployment/wsgi/index.html"><span class="doc">WSGI servers</span></a> |
+<a class="reference internal" href="howto/deployment/asgi/index.html"><span class="doc">ASGI servers</span></a> |
+<a class="reference internal" href="howto/static-files/deployment/index.html"><span class="doc">Deploying static files</span></a> |
+<a class="reference internal" href="howto/error-reporting/index.html"><span class="doc">Tracking code errors by email</span></a> |
+<a class="reference internal" href="howto/deployment/checklist/index.html"><span class="doc">Deployment checklist</span></a></li>
+</ul>
+</div>
+<div class="section" id="s-the-admin">
+<span id="the-admin"></span><h2>The admin<a class="headerlink" href="#the-admin" title="Permalink to this headline">¶</a></h2>
+<p>Find all you need to know about the automated admin interface, one of Django’s
+most popular features:</p>
+<ul class="simple">
+<li><a class="reference internal" href="ref/contrib/admin/index.html"><span class="doc">Admin site</span></a></li>
+<li><a class="reference internal" href="ref/contrib/admin/actions/index.html"><span class="doc">Admin actions</span></a></li>
+<li><a class="reference internal" href="ref/contrib/admin/admindocs/index.html"><span class="doc">Admin documentation generator</span></a></li>
+</ul>
+</div>
+<div class="section" id="s-security">
+<span id="security"></span><h2>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h2>
+<p>Security is a topic of paramount importance in the development of web
+applications and Django provides multiple protection tools and mechanisms:</p>
+<ul class="simple">
+<li><a class="reference internal" href="topics/security/index.html"><span class="doc">Security overview</span></a></li>
+<li><a class="reference internal" href="releases/security/index.html"><span class="doc">Disclosed security issues in Django</span></a></li>
+<li><a class="reference internal" href="ref/clickjacking/index.html"><span class="doc">Clickjacking protection</span></a></li>
+<li><a class="reference internal" href="ref/csrf/index.html"><span class="doc">Cross Site Request Forgery protection</span></a></li>
+<li><a class="reference internal" href="topics/signing/index.html"><span class="doc">Cryptographic signing</span></a></li>
+<li><a class="reference internal" href="ref/middleware/index.html#security-middleware"><span class="std std-ref">Security Middleware</span></a></li>
+</ul>
+</div>
+<div class="section" id="s-internationalization-and-localization">
+<span id="internationalization-and-localization"></span><h2>Internationalization and localization<a class="headerlink" href="#internationalization-and-localization" title="Permalink to this headline">¶</a></h2>
+<p>Django offers a robust internationalization and localization framework to
+assist you in the development of applications for multiple languages and world
+regions:</p>
+<ul class="simple">
+<li><a class="reference internal" href="topics/i18n/index.html"><span class="doc">Overview</span></a> |
+<a class="reference internal" href="topics/i18n/translation/index.html"><span class="doc">Internationalization</span></a> |
+<a class="reference internal" href="topics/i18n/translation/index.html#how-to-create-language-files"><span class="std std-ref">Localization</span></a> |
+<a class="reference internal" href="topics/i18n/formatting/index.html"><span class="doc">Localized web UI formatting and form input</span></a></li>
+<li><a class="reference internal" href="topics/i18n/timezones/index.html"><span class="doc">Time zones</span></a></li>
+</ul>
+</div>
+<div class="section" id="s-performance-and-optimization">
+<span id="performance-and-optimization"></span><h2>Performance and optimization<a class="headerlink" href="#performance-and-optimization" title="Permalink to this headline">¶</a></h2>
+<p>There are a variety of techniques and tools that can help get your code running
+more efficiently - faster, and using fewer system resources.</p>
+<ul class="simple">
+<li><a class="reference internal" href="topics/performance/index.html"><span class="doc">Performance and optimization overview</span></a></li>
+</ul>
+</div>
+<div class="section" id="s-geographic-framework">
+<span id="geographic-framework"></span><h2>Geographic framework<a class="headerlink" href="#geographic-framework" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="ref/contrib/gis/index.html"><span class="doc">GeoDjango</span></a> intends to be a world-class geographic
+web framework. Its goal is to make it as easy as possible to build GIS web
+applications and harness the power of spatially enabled data.</p>
+</div>
+<div class="section" id="s-common-web-application-tools">
+<span id="common-web-application-tools"></span><h2>Common web application tools<a class="headerlink" href="#common-web-application-tools" title="Permalink to this headline">¶</a></h2>
+<p>Django offers multiple tools commonly needed in the development of web
+applications:</p>
+<ul class="simple">
+<li><strong>Authentication:</strong>
+<a class="reference internal" href="topics/auth/index.html"><span class="doc">Overview</span></a> |
+<a class="reference internal" href="topics/auth/default/index.html"><span class="doc">Using the authentication system</span></a> |
+<a class="reference internal" href="topics/auth/passwords/index.html"><span class="doc">Password management</span></a> |
+<a class="reference internal" href="topics/auth/customizing/index.html"><span class="doc">Customizing authentication</span></a> |
+<a class="reference internal" href="ref/contrib/auth/index.html"><span class="doc">API Reference</span></a></li>
+<li><a class="reference internal" href="topics/cache/index.html"><span class="doc">Caching</span></a></li>
+<li><a class="reference internal" href="topics/logging/index.html"><span class="doc">Logging</span></a></li>
+<li><a class="reference internal" href="topics/email/index.html"><span class="doc">Sending emails</span></a></li>
+<li><a class="reference internal" href="ref/contrib/syndication/index.html"><span class="doc">Syndication feeds (RSS/Atom)</span></a></li>
+<li><a class="reference internal" href="topics/pagination/index.html"><span class="doc">Pagination</span></a></li>
+<li><a class="reference internal" href="ref/contrib/messages/index.html"><span class="doc">Messages framework</span></a></li>
+<li><a class="reference internal" href="topics/serialization/index.html"><span class="doc">Serialization</span></a></li>
+<li><a class="reference internal" href="topics/http/sessions/index.html"><span class="doc">Sessions</span></a></li>
+<li><a class="reference internal" href="ref/contrib/sitemaps/index.html"><span class="doc">Sitemaps</span></a></li>
+<li><a class="reference internal" href="ref/contrib/staticfiles/index.html"><span class="doc">Static files management</span></a></li>
+<li><a class="reference internal" href="ref/validators/index.html"><span class="doc">Data validation</span></a></li>
+</ul>
+</div>
+<div class="section" id="s-other-core-functionalities">
+<span id="other-core-functionalities"></span><h2>Other core functionalities<a class="headerlink" href="#other-core-functionalities" title="Permalink to this headline">¶</a></h2>
+<p>Learn about some other core functionalities of the Django framework:</p>
+<ul class="simple">
+<li><a class="reference internal" href="topics/conditional-view-processing/index.html"><span class="doc">Conditional content processing</span></a></li>
+<li><a class="reference internal" href="ref/contrib/contenttypes/index.html"><span class="doc">Content types and generic relations</span></a></li>
+<li><a class="reference internal" href="ref/contrib/flatpages/index.html"><span class="doc">Flatpages</span></a></li>
+<li><a class="reference internal" href="ref/contrib/redirects/index.html"><span class="doc">Redirects</span></a></li>
+<li><a class="reference internal" href="topics/signals/index.html"><span class="doc">Signals</span></a></li>
+<li><a class="reference internal" href="topics/checks/index.html"><span class="doc">System check framework</span></a></li>
+<li><a class="reference internal" href="ref/contrib/sites/index.html"><span class="doc">The sites framework</span></a></li>
+<li><a class="reference internal" href="ref/unicode/index.html"><span class="doc">Unicode in Django</span></a></li>
+</ul>
+</div>
+<div class="section" id="s-the-django-open-source-project">
+<span id="the-django-open-source-project"></span><h2>The Django open-source project<a class="headerlink" href="#the-django-open-source-project" title="Permalink to this headline">¶</a></h2>
+<p>Learn about the development process for the Django project itself and about how
+you can contribute:</p>
+<ul class="simple">
+<li><strong>Community:</strong>
+<a class="reference internal" href="internals/contributing/index.html"><span class="doc">How to get involved</span></a> |
+<a class="reference internal" href="internals/release-process/index.html"><span class="doc">The release process</span></a> |
+<a class="reference internal" href="internals/organization/index.html"><span class="doc">Team organization</span></a> |
+<a class="reference internal" href="internals/git/index.html"><span class="doc">The Django source code repository</span></a> |
+<a class="reference internal" href="internals/security/index.html"><span class="doc">Security policies</span></a> |
+<a class="reference internal" href="internals/mailing-lists/index.html"><span class="doc">Mailing lists</span></a></li>
+<li><strong>Design philosophies:</strong>
+<a class="reference internal" href="misc/design-philosophies/index.html"><span class="doc">Overview</span></a></li>
+<li><strong>Documentation:</strong>
+<a class="reference internal" href="internals/contributing/writing-documentation/index.html"><span class="doc">About this documentation</span></a></li>
+<li><strong>Third-party distributions:</strong>
+<a class="reference internal" href="misc/distributions/index.html"><span class="doc">Overview</span></a></li>
+<li><strong>Django over time:</strong>
+<a class="reference internal" href="misc/api-stability/index.html"><span class="doc">API stability</span></a> |
+<a class="reference internal" href="releases/index.html"><span class="doc">Release notes and upgrading instructions</span></a> |
+<a class="reference internal" href="internals/deprecation/index.html"><span class="doc">Deprecation Timeline</span></a></li>
+</ul>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="browse-horizontal">
+  
+  <div class="left"><a href="contents/index.html"><i class="icon icon-chevron-left"></i> Django documentation contents</a></div>
+  
+  
+  <div class="right"><a href="intro/index.html">Getting started <i class="icon icon-chevron-right"></i></a></div>
+  
+</div>
+
+
+
+        <a href="#top" class="backtotop"><i class="icon icon-chevron-up"></i> Back to Top</a>
+      </div>
+
+      
+<h1 class="visuallyhidden">Additional Information</h1>
+<div role="complementary">
+
+  
+
+
+  <div class="fundraising-sidebar">
+    <h2>Support Django!</h2>
+
+    <div class="small-heart">
+      <img src="https://static.djangoproject.com/img/fundraising-heart.cd6bb84ffd33.svg" alt="Support Django!" />
+    </div>
+
+    <div class="small-cta">
+      <ul class="list-links-small">
+        <li><a href="https://www.djangoproject.com/fundraising/">
+          Dzmitry donated to the Django Software Foundation to
+          support Django development. Donate today!
+        </a></li>
+      </ul>
+    </div>
+  </div>
+
+
+
+  
+
+  
+  <h2>Browse</h2>
+  <ul>
+    
+    
+    <li>Prev: <a href="contents/index.html">Django documentation contents</a></li>
+    
+    
+    <li>Next: <a href="intro/index.html">Getting started</a></li>
+    
+    <li><a href="contents/index.html">Table of contents</a></li>
+    
+    <li><a href="genindex/index.html">General Index</a></li>
+    
+    <li><a href="py-modindex/index.html">Python Module Index</a></li>
+    
+    
+  </ul>
+  
+
+  
+  <h2>You are here:</h2>
+  <ul>
+    <li>
+      <a href="index.html">Django 4.1 documentation</a>
+      
+      <ul><li>Django documentation</li></ul>
+      
+    </li>
+  </ul>
+  
+
+  
+  <h2 id="getting-help-sidebar">Getting help</h2>
+  <dl class="list-links">
+    <dt><a href="faq/index.html">FAQ</a></dt>
+    <dd>Try the FAQ — it's got answers to many common questions.</dd>
+
+    <dt><a href="https://docs.djangoproject.com/en/stable/genindex/">Index</a>, <a href="https://docs.djangoproject.com/en/stable/py-modindex/">Module Index</a>, or <a href="https://docs.djangoproject.com/en/stable/contents/">Table of Contents</a></dt>
+    <dd>Handy when looking for specific information.</dd>
+
+    <dt><a href="https://groups.google.com/group/django-users/">django-users mailing list</a></dt>
+    <dd>Search for information in the archives of the django-users mailing list, or post a question.</dd>
+
+    <dt><a href="irc://irc.libera.chat/django">#django IRC channel</a></dt>
+    <dd>Ask a question in the #django IRC channel, or search the IRC logs to see if it’s been asked before.</dd>
+
+    <dt><a href="https://discord.gg/xcRH6mN4fa">Django Discord Server</a></dt>
+    <dd>Join the Django Discord Community.</dd>
+
+    <dt><a href="https://forum.djangoproject.com/">Official Django Forum</a></dt>
+    <dd>Join the community on the Django Forum.</dd>
+
+    <dt><a href="https://code.djangoproject.com/">Ticket tracker</a></dt>
+    <dd>Report bugs with Django or Django documentation in our ticket tracker.</dd>
+  </dl>
+  
+
+  
+  <h2>Download:</h2>
+  <p>
+    Offline (Django 4.1):
+    <a href="https://media.djangoproject.com/docs/django-docs-4.1-en.zip">HTML</a> |
+    <a href="https://media.readthedocs.org/pdf/django/4.1.x/django.pdf">PDF</a> |
+    <a href="https://media.readthedocs.org/epub/django/4.1.x/django.epub">ePub</a>
+    <br>
+    <span class="quiet">
+      Provided by <a href="https://readthedocs.org/">Read the Docs</a>.
+    </span>
+  </p>
+  
+</div>
+
+      
+
+    </div>
+
+     
+     
+
+    
+    
+    
+
+    <!-- SVGs -->
+    <svg xmlns="http://www.w3.org/2000/svg">
+      <symbol viewBox="0 0 24 24" id="icon-auto"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2V4a8 8 0 1 0 0 16z"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icon-moon"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icon-sun"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol>
+    </svg>
+    <!-- END SVGs -->
+
+    
+      <div role="contentinfo">
+  <div class="subfooter">
+    <div class="container">
+      <h1 class="visuallyhidden">Django Links</h1>
+      <div class="column-container">
+        <div class="col-learn-more">
+          <h2>Learn More</h2>
+          <ul>
+            <li><a href="https://www.djangoproject.com/start/overview/">About Django</a></li>
+            
+            <li><a href="https://www.djangoproject.com/start/">Getting Started with Django</a></li>
+            <li><a href="https://docs.djangoproject.com/en/dev/internals/organization/">Team
+              Organization</a></li>
+            <li><a href="https://www.djangoproject.com/foundation/">Django Software Foundation</a></li>
+            <li><a href="https://www.djangoproject.com/conduct/">Code of Conduct</a></li>
+            <li><a href="https://www.djangoproject.com/diversity/">Diversity Statement</a></li>
+          </ul>
+        </div>
+
+        <div class="col-get-involved">
+          <h2>Get Involved</h2>
+          <ul>
+            <li><a href="https://www.djangoproject.com/community/">Join a Group</a></li>
+            <li><a href="https://docs.djangoproject.com/en/dev/internals/contributing/">Contribute
+              to Django</a></li>
+            <li><a
+              href="https://docs.djangoproject.com/en/dev/internals/contributing/bugs-and-features/">Submit
+              a Bug</a></li>
+            <li><a
+              href="https://docs.djangoproject.com/en/dev/internals/security/#reporting-security-issues">Report
+              a Security Issue</a></li>
+          </ul>
+        </div>
+
+        <div class="col-get-help">
+          <h2>Get Help</h2>
+          <ul>
+            <li><a href="https://docs.djangoproject.com/en/stable/faq/">Getting Help FAQ</a>
+            </li>
+            <li><a href="irc://irc.libera.chat/django">#django IRC channel</a></li>
+            <li><a href="https://discord.gg/xcRH6mN4fa" target="_blank">Django Discord</a></li>
+            <li><a href="https://forum.djangoproject.com/" target="_blank">Official Django Forum</a></li>
+          </ul>
+        </div>
+
+        <div class="col-follow-us">
+          <h2>Follow Us</h2>
+          <ul>
+            <li><a href="https://github.com/django">GitHub</a></li>
+            <li><a href="https://twitter.com/djangoproject">Twitter</a></li>
+            <li><a href="https://www.djangoproject.com/rss/weblog/">News RSS</a></li>
+            <li><a href="https://groups.google.com/forum/#!forum/django-users">Django Users Mailing List</a></li>
+          </ul>
+        </div>
+
+        <div class="col-support-us">
+          <h2>Support Us</h2>
+          <ul>
+            <li><a href="https://www.djangoproject.com/fundraising/">Sponsor Django</a></li>
+            <li><a href="https://django.threadless.com/" target="_blank">Official merchandise store</a></li>
+            <li><a href="https://docs.djangoproject.com/foundation/donate/#benevity-giving">Benevity Workplace Giving Program</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="container">
+      <div class="footer-logo">
+        <a class="logo" href="https://www.djangoproject.com/">Django</a>
+      </div>
+      <ul class="thanks">
+        <li>
+          <span>Hosting by</span> <a class="in-kind-donors" href="https://www.djangoproject.com/fundraising/#in-kind-donors">In-kind
+          donors</a>
+        </li>
+        <li class="design"><span>Design by</span> <a class="threespot" href="https://www.threespot.com/">Threespot</a>
+          <span class="ampersand">&amp;</span> <a class="andrevv" href="http://andrevv.com/">andrevv</a></li>
+      </ul>
+      <p class="copyright">&copy; 2005-2023
+        <a href="https://www.djangoproject.com/foundation/"> Django Software
+          Foundation</a> and individual contributors. Django is a
+        <a href="https://www.djangoproject.com/trademarks/">registered
+          trademark</a> of the Django Software Foundation.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+    
+
+    
+    <script>
+    function extless(input) {
+        return input.replace(/(.*)\.[^.]+$/, '$1');
+    }
+    var require = {
+        shim: {
+            'jquery': [],
+            'jquery.inview': ["jquery"],
+            'jquery.payment': ["jquery"],
+            'jquery.flot': ["jquery"],
+            'jquery.unveil': ["jquery"],
+            'stripe': {
+              exports: 'Stripe'
+            }
+        },
+        paths: {
+            "jquery": extless("../../../static.djangoproject.com/js/lib/jquery/dist/jquery.min.87e69028f78d.js"),
+            "jquery.inview": extless("../../../static.djangoproject.com/js/lib/jquery.inview/jquery.inview.min.4edba1c65592.js"),
+            "jquery.payment": extless("../../../static.djangoproject.com/js/lib/jquery.payment/lib/jquery.payment.e99c05ca79ae.js"),
+            "jquery.unveil": extless("../../../static.djangoproject.com/js/lib/unveil/jquery.unveil.min.ac79eb277093.js"),
+            "jquery.flot": extless("../../../static.djangoproject.com/js/lib/jquery-flot/jquery.flot.min.9964206e9d7f.js"),
+            "clipboard": extless("../../../static.djangoproject.com/js/lib/clipboard/dist/clipboard.min.bd70fd596a23.js"),
+            "mod/floating-warning": extless("../../../static.djangoproject.com/js/mod/floating-warning.a21b2abd2884.js"),
+            "mod/list-collapsing": extless("../../../static.djangoproject.com/js/mod/list-collapsing.c1a08d3ef9e9.js"),
+            "mod/list-feature": extless("../../../static.djangoproject.com/js/mod/list-feature.73529480f25b.js"),
+            "mod/mobile-menu": extless("../../../static.djangoproject.com/js/mod/mobile-menu.6012f4745df8.js"),
+            "mod/version-switcher": extless("../../../static.djangoproject.com/js/mod/version-switcher.c56ff7ed5481.js"),
+            "mod/search-key": extless("../../../static.djangoproject.com/js/mod/search-key.ae7292327b47.js"),
+            "mod/stripe-change-card": extless("../../../static.djangoproject.com/js/mod/stripe-change-card.682c710317a8.js"),
+            "mod/switch-dark-mode": extless("../../../static.djangoproject.com/js/mod/switch-dark-mode.a0e0dca32970.js"),
+            "mod/console-tabs": extless("../../../static.djangoproject.com/js/mod/console-tabs.70ce882faaf3.js"),
+            "stripe-checkout": "https://checkout.stripe.com/checkout",
+            "stripe": "https://js.stripe.com/v3/?" // ? needed due to require.js
+        }
+    };
+    </script>
+    <script data-main="https://static.djangoproject.com/js/main.48270eac7c0b.js" src="../../../static.djangoproject.com/js/lib/require.177879fbe7dd.js"></script>
+    
+
+
+  </body>
+
+<!-- Mirrored from docs.djangoproject.com/en/4.1/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Mar 2023 17:59:30 GMT -->
+</html>

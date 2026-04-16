@@ -1,0 +1,9 @@
+# ninja log v5
+26	517	7627778245442999	CMakeFiles/soustavy.dir/main.cpp.obj	7ed0b0004a2dbf2c
+30	669	7627758950006041	CMakeFiles/soustavy.dir/SUStavy.cpp.obj	7df2b56dd8f7d5d2
+517	626	7627778250359747	soustavy.exe	b1594c4a301c6213
+6	1766	7666003264465001	CMakeFiles/soustavy.dir/SUStavy.cpp.obj	4faa46a76abaaeaa
+11	2351	7666004108530086	CMakeFiles/soustavy.dir/SUStavy.cpp.obj	4faa46a76abaaeaa
+6	618	7666005540989604	CMakeFiles/soustavy.dir/main.cpp.obj	9f7fc75be9ac300c
+10	979	7666005544611176	CMakeFiles/soustavy.dir/SUStavy.cpp.obj	4faa46a76abaaeaa
+980	2807	7666005562849356	soustavy.exe	b4c4a89d66f9d772

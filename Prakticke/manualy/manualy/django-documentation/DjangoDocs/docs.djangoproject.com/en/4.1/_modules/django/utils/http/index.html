@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from docs.djangoproject.com/en/4.1/_modules/django/utils/http/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Mar 2023 18:04:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="ROBOTS" content="ALL" />
+    <meta name="MSSmartTagsPreventParsing" content="true" />
+    <meta name="Copyright" content="Django Software Foundation" />
+    <meta name="keywords" content="Python, Django, framework, open-source" />
+    <meta name="description" content="" />
+
+    
+  
+    
+      
+    
+  
+  <link rel="canonical" href="index.html">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="el"
+       href="https://docs.djangoproject.com/el/4.1/_modules/django/utils/http/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="en"
+       href="index.html">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="es"
+       href="https://docs.djangoproject.com/es/4.1/_modules/django/utils/http/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="fr"
+       href="https://docs.djangoproject.com/fr/4.1/_modules/django/utils/http/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="id"
+       href="https://docs.djangoproject.com/id/4.1/_modules/django/utils/http/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="it"
+       href="https://docs.djangoproject.com/it/4.1/_modules/django/utils/http/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="ja"
+       href="https://docs.djangoproject.com/ja/4.1/_modules/django/utils/http/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="ko"
+       href="https://docs.djangoproject.com/ko/4.1/_modules/django/utils/http/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="pl"
+       href="https://docs.djangoproject.com/pl/4.1/_modules/django/utils/http/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="pt-br"
+       href="https://docs.djangoproject.com/pt-br/4.1/_modules/django/utils/http/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="zh-hans"
+       href="https://docs.djangoproject.com/zh-hans/4.1/_modules/django/utils/http/">
+  
+
+  <link rel="search"
+        type="application/opensearchdescription+xml"
+        href="../../../../search/description/index.html"
+        title="Django documentation">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="../../../../../../../static.djangoproject.com/img/icon-touch.e4872c4da341.png">
+    <link rel="icon" sizes="192x192" href="../../../../../../../static.djangoproject.com/img/icon-touch.e4872c4da341.png">
+    <link rel="shortcut icon" href="https://static.djangoproject.com/img/favicon.6dbf28c0650e.ico">
+    <meta name="msapplication-TileColor" content="#113228">
+    <meta name="msapplication-TileImage" content="../../../../../../../static.djangoproject.com/img/icon-tile.b01ac0ef9f67.png">
+    <meta name="theme-color" content="#0C4B33">
+
+    
+    <meta property="og:title" content="Django" />
+    <meta property="og:description" content="The web framework for perfectionists with deadlines." />
+    <meta property="og:image" content="../../../../../../../static.djangoproject.com/img/logos/django-logo-negative.1d528e2cb5fb.png" />
+    <meta property="og:image:alt" content="Django logo" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="546" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:url" content="index.html" />
+    <meta property="og:site_name" content="Django Project" />
+
+    <meta property="twitter:creator" content="djangoproject" />
+    <meta property="twitter:site" content="djangoproject" />
+    <meta property="twitter:card" content="summary">
+    
+
+    <title>django.utils.http | Django documentation | Django</title>
+
+    <link rel="stylesheet" href="../../../../../../../static.djangoproject.com/css/output.1adc4207e45f.css" >
+    <script src="../../../../../../../static.djangoproject.com/js/lib/webfontloader/webfontloader.e75218f5f090.js"></script>
+    <script>
+    WebFont.load({
+      custom: {
+        families: ['FontAwesome', 'Fira+Mono'],
+      },
+      google: {
+        families: ['Roboto:400italic,700italic,300,700,400:latin'
+        ]
+      },
+      classes: false,
+      events: false,
+      timeout: 1000
+    });
+    </script>
+    <script src="../../../../../../../static.djangoproject.com/js/lib/modernizr.3b36762e418a.js"></script>
+    <script src="../../../../../../../static.djangoproject.com/js/mod/switch-dark-mode.a0e0dca32970.js"></script>
+    
+  </head>
+
+  <body id="generic" class="">
+
+    <div role="banner" id="top">
+  <div class="container">
+    <a class="logo" href="https://www.djangoproject.com/">Django</a>
+    <p class="meta">The web framework for perfectionists with deadlines.</p>
+    <div class="mobile-toggle">
+      
+
+<button class="theme-toggle">
+  <div class="visually-hidden theme-label-when-auto">Toggle theme (current theme: auto)</div>
+  <div class="visually-hidden theme-label-when-light">Toggle theme (current theme: light)</div>
+  <div class="visually-hidden theme-label-when-dark">Toggle theme (current theme: dark)</div>
+
+  <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+  <svg aria-hidden="true" class="theme-icon-when-auto">
+    <use xlink:href="#icon-auto" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-dark">
+    <use xlink:href="#icon-moon" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-light">
+    <use xlink:href="#icon-sun" />
+  </svg>
+</button>
+
+    </div>
+    <div role="navigation">
+      <ul>
+        <li>
+          <a href="https://www.djangoproject.com/start/overview/">Overview</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/download/">Download</a>
+        </li>
+        <li class="active">
+          <a href="https://docs.djangoproject.com/">Documentation</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/weblog/">News</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/community/">Community</a>
+        </li>
+        <li>
+          <a href="https://github.com/django/django" target="_blank" rel="noopener">Code</a>
+        </li>
+        <li>
+          <a href="https://code.djangoproject.com/">Issues</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/foundation/">About</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/fundraising/">&#9829; Donate</a>
+        </li>
+        <li>
+          
+
+<button class="theme-toggle">
+  <div class="visually-hidden theme-label-when-auto">Toggle theme (current theme: auto)</div>
+  <div class="visually-hidden theme-label-when-light">Toggle theme (current theme: light)</div>
+  <div class="visually-hidden theme-label-when-dark">Toggle theme (current theme: dark)</div>
+
+  <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+  <svg aria-hidden="true" class="theme-icon-when-auto">
+    <use xlink:href="#icon-auto" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-dark">
+    <use xlink:href="#icon-moon" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-light">
+    <use xlink:href="#icon-sun" />
+  </svg>
+</button>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+    <div class="copy-banner">
+      <div class="container 
+container--flex container--flex--wrap--mobile
+">
+        
+<h1><a href="../../../../index.html">Documentation</a></h1>
+
+
+<form action="https://docs.djangoproject.com/en/4.1/search/" class="search form-input" role="search">
+  <label class="visuallyhidden" for="id_q">Search:</label>
+    <input type="search" name="q" placeholder="Search 4.1 documentation" id="id_q">
+
+    <button type="submit">
+      <i class="icon icon-search"></i>
+      <span class="visuallyhidden">Search</span>
+    </button>
+</form>
+
+
+      </div>
+    </div>
+    <div id="billboard"></div>
+
+    <div class="container sidebar-right">
+      <div role="main">
+
+        
+          
+        
+
+        
+<div id="version-switcher">
+  <ul id="faq-link">
+    <li class="current-link">
+      <a href="../../../../faq/help/index.html">
+        <span>Getting Help</span>
+      </a>
+    </li>
+  </ul>
+  <ul id="doc-languages" class="language-switcher doc-switcher">
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/el/4.1/_modules/django/utils/http/">el</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/es/4.1/_modules/django/utils/http/">es</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/fr/4.1/_modules/django/utils/http/">fr</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/id/4.1/_modules/django/utils/http/">id</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/it/4.1/_modules/django/utils/http/">it</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/ja/4.1/_modules/django/utils/http/">ja</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/ko/4.1/_modules/django/utils/http/">ko</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/pl/4.1/_modules/django/utils/http/">pl</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/pt-br/4.1/_modules/django/utils/http/">pt-br</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/zh-hans/4.1/_modules/django/utils/http/">zh-hans</a>
+  </li>
+  
+  
+    <li class="current"
+        title="Click on the links on the left to switch to another language.">
+      <span>Language: <strong>en</strong></span>
+    </li>
+  </ul>
+
+  
+  <ul id="doc-versions" class="version-switcher doc-switcher">
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/1.8/_modules/django/utils/http/">1.8</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/1.10/_modules/django/utils/http/">1.10</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/1.11/_modules/django/utils/http/">1.11</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/2.0/_modules/django/utils/http/">2.0</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/2.1/_modules/django/utils/http/">2.1</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/2.2/_modules/django/utils/http/">2.2</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/3.0/_modules/django/utils/http/">3.0</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/3.2/_modules/django/utils/http/">3.2</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/4.0/_modules/django/utils/http/">4.0</a>
+    </li>
+    
+    
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/4.2/_modules/django/utils/http/">4.2</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/dev/_modules/django/utils/http/">dev</a>
+    </li>
+    
+    
+    <li class="current"
+        title="This document describes Django 4.1. Click on the links on the left to see other versions.">
+       <span>Documentation version:
+         <strong>4.1</strong>
+       </span>
+    </li>
+  </ul>
+</div>
+
+
+<div id="docs-content">
+<h1>Source code for django.utils.http</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">unicodedata</span>
+<span class="kn">from</span> <span class="nn">binascii</span> <span class="kn">import</span> <span class="n">Error</span> <span class="k">as</span> <span class="n">BinasciiError</span>
+<span class="kn">from</span> <span class="nn">email.utils</span> <span class="kn">import</span> <span class="n">formatdate</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ParseResult</span><span class="p">,</span>
+    <span class="n">SplitResult</span><span class="p">,</span>
+    <span class="n">_coerce_args</span><span class="p">,</span>
+    <span class="n">_splitnetloc</span><span class="p">,</span>
+    <span class="n">_splitparams</span><span class="p">,</span>
+    <span class="n">scheme_chars</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlencode</span> <span class="k">as</span> <span class="n">original_urlencode</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">uses_params</span>
+
+<span class="kn">from</span> <span class="nn">django.utils.datastructures</span> <span class="kn">import</span> <span class="n">MultiValueDict</span>
+<span class="kn">from</span> <span class="nn">django.utils.regex_helper</span> <span class="kn">import</span> <span class="n">_lazy_re_compile</span>
+
+<span class="c1"># based on RFC 7232, Appendix C</span>
+<span class="n">ETAG_MATCH</span> <span class="o">=</span> <span class="n">_lazy_re_compile</span><span class="p">(</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    \A(      # start of string and capture group</span>
+<span class="sd">    (?:W/)?  # optional weak indicator</span>
+<span class="sd">    &quot;        # opening quote</span>
+<span class="sd">    [^&quot;]*    # any sequence of non-quote characters</span>
+<span class="sd">    &quot;        # end quote</span>
+<span class="sd">    )\Z      # end of string and capture group</span>
+<span class="sd">&quot;&quot;&quot;</span><span class="p">,</span>
+    <span class="n">re</span><span class="o">.</span><span class="n">X</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">MONTHS</span> <span class="o">=</span> <span class="s2">&quot;jan feb mar apr may jun jul aug sep oct nov dec&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="n">__D</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(?P&lt;day&gt;[0-9]</span><span class="si">{2}</span><span class="s2">)&quot;</span>
+<span class="n">__D2</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(?P&lt;day&gt;[ 0-9][0-9])&quot;</span>
+<span class="n">__M</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(?P&lt;mon&gt;\w</span><span class="si">{3}</span><span class="s2">)&quot;</span>
+<span class="n">__Y</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(?P&lt;year&gt;[0-9]</span><span class="si">{4}</span><span class="s2">)&quot;</span>
+<span class="n">__Y2</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(?P&lt;year&gt;[0-9]</span><span class="si">{2}</span><span class="s2">)&quot;</span>
+<span class="n">__T</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(?P&lt;hour&gt;[0-9]</span><span class="si">{2}</span><span class="s2">):(?P&lt;min&gt;[0-9]</span><span class="si">{2}</span><span class="s2">):(?P&lt;sec&gt;[0-9]</span><span class="si">{2}</span><span class="s2">)&quot;</span>
+<span class="n">RFC1123_DATE</span> <span class="o">=</span> <span class="n">_lazy_re_compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^\w</span><span class="si">{3}</span><span class="s2">, </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> GMT$&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">__D</span><span class="p">,</span> <span class="n">__M</span><span class="p">,</span> <span class="n">__Y</span><span class="p">,</span> <span class="n">__T</span><span class="p">))</span>
+<span class="n">RFC850_DATE</span> <span class="o">=</span> <span class="n">_lazy_re_compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^\w{6,9}, </span><span class="si">%s</span><span class="s2">-</span><span class="si">%s</span><span class="s2">-</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> GMT$&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">__D</span><span class="p">,</span> <span class="n">__M</span><span class="p">,</span> <span class="n">__Y2</span><span class="p">,</span> <span class="n">__T</span><span class="p">))</span>
+<span class="n">ASCTIME_DATE</span> <span class="o">=</span> <span class="n">_lazy_re_compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^\w</span><span class="si">{3}</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">$&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">__M</span><span class="p">,</span> <span class="n">__D2</span><span class="p">,</span> <span class="n">__T</span><span class="p">,</span> <span class="n">__Y</span><span class="p">))</span>
+
+<span class="n">RFC3986_GENDELIMS</span> <span class="o">=</span> <span class="s2">&quot;:/?#[]@&quot;</span>
+<span class="n">RFC3986_SUBDELIMS</span> <span class="o">=</span> <span class="s2">&quot;!$&amp;&#39;()*+,;=&quot;</span>
+
+
+<div class="viewcode-block" id="urlencode"><a class="viewcode-back" href="../../../../ref/utils/index.html#django.utils.http.urlencode">[docs]</a><span class="k">def</span> <span class="nf">urlencode</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">doseq</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A version of Python&#39;s urllib.parse.urlencode() function that can operate on</span>
+<span class="sd">    MultiValueDict and non-string values.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">MultiValueDict</span><span class="p">):</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">lists</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="s2">&quot;items&quot;</span><span class="p">):</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="n">query_params</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">query</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;Cannot encode None for key &#39;</span><span class="si">%s</span><span class="s2">&#39; in a query string. Did you &quot;</span>
+                <span class="s2">&quot;mean to pass an empty string or omit the value?&quot;</span> <span class="o">%</span> <span class="n">key</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">doseq</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)):</span>
+            <span class="n">query_val</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">itr</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+                <span class="n">query_val</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Consume generators and iterators, when doseq=True, to</span>
+                <span class="c1"># work around https://bugs.python.org/issue31706.</span>
+                <span class="n">query_val</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">itr</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                            <span class="s2">&quot;Cannot encode None for key &#39;</span><span class="si">%s</span><span class="s2">&#39; in a query &quot;</span>
+                            <span class="s2">&quot;string. Did you mean to pass an empty string or &quot;</span>
+                            <span class="s2">&quot;omit the value?&quot;</span> <span class="o">%</span> <span class="n">key</span>
+                        <span class="p">)</span>
+                    <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+                        <span class="n">item</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+                    <span class="n">query_val</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="n">query_params</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">query_val</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">original_urlencode</span><span class="p">(</span><span class="n">query_params</span><span class="p">,</span> <span class="n">doseq</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="http_date"><a class="viewcode-back" href="../../../../ref/utils/index.html#django.utils.http.http_date">[docs]</a><span class="k">def</span> <span class="nf">http_date</span><span class="p">(</span><span class="n">epoch_seconds</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Format the time to match the RFC1123 date format as specified by HTTP</span>
+<span class="sd">    RFC7231 section 7.1.1.1.</span>
+
+<span class="sd">    `epoch_seconds` is a floating point number expressed in seconds since the</span>
+<span class="sd">    epoch, in UTC - such as that outputted by time.time(). If set to None, it</span>
+<span class="sd">    defaults to the current time.</span>
+
+<span class="sd">    Output a string in the format &#39;Wdy, DD Mon YYYY HH:MM:SS GMT&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">formatdate</span><span class="p">(</span><span class="n">epoch_seconds</span><span class="p">,</span> <span class="n">usegmt</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">parse_http_date</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parse a date format as specified by HTTP RFC7231 section 7.1.1.1.</span>
+
+<span class="sd">    The three formats allowed by the RFC are accepted, even if only the first</span>
+<span class="sd">    one is still in widespread use.</span>
+
+<span class="sd">    Return an integer expressed in seconds since the epoch, in UTC.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># email.utils.parsedate() does the job for RFC1123 dates; unfortunately</span>
+    <span class="c1"># RFC7231 makes it mandatory to support RFC850 dates too. So we roll</span>
+    <span class="c1"># our own RFC-compliant parsing.</span>
+    <span class="k">for</span> <span class="n">regex</span> <span class="ow">in</span> <span class="n">RFC1123_DATE</span><span class="p">,</span> <span class="n">RFC850_DATE</span><span class="p">,</span> <span class="n">ASCTIME_DATE</span><span class="p">:</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">regex</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">m</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%r</span><span class="s2"> is not in a valid HTTP date format&quot;</span> <span class="o">%</span> <span class="n">date</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">tz</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span>
+        <span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">year</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+            <span class="n">current_year</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">tz</span><span class="o">=</span><span class="n">tz</span><span class="p">)</span><span class="o">.</span><span class="n">year</span>
+            <span class="n">current_century</span> <span class="o">=</span> <span class="n">current_year</span> <span class="o">-</span> <span class="p">(</span><span class="n">current_year</span> <span class="o">%</span> <span class="mi">100</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">year</span> <span class="o">-</span> <span class="p">(</span><span class="n">current_year</span> <span class="o">%</span> <span class="mi">100</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+                <span class="c1"># year that appears to be more than 50 years in the future are</span>
+                <span class="c1"># interpreted as representing the past.</span>
+                <span class="n">year</span> <span class="o">+=</span> <span class="n">current_century</span> <span class="o">-</span> <span class="mi">100</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">year</span> <span class="o">+=</span> <span class="n">current_century</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="n">MONTHS</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="s2">&quot;mon&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">day</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">])</span>
+        <span class="n">hour</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="s2">&quot;hour&quot;</span><span class="p">])</span>
+        <span class="nb">min</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">])</span>
+        <span class="n">sec</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="s2">&quot;sec&quot;</span><span class="p">])</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">hour</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="n">sec</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">tz</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">timestamp</span><span class="p">())</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%r</span><span class="s2"> is not a valid date&quot;</span> <span class="o">%</span> <span class="n">date</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+
+<span class="k">def</span> <span class="nf">parse_http_date_safe</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Same as parse_http_date, but return None if the input is invalid.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">parse_http_date</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+
+<span class="c1"># Base 36 functions: useful for generating compact URLs</span>
+
+
+<div class="viewcode-block" id="base36_to_int"><a class="viewcode-back" href="../../../../ref/utils/index.html#django.utils.http.base36_to_int">[docs]</a><span class="k">def</span> <span class="nf">base36_to_int</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert a base 36 string to an int. Raise ValueError if the input won&#39;t fit</span>
+<span class="sd">    into an int.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># To prevent overconsumption of server resources, reject any</span>
+    <span class="c1"># base36 string that is longer than 13 base36 digits (13 digits</span>
+    <span class="c1"># is sufficient to base36-encode any 64-bit integer)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">13</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Base36 input too large&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">36</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="int_to_base36"><a class="viewcode-back" href="../../../../ref/utils/index.html#django.utils.http.int_to_base36">[docs]</a><span class="k">def</span> <span class="nf">int_to_base36</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert an integer to a base36 string.&quot;&quot;&quot;</span>
+    <span class="n">char_set</span> <span class="o">=</span> <span class="s2">&quot;0123456789abcdefghijklmnopqrstuvwxyz&quot;</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Negative base36 conversion input.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">36</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">char_set</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">b36</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">36</span><span class="p">)</span>
+        <span class="n">b36</span> <span class="o">=</span> <span class="n">char_set</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">b36</span>
+    <span class="k">return</span> <span class="n">b36</span></div>
+
+
+<div class="viewcode-block" id="urlsafe_base64_encode"><a class="viewcode-back" href="../../../../ref/utils/index.html#django.utils.http.urlsafe_base64_encode">[docs]</a><span class="k">def</span> <span class="nf">urlsafe_base64_encode</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Encode a bytestring to a base64 string for use in URLs. Strip any trailing</span>
+<span class="sd">    equal signs.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">urlsafe_b64encode</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="urlsafe_base64_decode"><a class="viewcode-back" href="../../../../ref/utils/index.html#django.utils.http.urlsafe_base64_decode">[docs]</a><span class="k">def</span> <span class="nf">urlsafe_base64_decode</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Decode a base64 encoded string. Add back any trailing equal signs that</span>
+<span class="sd">    might have been stripped.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">urlsafe_b64decode</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;=&quot;</span><span class="p">))</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">LookupError</span><span class="p">,</span> <span class="n">BinasciiError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">parse_etags</span><span class="p">(</span><span class="n">etag_str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parse a string of ETags given in an If-None-Match or If-Match header as</span>
+<span class="sd">    defined by RFC 7232. Return a list of quoted ETags, or [&#39;*&#39;] if all ETags</span>
+<span class="sd">    should be matched.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">etag_str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;*&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Parse each ETag individually, and return any that are valid.</span>
+        <span class="n">etag_matches</span> <span class="o">=</span> <span class="p">(</span><span class="n">ETAG_MATCH</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">etag</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">for</span> <span class="n">etag</span> <span class="ow">in</span> <span class="n">etag_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">match</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">etag_matches</span> <span class="k">if</span> <span class="n">match</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">quote_etag</span><span class="p">(</span><span class="n">etag_str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    If the provided string is already a quoted ETag, return it. Otherwise, wrap</span>
+<span class="sd">    the string in quotes, making it a strong ETag.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">ETAG_MATCH</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">etag_str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">etag_str</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;&quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span> <span class="o">%</span> <span class="n">etag_str</span>
+
+
+<span class="k">def</span> <span class="nf">is_same_domain</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return ``True`` if the host is either an exact match or a match</span>
+<span class="sd">    to the wildcard pattern.</span>
+
+<span class="sd">    Any pattern beginning with a period matches a domain and all of its</span>
+<span class="sd">    subdomains. (e.g. ``.example.com`` matches ``example.com`` and</span>
+<span class="sd">    ``foo.example.com``). Anything else is an exact string match.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">pattern</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="n">pattern</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">pattern</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;.&quot;</span>
+        <span class="ow">and</span> <span class="p">(</span><span class="n">host</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span> <span class="ow">or</span> <span class="n">host</span> <span class="o">==</span> <span class="n">pattern</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+        <span class="ow">or</span> <span class="n">pattern</span> <span class="o">==</span> <span class="n">host</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">url_has_allowed_host_and_scheme</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">allowed_hosts</span><span class="p">,</span> <span class="n">require_https</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return ``True`` if the url uses an allowed host and a safe scheme.</span>
+
+<span class="sd">    Always return ``False`` on an empty url.</span>
+
+<span class="sd">    If ``require_https`` is ``True``, only &#39;https&#39; will be considered a valid</span>
+<span class="sd">    scheme, as opposed to &#39;http&#39; and &#39;https&#39; with the default, ``False``.</span>
+
+<span class="sd">    Note: &quot;True&quot; doesn&#39;t entail that a URL is &quot;safe&quot;. It may still be e.g.</span>
+<span class="sd">    quoted incorrectly. Ensure to also use django.utils.encoding.iri_to_uri()</span>
+<span class="sd">    on the path component of untrusted URLs.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">url</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">url</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">allowed_hosts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">allowed_hosts</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">allowed_hosts</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">allowed_hosts</span> <span class="o">=</span> <span class="p">{</span><span class="n">allowed_hosts</span><span class="p">}</span>
+    <span class="c1"># Chrome treats \ completely as / in paths but it could be part of some</span>
+    <span class="c1"># basic auth credentials so we need to check both URLs.</span>
+    <span class="k">return</span> <span class="n">_url_has_allowed_host_and_scheme</span><span class="p">(</span>
+        <span class="n">url</span><span class="p">,</span> <span class="n">allowed_hosts</span><span class="p">,</span> <span class="n">require_https</span><span class="o">=</span><span class="n">require_https</span>
+    <span class="p">)</span> <span class="ow">and</span> <span class="n">_url_has_allowed_host_and_scheme</span><span class="p">(</span>
+        <span class="n">url</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">),</span> <span class="n">allowed_hosts</span><span class="p">,</span> <span class="n">require_https</span><span class="o">=</span><span class="n">require_https</span>
+    <span class="p">)</span>
+
+
+<span class="c1"># Copied from urllib.parse.urlparse() but uses fixed urlsplit() function.</span>
+<span class="k">def</span> <span class="nf">_urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">allow_fragments</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Parse a URL into 6 components:</span>
+<span class="sd">    &lt;scheme&gt;://&lt;netloc&gt;/&lt;path&gt;;&lt;params&gt;?&lt;query&gt;#&lt;fragment&gt;</span>
+<span class="sd">    Return a 6-tuple: (scheme, netloc, path, params, query, fragment).</span>
+<span class="sd">    Note that we don&#39;t break the components up in smaller bits</span>
+<span class="sd">    (e.g. netloc is a single string) and we don&#39;t expand % escapes.&quot;&quot;&quot;</span>
+    <span class="n">url</span><span class="p">,</span> <span class="n">scheme</span><span class="p">,</span> <span class="n">_coerce_result</span> <span class="o">=</span> <span class="n">_coerce_args</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">scheme</span><span class="p">)</span>
+    <span class="n">splitresult</span> <span class="o">=</span> <span class="n">_urlsplit</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">scheme</span><span class="p">,</span> <span class="n">allow_fragments</span><span class="p">)</span>
+    <span class="n">scheme</span><span class="p">,</span> <span class="n">netloc</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">fragment</span> <span class="o">=</span> <span class="n">splitresult</span>
+    <span class="k">if</span> <span class="n">scheme</span> <span class="ow">in</span> <span class="n">uses_params</span> <span class="ow">and</span> <span class="s2">&quot;;&quot;</span> <span class="ow">in</span> <span class="n">url</span><span class="p">:</span>
+        <span class="n">url</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="n">_splitparams</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">ParseResult</span><span class="p">(</span><span class="n">scheme</span><span class="p">,</span> <span class="n">netloc</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">fragment</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_coerce_result</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+
+<span class="c1"># Copied from urllib.parse.urlsplit() with</span>
+<span class="c1"># https://github.com/python/cpython/pull/661 applied.</span>
+<span class="k">def</span> <span class="nf">_urlsplit</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">allow_fragments</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Parse a URL into 5 components:</span>
+<span class="sd">    &lt;scheme&gt;://&lt;netloc&gt;/&lt;path&gt;?&lt;query&gt;#&lt;fragment&gt;</span>
+<span class="sd">    Return a 5-tuple: (scheme, netloc, path, query, fragment).</span>
+<span class="sd">    Note that we don&#39;t break the components up in smaller bits</span>
+<span class="sd">    (e.g. netloc is a single string) and we don&#39;t expand % escapes.&quot;&quot;&quot;</span>
+    <span class="n">url</span><span class="p">,</span> <span class="n">scheme</span><span class="p">,</span> <span class="n">_coerce_result</span> <span class="o">=</span> <span class="n">_coerce_args</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">scheme</span><span class="p">)</span>
+    <span class="n">netloc</span> <span class="o">=</span> <span class="n">query</span> <span class="o">=</span> <span class="n">fragment</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">url</span><span class="p">[:</span><span class="n">i</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">scheme_chars</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">scheme</span><span class="p">,</span> <span class="n">url</span> <span class="o">=</span> <span class="n">url</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">url</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:]</span>
+
+    <span class="k">if</span> <span class="n">url</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;//&quot;</span><span class="p">:</span>
+        <span class="n">netloc</span><span class="p">,</span> <span class="n">url</span> <span class="o">=</span> <span class="n">_splitnetloc</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;[&quot;</span> <span class="ow">in</span> <span class="n">netloc</span> <span class="ow">and</span> <span class="s2">&quot;]&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">netloc</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
+            <span class="s2">&quot;]&quot;</span> <span class="ow">in</span> <span class="n">netloc</span> <span class="ow">and</span> <span class="s2">&quot;[&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">netloc</span>
+        <span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid IPv6 URL&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">allow_fragments</span> <span class="ow">and</span> <span class="s2">&quot;#&quot;</span> <span class="ow">in</span> <span class="n">url</span><span class="p">:</span>
+        <span class="n">url</span><span class="p">,</span> <span class="n">fragment</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;?&quot;</span> <span class="ow">in</span> <span class="n">url</span><span class="p">:</span>
+        <span class="n">url</span><span class="p">,</span> <span class="n">query</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">SplitResult</span><span class="p">(</span><span class="n">scheme</span><span class="p">,</span> <span class="n">netloc</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">fragment</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_coerce_result</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_url_has_allowed_host_and_scheme</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">allowed_hosts</span><span class="p">,</span> <span class="n">require_https</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="c1"># Chrome considers any URL with more than two slashes to be absolute, but</span>
+    <span class="c1"># urlparse is not so flexible. Treat any url with three slashes as unsafe.</span>
+    <span class="k">if</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;///&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">url_info</span> <span class="o">=</span> <span class="n">_urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>  <span class="c1"># e.g. invalid IPv6 addresses</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="c1"># Forbid URLs like http:///example.com - with a scheme, but without a hostname.</span>
+    <span class="c1"># In that URL, example.com is not the hostname but, a path component. However,</span>
+    <span class="c1"># Chrome will still consider example.com to be the hostname, so we must not</span>
+    <span class="c1"># allow this syntax.</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">url_info</span><span class="o">.</span><span class="n">netloc</span> <span class="ow">and</span> <span class="n">url_info</span><span class="o">.</span><span class="n">scheme</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="c1"># Forbid URLs that start with control characters. Some browsers (like</span>
+    <span class="c1"># Chrome) ignore quite a few control characters at the start of a</span>
+    <span class="c1"># URL and might consider the URL as scheme relative.</span>
+    <span class="k">if</span> <span class="n">unicodedata</span><span class="o">.</span><span class="n">category</span><span class="p">(</span><span class="n">url</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;C&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="n">scheme</span> <span class="o">=</span> <span class="n">url_info</span><span class="o">.</span><span class="n">scheme</span>
+    <span class="c1"># Consider URLs without a scheme (e.g. //example.com/p) to be http.</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">url_info</span><span class="o">.</span><span class="n">scheme</span> <span class="ow">and</span> <span class="n">url_info</span><span class="o">.</span><span class="n">netloc</span><span class="p">:</span>
+        <span class="n">scheme</span> <span class="o">=</span> <span class="s2">&quot;http&quot;</span>
+    <span class="n">valid_schemes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;https&quot;</span><span class="p">]</span> <span class="k">if</span> <span class="n">require_https</span> <span class="k">else</span> <span class="p">[</span><span class="s2">&quot;http&quot;</span><span class="p">,</span> <span class="s2">&quot;https&quot;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">(</span><span class="ow">not</span> <span class="n">url_info</span><span class="o">.</span><span class="n">netloc</span> <span class="ow">or</span> <span class="n">url_info</span><span class="o">.</span><span class="n">netloc</span> <span class="ow">in</span> <span class="n">allowed_hosts</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span>
+        <span class="ow">not</span> <span class="n">scheme</span> <span class="ow">or</span> <span class="n">scheme</span> <span class="ow">in</span> <span class="n">valid_schemes</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">escape_leading_slashes</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    If redirecting to an absolute path (two leading slashes), a slash must be</span>
+<span class="sd">    escaped to prevent browsers from handling the path as schemaless and</span>
+<span class="sd">    redirecting to another host.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;//&quot;</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;/</span><span class="si">%2F{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+    <span class="k">return</span> <span class="n">url</span>
+
+
+<span class="k">def</span> <span class="nf">_parseparam</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">s</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;;&quot;</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">end</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span> <span class="o">-</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&quot;&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="p">))</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">end</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">s</span><span class="p">[:</span><span class="n">end</span><span class="p">]</span>
+        <span class="k">yield</span> <span class="n">f</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">end</span><span class="p">:]</span>
+
+
+<span class="k">def</span> <span class="nf">parse_header_parameters</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parse a Content-type like header.</span>
+<span class="sd">    Return the main content-type and a dictionary of options.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">parts</span> <span class="o">=</span> <span class="n">_parseparam</span><span class="p">(</span><span class="s2">&quot;;&quot;</span> <span class="o">+</span> <span class="n">line</span><span class="p">)</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="n">parts</span><span class="o">.</span><span class="fm">__next__</span><span class="p">()</span>
+    <span class="n">pdict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parts</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">p</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">value</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\\\</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+            <span class="n">pdict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">key</span><span class="p">,</span> <span class="n">pdict</span>
+</pre></div>
+</div>
+
+
+
+
+
+        <a href="#top" class="backtotop"><i class="icon icon-chevron-up"></i> Back to Top</a>
+      </div>
+
+      
+<h1 class="visuallyhidden">Additional Information</h1>
+<div role="complementary">
+
+  
+
+
+  <div class="fundraising-sidebar">
+    <h2>Support Django!</h2>
+
+    <div class="small-heart">
+      <img src="https://static.djangoproject.com/img/fundraising-heart.cd6bb84ffd33.svg" alt="Support Django!" />
+    </div>
+
+    <div class="small-cta">
+      <ul class="list-links-small">
+        <li><a href="https://www.djangoproject.com/fundraising/">
+          Cristiano Lopes donated to the Django Software Foundation to
+          support Django development. Donate today!
+        </a></li>
+      </ul>
+    </div>
+  </div>
+
+
+
+  
+    <h2>Contents</h2>
+    
+    
+    
+  
+
+  
+  <h2>Browse</h2>
+  <ul>
+    
+    
+    
+    <li><a href="../../../../contents/index.html">Table of contents</a></li>
+    
+    <li><a href="../../../../genindex/index.html">General Index</a></li>
+    
+    <li><a href="../../../../py-modindex/index.html">Python Module Index</a></li>
+    
+    
+  </ul>
+  
+
+  
+  <h2>You are here:</h2>
+  <ul>
+    <li>
+      <a href="../../../../index.html">Django 4.1 documentation</a>
+      
+      <ul><li><a href="../../../index.html">Module code</a>
+      
+      <ul><li><a href="../../index.html">django</a>
+      
+      <ul><li>django.utils.http</li></ul>
+      </li></ul></li></ul>
+    </li>
+  </ul>
+  
+
+  
+  <h2 id="getting-help-sidebar">Getting help</h2>
+  <dl class="list-links">
+    <dt><a href="../../../../faq/index.html">FAQ</a></dt>
+    <dd>Try the FAQ — it's got answers to many common questions.</dd>
+
+    <dt><a href="https://docs.djangoproject.com/en/stable/genindex/">Index</a>, <a href="https://docs.djangoproject.com/en/stable/py-modindex/">Module Index</a>, or <a href="https://docs.djangoproject.com/en/stable/contents/">Table of Contents</a></dt>
+    <dd>Handy when looking for specific information.</dd>
+
+    <dt><a href="https://groups.google.com/group/django-users/">django-users mailing list</a></dt>
+    <dd>Search for information in the archives of the django-users mailing list, or post a question.</dd>
+
+    <dt><a href="irc://irc.libera.chat/django">#django IRC channel</a></dt>
+    <dd>Ask a question in the #django IRC channel, or search the IRC logs to see if it’s been asked before.</dd>
+
+    <dt><a href="https://discord.gg/xcRH6mN4fa">Django Discord Server</a></dt>
+    <dd>Join the Django Discord Community.</dd>
+
+    <dt><a href="https://forum.djangoproject.com/">Official Django Forum</a></dt>
+    <dd>Join the community on the Django Forum.</dd>
+
+    <dt><a href="https://code.djangoproject.com/">Ticket tracker</a></dt>
+    <dd>Report bugs with Django or Django documentation in our ticket tracker.</dd>
+  </dl>
+  
+
+  
+  <h2>Download:</h2>
+  <p>
+    Offline (Django 4.1):
+    <a href="https://media.djangoproject.com/docs/django-docs-4.1-en.zip">HTML</a> |
+    <a href="https://media.readthedocs.org/pdf/django/4.1.x/django.pdf">PDF</a> |
+    <a href="https://media.readthedocs.org/epub/django/4.1.x/django.epub">ePub</a>
+    <br>
+    <span class="quiet">
+      Provided by <a href="https://readthedocs.org/">Read the Docs</a>.
+    </span>
+  </p>
+  
+</div>
+
+      
+
+    </div>
+
+     
+     
+
+    
+    
+    
+
+    <!-- SVGs -->
+    <svg xmlns="http://www.w3.org/2000/svg">
+      <symbol viewBox="0 0 24 24" id="icon-auto"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2V4a8 8 0 1 0 0 16z"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icon-moon"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icon-sun"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol>
+    </svg>
+    <!-- END SVGs -->
+
+    
+      <div role="contentinfo">
+  <div class="subfooter">
+    <div class="container">
+      <h1 class="visuallyhidden">Django Links</h1>
+      <div class="column-container">
+        <div class="col-learn-more">
+          <h2>Learn More</h2>
+          <ul>
+            <li><a href="https://www.djangoproject.com/start/overview/">About Django</a></li>
+            
+            <li><a href="https://www.djangoproject.com/start/">Getting Started with Django</a></li>
+            <li><a href="https://docs.djangoproject.com/en/dev/internals/organization/">Team
+              Organization</a></li>
+            <li><a href="https://www.djangoproject.com/foundation/">Django Software Foundation</a></li>
+            <li><a href="https://www.djangoproject.com/conduct/">Code of Conduct</a></li>
+            <li><a href="https://www.djangoproject.com/diversity/">Diversity Statement</a></li>
+          </ul>
+        </div>
+
+        <div class="col-get-involved">
+          <h2>Get Involved</h2>
+          <ul>
+            <li><a href="https://www.djangoproject.com/community/">Join a Group</a></li>
+            <li><a href="https://docs.djangoproject.com/en/dev/internals/contributing/">Contribute
+              to Django</a></li>
+            <li><a
+              href="https://docs.djangoproject.com/en/dev/internals/contributing/bugs-and-features/">Submit
+              a Bug</a></li>
+            <li><a
+              href="https://docs.djangoproject.com/en/dev/internals/security/#reporting-security-issues">Report
+              a Security Issue</a></li>
+          </ul>
+        </div>
+
+        <div class="col-get-help">
+          <h2>Get Help</h2>
+          <ul>
+            <li><a href="https://docs.djangoproject.com/en/stable/faq/">Getting Help FAQ</a>
+            </li>
+            <li><a href="irc://irc.libera.chat/django">#django IRC channel</a></li>
+            <li><a href="https://discord.gg/xcRH6mN4fa" target="_blank">Django Discord</a></li>
+            <li><a href="https://forum.djangoproject.com/" target="_blank">Official Django Forum</a></li>
+          </ul>
+        </div>
+
+        <div class="col-follow-us">
+          <h2>Follow Us</h2>
+          <ul>
+            <li><a href="https://github.com/django">GitHub</a></li>
+            <li><a href="https://twitter.com/djangoproject">Twitter</a></li>
+            <li><a href="https://www.djangoproject.com/rss/weblog/">News RSS</a></li>
+            <li><a href="https://groups.google.com/forum/#!forum/django-users">Django Users Mailing List</a></li>
+          </ul>
+        </div>
+
+        <div class="col-support-us">
+          <h2>Support Us</h2>
+          <ul>
+            <li><a href="https://www.djangoproject.com/fundraising/">Sponsor Django</a></li>
+            <li><a href="https://django.threadless.com/" target="_blank">Official merchandise store</a></li>
+            <li><a href="https://docs.djangoproject.com/foundation/donate/#benevity-giving">Benevity Workplace Giving Program</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="container">
+      <div class="footer-logo">
+        <a class="logo" href="https://www.djangoproject.com/">Django</a>
+      </div>
+      <ul class="thanks">
+        <li>
+          <span>Hosting by</span> <a class="in-kind-donors" href="https://www.djangoproject.com/fundraising/#in-kind-donors">In-kind
+          donors</a>
+        </li>
+        <li class="design"><span>Design by</span> <a class="threespot" href="https://www.threespot.com/">Threespot</a>
+          <span class="ampersand">&amp;</span> <a class="andrevv" href="http://andrevv.com/">andrevv</a></li>
+      </ul>
+      <p class="copyright">&copy; 2005-2023
+        <a href="https://www.djangoproject.com/foundation/"> Django Software
+          Foundation</a> and individual contributors. Django is a
+        <a href="https://www.djangoproject.com/trademarks/">registered
+          trademark</a> of the Django Software Foundation.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+    
+
+    
+    <script>
+    function extless(input) {
+        return input.replace(/(.*)\.[^.]+$/, '$1');
+    }
+    var require = {
+        shim: {
+            'jquery': [],
+            'jquery.inview': ["jquery"],
+            'jquery.payment': ["jquery"],
+            'jquery.flot': ["jquery"],
+            'jquery.unveil': ["jquery"],
+            'stripe': {
+              exports: 'Stripe'
+            }
+        },
+        paths: {
+            "jquery": extless("../../../../../../../static.djangoproject.com/js/lib/jquery/dist/jquery.min.87e69028f78d.js"),
+            "jquery.inview": extless("../../../../../../../static.djangoproject.com/js/lib/jquery.inview/jquery.inview.min.4edba1c65592.js"),
+            "jquery.payment": extless("../../../../../../../static.djangoproject.com/js/lib/jquery.payment/lib/jquery.payment.e99c05ca79ae.js"),
+            "jquery.unveil": extless("../../../../../../../static.djangoproject.com/js/lib/unveil/jquery.unveil.min.ac79eb277093.js"),
+            "jquery.flot": extless("../../../../../../../static.djangoproject.com/js/lib/jquery-flot/jquery.flot.min.9964206e9d7f.js"),
+            "clipboard": extless("../../../../../../../static.djangoproject.com/js/lib/clipboard/dist/clipboard.min.bd70fd596a23.js"),
+            "mod/floating-warning": extless("../../../../../../../static.djangoproject.com/js/mod/floating-warning.a21b2abd2884.js"),
+            "mod/list-collapsing": extless("../../../../../../../static.djangoproject.com/js/mod/list-collapsing.c1a08d3ef9e9.js"),
+            "mod/list-feature": extless("../../../../../../../static.djangoproject.com/js/mod/list-feature.73529480f25b.js"),
+            "mod/mobile-menu": extless("../../../../../../../static.djangoproject.com/js/mod/mobile-menu.6012f4745df8.js"),
+            "mod/version-switcher": extless("../../../../../../../static.djangoproject.com/js/mod/version-switcher.c56ff7ed5481.js"),
+            "mod/search-key": extless("../../../../../../../static.djangoproject.com/js/mod/search-key.ae7292327b47.js"),
+            "mod/stripe-change-card": extless("../../../../../../../static.djangoproject.com/js/mod/stripe-change-card.682c710317a8.js"),
+            "mod/switch-dark-mode": extless("../../../../../../../static.djangoproject.com/js/mod/switch-dark-mode.a0e0dca32970.js"),
+            "mod/console-tabs": extless("../../../../../../../static.djangoproject.com/js/mod/console-tabs.70ce882faaf3.js"),
+            "stripe-checkout": "https://checkout.stripe.com/checkout",
+            "stripe": "https://js.stripe.com/v3/?" // ? needed due to require.js
+        }
+    };
+    </script>
+    <script data-main="https://static.djangoproject.com/js/main.48270eac7c0b.js" src="../../../../../../../static.djangoproject.com/js/lib/require.177879fbe7dd.js"></script>
+    
+
+
+  </body>
+
+<!-- Mirrored from docs.djangoproject.com/en/4.1/_modules/django/utils/http/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Mar 2023 18:04:06 GMT -->
+</html>

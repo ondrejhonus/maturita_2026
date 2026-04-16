@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from docs.djangoproject.com/en/4.1/ref/logging/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Mar 2023 18:02:37 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="ROBOTS" content="ALL" />
+    <meta name="MSSmartTagsPreventParsing" content="true" />
+    <meta name="Copyright" content="Django Software Foundation" />
+    <meta name="keywords" content="Python, Django, framework, open-source" />
+    <meta name="description" content="" />
+
+    
+  
+    
+      
+    
+  
+  <link rel="canonical" href="index.html">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="el"
+       href="https://docs.djangoproject.com/el/4.1/ref/logging/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="en"
+       href="index.html">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="es"
+       href="https://docs.djangoproject.com/es/4.1/ref/logging/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="fr"
+       href="https://docs.djangoproject.com/fr/4.1/ref/logging/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="id"
+       href="https://docs.djangoproject.com/id/4.1/ref/logging/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="it"
+       href="https://docs.djangoproject.com/it/4.1/ref/logging/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="ja"
+       href="https://docs.djangoproject.com/ja/4.1/ref/logging/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="ko"
+       href="https://docs.djangoproject.com/ko/4.1/ref/logging/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="pl"
+       href="https://docs.djangoproject.com/pl/4.1/ref/logging/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="pt-br"
+       href="https://docs.djangoproject.com/pt-br/4.1/ref/logging/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="zh-hans"
+       href="https://docs.djangoproject.com/zh-hans/4.1/ref/logging/">
+  
+
+  <link rel="search"
+        type="application/opensearchdescription+xml"
+        href="../../search/description/index.html"
+        title="Django documentation">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="../../../../../static.djangoproject.com/img/icon-touch.e4872c4da341.png">
+    <link rel="icon" sizes="192x192" href="../../../../../static.djangoproject.com/img/icon-touch.e4872c4da341.png">
+    <link rel="shortcut icon" href="https://static.djangoproject.com/img/favicon.6dbf28c0650e.ico">
+    <meta name="msapplication-TileColor" content="#113228">
+    <meta name="msapplication-TileImage" content="../../../../../static.djangoproject.com/img/icon-tile.b01ac0ef9f67.png">
+    <meta name="theme-color" content="#0C4B33">
+
+    
+    <meta property="og:title" content="Django" />
+    <meta property="og:description" content="The web framework for perfectionists with deadlines." />
+    <meta property="og:image" content="../../../../../static.djangoproject.com/img/logos/django-logo-negative.1d528e2cb5fb.png" />
+    <meta property="og:image:alt" content="Django logo" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="546" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:url" content="index.html" />
+    <meta property="og:site_name" content="Django Project" />
+
+    <meta property="twitter:creator" content="djangoproject" />
+    <meta property="twitter:site" content="djangoproject" />
+    <meta property="twitter:card" content="summary">
+    
+
+    <title>Logging | Django documentation | Django</title>
+
+    <link rel="stylesheet" href="../../../../../static.djangoproject.com/css/output.1adc4207e45f.css" >
+    <script src="../../../../../static.djangoproject.com/js/lib/webfontloader/webfontloader.e75218f5f090.js"></script>
+    <script>
+    WebFont.load({
+      custom: {
+        families: ['FontAwesome', 'Fira+Mono'],
+      },
+      google: {
+        families: ['Roboto:400italic,700italic,300,700,400:latin'
+        ]
+      },
+      classes: false,
+      events: false,
+      timeout: 1000
+    });
+    </script>
+    <script src="../../../../../static.djangoproject.com/js/lib/modernizr.3b36762e418a.js"></script>
+    <script src="../../../../../static.djangoproject.com/js/mod/switch-dark-mode.a0e0dca32970.js"></script>
+    
+  </head>
+
+  <body id="generic" class="">
+
+    <div role="banner" id="top">
+  <div class="container">
+    <a class="logo" href="https://www.djangoproject.com/">Django</a>
+    <p class="meta">The web framework for perfectionists with deadlines.</p>
+    <div class="mobile-toggle">
+      
+
+<button class="theme-toggle">
+  <div class="visually-hidden theme-label-when-auto">Toggle theme (current theme: auto)</div>
+  <div class="visually-hidden theme-label-when-light">Toggle theme (current theme: light)</div>
+  <div class="visually-hidden theme-label-when-dark">Toggle theme (current theme: dark)</div>
+
+  <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+  <svg aria-hidden="true" class="theme-icon-when-auto">
+    <use xlink:href="#icon-auto" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-dark">
+    <use xlink:href="#icon-moon" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-light">
+    <use xlink:href="#icon-sun" />
+  </svg>
+</button>
+
+    </div>
+    <div role="navigation">
+      <ul>
+        <li>
+          <a href="https://www.djangoproject.com/start/overview/">Overview</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/download/">Download</a>
+        </li>
+        <li class="active">
+          <a href="https://docs.djangoproject.com/">Documentation</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/weblog/">News</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/community/">Community</a>
+        </li>
+        <li>
+          <a href="https://github.com/django/django" target="_blank" rel="noopener">Code</a>
+        </li>
+        <li>
+          <a href="https://code.djangoproject.com/">Issues</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/foundation/">About</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/fundraising/">&#9829; Donate</a>
+        </li>
+        <li>
+          
+
+<button class="theme-toggle">
+  <div class="visually-hidden theme-label-when-auto">Toggle theme (current theme: auto)</div>
+  <div class="visually-hidden theme-label-when-light">Toggle theme (current theme: light)</div>
+  <div class="visually-hidden theme-label-when-dark">Toggle theme (current theme: dark)</div>
+
+  <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+  <svg aria-hidden="true" class="theme-icon-when-auto">
+    <use xlink:href="#icon-auto" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-dark">
+    <use xlink:href="#icon-moon" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-light">
+    <use xlink:href="#icon-sun" />
+  </svg>
+</button>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+    <div class="copy-banner">
+      <div class="container 
+container--flex container--flex--wrap--mobile
+">
+        
+<h1><a href="../../index.html">Documentation</a></h1>
+
+
+<form action="https://docs.djangoproject.com/en/4.1/search/" class="search form-input" role="search">
+  <label class="visuallyhidden" for="id_q">Search:</label>
+    <input type="search" name="q" placeholder="Search 4.1 documentation" id="id_q">
+
+    <button type="submit">
+      <i class="icon icon-search"></i>
+      <span class="visuallyhidden">Search</span>
+    </button>
+</form>
+
+
+      </div>
+    </div>
+    <div id="billboard"></div>
+
+    <div class="container sidebar-right">
+      <div role="main">
+
+        
+          
+        
+
+        
+<div id="version-switcher">
+  <ul id="faq-link">
+    <li class="current-link">
+      <a href="../../faq/help/index.html">
+        <span>Getting Help</span>
+      </a>
+    </li>
+  </ul>
+  <ul id="doc-languages" class="language-switcher doc-switcher">
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/el/4.1/ref/logging/">el</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/es/4.1/ref/logging/">es</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/fr/4.1/ref/logging/">fr</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/id/4.1/ref/logging/">id</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/it/4.1/ref/logging/">it</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/ja/4.1/ref/logging/">ja</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/ko/4.1/ref/logging/">ko</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/pl/4.1/ref/logging/">pl</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/pt-br/4.1/ref/logging/">pt-br</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/zh-hans/4.1/ref/logging/">zh-hans</a>
+  </li>
+  
+  
+    <li class="current"
+        title="Click on the links on the left to switch to another language.">
+      <span>Language: <strong>en</strong></span>
+    </li>
+  </ul>
+
+  
+  <ul id="doc-versions" class="version-switcher doc-switcher">
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/4.0/ref/logging/">4.0</a>
+    </li>
+    
+    
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/4.2/ref/logging/">4.2</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/dev/ref/logging/">dev</a>
+    </li>
+    
+    
+    <li class="current"
+        title="This document describes Django 4.1. Click on the links on the left to see other versions.">
+       <span>Documentation version:
+         <strong>4.1</strong>
+       </span>
+    </li>
+  </ul>
+</div>
+
+
+<div id="docs-content">
+<div class="section" id="s-logging">
+<span id="s-logging-ref"></span><span id="logging"></span><span id="logging-ref"></span><h1>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li><a class="reference internal" href="../../howto/logging/index.html#logging-how-to"><span class="std std-ref">How to configure and use logging</span></a></li>
+<li><a class="reference internal" href="../../topics/logging/index.html#logging-explanation"><span class="std std-ref">Django logging overview</span></a></li>
+</ul>
+</div>
+<span class="target" id="module-django.utils.log"></span><p>Django’s logging module extends Python’s builtin <a class="reference external" href="https://docs.python.org/3/library/logging.html#module-logging" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a>.</p>
+<p>Logging is configured as part of the general Django <a class="reference internal" href="../applications/index.html#django.setup" title="django.setup"><code class="xref py py-func docutils literal notranslate"><span class="pre">django.setup()</span></code></a>
+function, so it’s always available unless explicitly disabled.</p>
+<div class="section" id="s-django-s-default-logging-configuration">
+<span id="s-default-logging-configuration"></span><span id="django-s-default-logging-configuration"></span><span id="default-logging-configuration"></span><h2>Django’s default logging configuration<a class="headerlink" href="#django-s-default-logging-configuration" title="Permalink to this headline">¶</a></h2>
+<p>By default, Django uses Python’s <a class="reference external" href="https://docs.python.org/3/library/logging.config.html#logging-config-dictschema" title="(in Python v3.11)"><span class="xref std std-ref">logging.config.dictConfig format</span></a>.</p>
+<div class="section" id="s-default-logging-conditions">
+<span id="default-logging-conditions"></span><h3>Default logging conditions<a class="headerlink" href="#default-logging-conditions" title="Permalink to this headline">¶</a></h3>
+<p>The full set of default logging conditions are:</p>
+<p>When <a class="reference internal" href="../settings/index.html#std-setting-DEBUG"><code class="xref std std-setting docutils literal notranslate"><span class="pre">DEBUG</span></code></a> is <code class="docutils literal notranslate"><span class="pre">True</span></code>:</p>
+<ul class="simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">django</span></code> logger sends messages in the <code class="docutils literal notranslate"><span class="pre">django</span></code> hierarchy (except
+<code class="docutils literal notranslate"><span class="pre">django.server</span></code>) at the <code class="docutils literal notranslate"><span class="pre">INFO</span></code> level or higher to the console.</li>
+</ul>
+<p>When <a class="reference internal" href="../settings/index.html#std-setting-DEBUG"><code class="xref std std-setting docutils literal notranslate"><span class="pre">DEBUG</span></code></a> is <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
+<ul class="simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">django</span></code> logger sends messages in the <code class="docutils literal notranslate"><span class="pre">django</span></code> hierarchy (except
+<code class="docutils literal notranslate"><span class="pre">django.server</span></code>)  with <code class="docutils literal notranslate"><span class="pre">ERROR</span></code> or <code class="docutils literal notranslate"><span class="pre">CRITICAL</span></code> level to
+<a class="reference internal" href="#django.utils.log.AdminEmailHandler" title="django.utils.log.AdminEmailHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">AdminEmailHandler</span></code></a>.</li>
+</ul>
+<p>Independently of the value of <a class="reference internal" href="../settings/index.html#std-setting-DEBUG"><code class="xref std std-setting docutils literal notranslate"><span class="pre">DEBUG</span></code></a>:</p>
+<ul class="simple">
+<li>The <a class="reference internal" href="#django-server-logger"><span class="std std-ref">django.server</span></a> logger sends messages at the <code class="docutils literal notranslate"><span class="pre">INFO</span></code> level
+or higher to the console.</li>
+</ul>
+<p>All loggers except <a class="reference internal" href="#django-server-logger"><span class="std std-ref">django.server</span></a> propagate logging to their
+parents, up to the root <code class="docutils literal notranslate"><span class="pre">django</span></code> logger. The <code class="docutils literal notranslate"><span class="pre">console</span></code> and <code class="docutils literal notranslate"><span class="pre">mail_admins</span></code>
+handlers are attached to the root logger to provide the behavior described
+above.</p>
+<p>Python’s own defaults send records of level <code class="docutils literal notranslate"><span class="pre">WARNING</span></code> and higher
+to the console.</p>
+</div>
+<div class="section" id="s-default-logging-definition">
+<span id="s-id1"></span><span id="default-logging-definition"></span><span id="id1"></span><h3>Default logging definition<a class="headerlink" href="#default-logging-definition" title="Permalink to this headline">¶</a></h3>
+<p>Django’s default logging configuration inherits Python’s defaults. It’s
+available as <code class="docutils literal notranslate"><span class="pre">django.utils.log.DEFAULT_LOGGING</span></code> and defined in
+<a class="reference external" href="https://github.com/django/django/blob/main/django/utils/log.py">django/utils/log.py</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;disable_existing_loggers&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s1">&#39;filters&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;require_debug_false&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;()&#39;</span><span class="p">:</span> <span class="s1">&#39;django.utils.log.RequireDebugFalse&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;require_debug_true&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;()&#39;</span><span class="p">:</span> <span class="s1">&#39;django.utils.log.RequireDebugTrue&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;formatters&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;django.server&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;()&#39;</span><span class="p">:</span> <span class="s1">&#39;django.utils.log.ServerFormatter&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;[</span><span class="si">{server_time}</span><span class="s1">] </span><span class="si">{message}</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="s1">&#39;{&#39;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;console&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;filters&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;require_debug_true&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.StreamHandler&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;django.server&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.StreamHandler&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;formatter&#39;</span><span class="p">:</span> <span class="s1">&#39;django.server&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;mail_admins&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;ERROR&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;filters&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;require_debug_false&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;django.utils.log.AdminEmailHandler&#39;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;django&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;console&#39;</span><span class="p">,</span> <span class="s1">&#39;mail_admins&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;django.server&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;django.server&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;propagate&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="../../topics/logging/index.html#configuring-logging"><span class="std std-ref">Configuring logging</span></a> on how to complement or replace this default
+logging configuration.</p>
+</div>
+</div>
+<div class="section" id="s-django-logging-extensions">
+<span id="django-logging-extensions"></span><h2>Django logging extensions<a class="headerlink" href="#django-logging-extensions" title="Permalink to this headline">¶</a></h2>
+<p>Django provides a number of utilities to handle the particular requirements of
+logging in a web server environment.</p>
+<div class="section" id="s-loggers">
+<span id="loggers"></span><h3>Loggers<a class="headerlink" href="#loggers" title="Permalink to this headline">¶</a></h3>
+<p>Django provides several built-in loggers.</p>
+<div class="section" id="s-django">
+<span id="s-django-logger"></span><span id="django"></span><span id="django-logger"></span><h4><code class="docutils literal notranslate"><span class="pre">django</span></code><a class="headerlink" href="#django" title="Permalink to this headline">¶</a></h4>
+<p>The parent logger for messages in the <code class="docutils literal notranslate"><span class="pre">django</span></code> <a class="reference internal" href="../../howto/logging/index.html#naming-loggers-hierarchy"><span class="std std-ref">named logger hierarchy</span></a>. Django does not post messages using this name.
+Instead, it uses one of the loggers below.</p>
+</div>
+<div class="section" id="s-django-request">
+<span id="s-django-request-logger"></span><span id="django-request"></span><span id="django-request-logger"></span><h4><code class="docutils literal notranslate"><span class="pre">django.request</span></code><a class="headerlink" href="#django-request" title="Permalink to this headline">¶</a></h4>
+<p>Log messages related to the handling of requests. 5XX responses are
+raised as <code class="docutils literal notranslate"><span class="pre">ERROR</span></code> messages; 4XX responses are raised as <code class="docutils literal notranslate"><span class="pre">WARNING</span></code>
+messages. Requests that are logged to the <code class="docutils literal notranslate"><span class="pre">django.security</span></code> logger aren’t
+logged to <code class="docutils literal notranslate"><span class="pre">django.request</span></code>.</p>
+<p>Messages to this logger have the following extra context:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">status_code</span></code>: The HTTP response code associated with the request.</li>
+<li><code class="docutils literal notranslate"><span class="pre">request</span></code>: The request object that generated the logging message.</li>
+</ul>
+</div>
+<div class="section" id="s-django-server">
+<span id="s-django-server-logger"></span><span id="django-server"></span><span id="django-server-logger"></span><h4><code class="docutils literal notranslate"><span class="pre">django.server</span></code><a class="headerlink" href="#django-server" title="Permalink to this headline">¶</a></h4>
+<p>Log messages related to the handling of requests received by the server invoked
+by the <a class="reference internal" href="../django-admin/index.html#django-admin-runserver"><code class="xref std std-djadmin docutils literal notranslate"><span class="pre">runserver</span></code></a> command. HTTP 5XX responses are logged as <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>
+messages, 4XX responses are logged as <code class="docutils literal notranslate"><span class="pre">WARNING</span></code> messages, and everything else
+is logged as <code class="docutils literal notranslate"><span class="pre">INFO</span></code>.</p>
+<p>Messages to this logger have the following extra context:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">status_code</span></code>: The HTTP response code associated with the request.</li>
+<li><code class="docutils literal notranslate"><span class="pre">request</span></code>: The request object that generated the logging message.</li>
+</ul>
+</div>
+<div class="section" id="s-django-template">
+<span id="s-django-template-logger"></span><span id="django-template"></span><span id="django-template-logger"></span><h4><code class="docutils literal notranslate"><span class="pre">django.template</span></code><a class="headerlink" href="#django-template" title="Permalink to this headline">¶</a></h4>
+<p>Log messages related to the rendering of templates.</p>
+<ul class="simple">
+<li>Missing context variables are logged as <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> messages.</li>
+</ul>
+</div>
+<div class="section" id="s-django-db-backends">
+<span id="s-django-db-logger"></span><span id="django-db-backends"></span><span id="django-db-logger"></span><h4><code class="docutils literal notranslate"><span class="pre">django.db.backends</span></code><a class="headerlink" href="#django-db-backends" title="Permalink to this headline">¶</a></h4>
+<p>Messages relating to the interaction of code with the database. For example,
+every application-level SQL statement executed by a request is logged at the
+<code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> level to this logger.</p>
+<p>Messages to this logger have the following extra context:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">duration</span></code>: The time taken to execute the SQL statement.</li>
+<li><code class="docutils literal notranslate"><span class="pre">sql</span></code>: The SQL statement that was executed.</li>
+<li><code class="docutils literal notranslate"><span class="pre">params</span></code>: The parameters that were used in the SQL call.</li>
+<li><code class="docutils literal notranslate"><span class="pre">alias</span></code>: The alias of the database used in the SQL call.</li>
+</ul>
+<p>For performance reasons, SQL logging is only enabled when
+<code class="docutils literal notranslate"><span class="pre">settings.DEBUG</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, regardless of the logging
+level or handlers that are installed.</p>
+<p>This logging does not include framework-level initialization (e.g.
+<code class="docutils literal notranslate"><span class="pre">SET</span> <span class="pre">TIMEZONE</span></code>) or transaction management queries (e.g. <code class="docutils literal notranslate"><span class="pre">BEGIN</span></code>,
+<code class="docutils literal notranslate"><span class="pre">COMMIT</span></code>, and <code class="docutils literal notranslate"><span class="pre">ROLLBACK</span></code>). Turn on query logging in your database if you
+wish to view all database queries.</p>
+<div class="versionchanged">
+<span class="title">Changed in Django 4.0:</span> <p>The database <code class="docutils literal notranslate"><span class="pre">alias</span></code> was added to log messages.</p>
+</div>
+</div>
+<div class="section" id="s-django-security">
+<span id="s-django-security-logger"></span><span id="django-security"></span><span id="django-security-logger"></span><h4><code class="docutils literal notranslate"><span class="pre">django.security.*</span></code><a class="headerlink" href="#django-security" title="Permalink to this headline">¶</a></h4>
+<p>The security loggers will receive messages on any occurrence of
+<a class="reference internal" href="../exceptions/index.html#django.core.exceptions.SuspiciousOperation" title="django.core.exceptions.SuspiciousOperation"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SuspiciousOperation</span></code></a> and other security-related
+errors. There is a sub-logger for each subtype of security error, including all
+<code class="docutils literal notranslate"><span class="pre">SuspiciousOperation</span></code>s. The level of the log event depends on where the
+exception is handled.  Most occurrences are logged as a warning, while
+any <code class="docutils literal notranslate"><span class="pre">SuspiciousOperation</span></code> that reaches the WSGI handler will be logged as an
+error. For example, when an HTTP <code class="docutils literal notranslate"><span class="pre">Host</span></code> header is included in a request from
+a client that does not match <a class="reference internal" href="../settings/index.html#std-setting-ALLOWED_HOSTS"><code class="xref std std-setting docutils literal notranslate"><span class="pre">ALLOWED_HOSTS</span></code></a>, Django will return a 400
+response, and an error message will be logged to the
+<code class="docutils literal notranslate"><span class="pre">django.security.DisallowedHost</span></code> logger.</p>
+<p>These log events will reach the <code class="docutils literal notranslate"><span class="pre">django</span></code> logger by default, which mails error
+events to admins when <code class="docutils literal notranslate"><span class="pre">DEBUG=False</span></code>. Requests resulting in a 400 response due
+to a <code class="docutils literal notranslate"><span class="pre">SuspiciousOperation</span></code> will not be logged to the <code class="docutils literal notranslate"><span class="pre">django.request</span></code>
+logger, but only to the <code class="docutils literal notranslate"><span class="pre">django.security</span></code> logger.</p>
+<p>To silence a particular type of <code class="docutils literal notranslate"><span class="pre">SuspiciousOperation</span></code>, you can override that
+specific logger following this example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;null&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.NullHandler&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">},</span>
+<span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;django.security.DisallowedHost&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;null&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;propagate&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>Other <code class="docutils literal notranslate"><span class="pre">django.security</span></code> loggers not based on <code class="docutils literal notranslate"><span class="pre">SuspiciousOperation</span></code> are:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">django.security.csrf</span></code>: For <a class="reference internal" href="../../howto/csrf/index.html#csrf-rejected-requests"><span class="std std-ref">CSRF failures</span></a>.</li>
+</ul>
+</div>
+<div class="section" id="s-django-db-backends-schema">
+<span id="django-db-backends-schema"></span><h4><code class="docutils literal notranslate"><span class="pre">django.db.backends.schema</span></code><a class="headerlink" href="#django-db-backends-schema" title="Permalink to this headline">¶</a></h4>
+<p>Logs the SQL queries that are executed during schema changes to the database by
+the <a class="reference internal" href="../../topics/migrations/index.html"><span class="doc">migrations framework</span></a>. Note that it won’t log the
+queries executed by <a class="reference internal" href="../migration-operations/index.html#django.db.migrations.operations.RunPython" title="django.db.migrations.operations.RunPython"><code class="xref py py-class docutils literal notranslate"><span class="pre">RunPython</span></code></a>.
+Messages to this logger have <code class="docutils literal notranslate"><span class="pre">params</span></code> and <code class="docutils literal notranslate"><span class="pre">sql</span></code> in their extra context (but
+unlike <code class="docutils literal notranslate"><span class="pre">django.db.backends</span></code>, not duration). The values have the same meaning
+as explained in <a class="reference internal" href="#django-db-logger"><span class="std std-ref">django.db.backends</span></a>.</p>
+</div>
+</div>
+<div class="section" id="s-handlers">
+<span id="handlers"></span><h3>Handlers<a class="headerlink" href="#handlers" title="Permalink to this headline">¶</a></h3>
+<p>Django provides one log handler in addition to <a class="reference external" href="https://docs.python.org/3/library/logging.handlers.html#module-logging.handlers" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">those</span> <span class="pre">provided</span> <span class="pre">by</span> <span class="pre">the</span>
+<span class="pre">Python</span> <span class="pre">logging</span> <span class="pre">module</span></code></a>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="django.utils.log.AdminEmailHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><code class="sig-name descname"><span class="pre">AdminEmailHandler</span></code>(<em><span class="n"><span class="pre">include_html</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em><span class="n"><span class="pre">email_backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="n"><span class="pre">reporter_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>)<a class="headerlink" href="#django.utils.log.AdminEmailHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>This handler sends an email to the site <a class="reference internal" href="../settings/index.html#std-setting-ADMINS"><code class="xref std std-setting docutils literal notranslate"><span class="pre">ADMINS</span></code></a> for each log
+message it receives.</p>
+<p>If the log record contains a <code class="docutils literal notranslate"><span class="pre">request</span></code> attribute, the full details
+of the request will be included in the email. The email subject will
+include the phrase “internal IP” if the client’s IP address is in the
+<a class="reference internal" href="../settings/index.html#std-setting-INTERNAL_IPS"><code class="xref std std-setting docutils literal notranslate"><span class="pre">INTERNAL_IPS</span></code></a> setting; if not, it will include “EXTERNAL IP”.</p>
+<p>If the log record contains stack trace information, that stack
+trace will be included in the email.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">include_html</span></code> argument of <code class="docutils literal notranslate"><span class="pre">AdminEmailHandler</span></code> is used to
+control whether the traceback email includes an HTML attachment
+containing the full content of the debug web page that would have been
+produced if <a class="reference internal" href="../settings/index.html#std-setting-DEBUG"><code class="xref std std-setting docutils literal notranslate"><span class="pre">DEBUG</span></code></a> were <code class="docutils literal notranslate"><span class="pre">True</span></code>. To set this value in your
+configuration, include it in the handler definition for
+<code class="docutils literal notranslate"><span class="pre">django.utils.log.AdminEmailHandler</span></code>, like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;mail_admins&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;ERROR&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;django.utils.log.AdminEmailHandler&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;include_html&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>Be aware of the <a class="reference internal" href="../../topics/logging/index.html#logging-security-implications"><span class="std std-ref">security implications of logging</span></a> when using the <code class="docutils literal notranslate"><span class="pre">AdminEmailHandler</span></code>.</p>
+<p>By setting the <code class="docutils literal notranslate"><span class="pre">email_backend</span></code> argument of <code class="docutils literal notranslate"><span class="pre">AdminEmailHandler</span></code>, the
+<a class="reference internal" href="../../topics/email/index.html#topic-email-backends"><span class="std std-ref">email backend</span></a> that is being used by the
+handler can be overridden, like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;mail_admins&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;ERROR&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;django.utils.log.AdminEmailHandler&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;email_backend&#39;</span><span class="p">:</span> <span class="s1">&#39;django.core.mail.backends.filebased.EmailBackend&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>By default, an instance of the email backend specified in
+<a class="reference internal" href="../settings/index.html#std-setting-EMAIL_BACKEND"><code class="xref std std-setting docutils literal notranslate"><span class="pre">EMAIL_BACKEND</span></code></a> will be used.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">reporter_class</span></code> argument of <code class="docutils literal notranslate"><span class="pre">AdminEmailHandler</span></code> allows providing
+an <code class="docutils literal notranslate"><span class="pre">django.views.debug.ExceptionReporter</span></code> subclass to customize the
+traceback text sent in the email body. You provide a string import path to
+the class you wish to use, like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;mail_admins&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;ERROR&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;django.utils.log.AdminEmailHandler&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;include_html&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">&#39;reporter_class&#39;</span><span class="p">:</span> <span class="s1">&#39;somepackage.error_reporter.CustomErrorReporter&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="django.utils.log.AdminEmailHandler.send_mail">
+<code class="sig-name descname"><span class="pre">send_mail</span></code>(<em><span class="n"><span class="pre">subject</span></span></em>, <em><span class="n"><span class="pre">message</span></span></em>, <em><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em>)<a class="headerlink" href="#django.utils.log.AdminEmailHandler.send_mail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends emails to admin users. To customize this behavior, you can
+subclass the <a class="reference internal" href="#django.utils.log.AdminEmailHandler" title="django.utils.log.AdminEmailHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">AdminEmailHandler</span></code></a> class and
+override this method.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="s-filters">
+<span id="filters"></span><h3>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h3>
+<p>Django provides some log filters in addition to those provided by the Python
+logging module.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="django.utils.log.CallbackFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><code class="sig-name descname"><span class="pre">CallbackFilter</span></code>(<em><span class="n"><span class="pre">callback</span></span></em>)<a class="headerlink" href="#django.utils.log.CallbackFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>This filter accepts a callback function (which should accept a single
+argument, the record to be logged), and calls it for each record that
+passes through the filter. Handling of that record will not proceed if the
+callback returns False.</p>
+<p>For instance, to filter out <a class="reference internal" href="../exceptions/index.html#django.http.UnreadablePostError" title="django.http.UnreadablePostError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnreadablePostError</span></code></a>
+(raised when a user cancels an upload) from the admin emails, you would
+create a filter function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">UnreadablePostError</span>
+
+<span class="k">def</span> <span class="nf">skip_unreadable_post</span><span class="p">(</span><span class="n">record</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">record</span><span class="o">.</span><span class="n">exc_info</span><span class="p">:</span>
+        <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_value</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">exc_info</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">exc_value</span><span class="p">,</span> <span class="n">UnreadablePostError</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>and then add it to your logging config:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;filters&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;skip_unreadable_posts&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;()&#39;</span><span class="p">:</span> <span class="s1">&#39;django.utils.log.CallbackFilter&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;callback&#39;</span><span class="p">:</span> <span class="n">skip_unreadable_post</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">},</span>
+<span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;mail_admins&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;ERROR&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;filters&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;skip_unreadable_posts&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;django.utils.log.AdminEmailHandler&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="django.utils.log.RequireDebugFalse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><code class="sig-name descname"><span class="pre">RequireDebugFalse</span></code><a class="headerlink" href="#django.utils.log.RequireDebugFalse" title="Permalink to this definition">¶</a></dt>
+<dd><p>This filter will only pass on records when settings.DEBUG is False.</p>
+<p>This filter is used as follows in the default <a class="reference internal" href="../settings/index.html#std-setting-LOGGING"><code class="xref std std-setting docutils literal notranslate"><span class="pre">LOGGING</span></code></a>
+configuration to ensure that the <a class="reference internal" href="#django.utils.log.AdminEmailHandler" title="django.utils.log.AdminEmailHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">AdminEmailHandler</span></code></a> only sends
+error emails to admins when <a class="reference internal" href="../settings/index.html#std-setting-DEBUG"><code class="xref std std-setting docutils literal notranslate"><span class="pre">DEBUG</span></code></a> is <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;filters&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;require_debug_false&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;()&#39;</span><span class="p">:</span> <span class="s1">&#39;django.utils.log.RequireDebugFalse&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">},</span>
+<span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;mail_admins&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;ERROR&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;filters&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;require_debug_false&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;django.utils.log.AdminEmailHandler&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="django.utils.log.RequireDebugTrue">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><code class="sig-name descname"><span class="pre">RequireDebugTrue</span></code><a class="headerlink" href="#django.utils.log.RequireDebugTrue" title="Permalink to this definition">¶</a></dt>
+<dd><p>This filter is similar to <a class="reference internal" href="#django.utils.log.RequireDebugFalse" title="django.utils.log.RequireDebugFalse"><code class="xref py py-class docutils literal notranslate"><span class="pre">RequireDebugFalse</span></code></a>, except that records are
+passed only when <a class="reference internal" href="../settings/index.html#std-setting-DEBUG"><code class="xref std std-setting docutils literal notranslate"><span class="pre">DEBUG</span></code></a> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="browse-horizontal">
+  
+  <div class="left"><a href="../forms/validation/index.html"><i class="icon icon-chevron-left"></i> Form and field validation</a></div>
+  
+  
+  <div class="right"><a href="../middleware/index.html">Middleware <i class="icon icon-chevron-right"></i></a></div>
+  
+</div>
+
+
+
+        <a href="#top" class="backtotop"><i class="icon icon-chevron-up"></i> Back to Top</a>
+      </div>
+
+      
+<h1 class="visuallyhidden">Additional Information</h1>
+<div role="complementary">
+
+  
+
+
+  <div class="fundraising-sidebar">
+    <h2>Support Django!</h2>
+
+    <div class="small-heart">
+      <img src="https://static.djangoproject.com/img/fundraising-heart.cd6bb84ffd33.svg" alt="Support Django!" />
+    </div>
+
+    <div class="small-cta">
+      <ul class="list-links-small">
+        <li><a href="https://www.djangoproject.com/fundraising/">
+          Panaton Software donated to the Django Software Foundation to
+          support Django development. Donate today!
+        </a></li>
+      </ul>
+    </div>
+  </div>
+
+
+
+  
+    <h2>Contents</h2>
+    
+    <ul>
+<li><a class="reference internal" href="#">Logging</a><ul>
+<li><a class="reference internal" href="#django-s-default-logging-configuration">Django’s default logging configuration</a><ul>
+<li><a class="reference internal" href="#default-logging-conditions">Default logging conditions</a></li>
+<li><a class="reference internal" href="#default-logging-definition">Default logging definition</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#django-logging-extensions">Django logging extensions</a><ul>
+<li><a class="reference internal" href="#loggers">Loggers</a><ul>
+<li><a class="reference internal" href="#django"><code class="docutils literal notranslate"><span class="pre">django</span></code></a></li>
+<li><a class="reference internal" href="#django-request"><code class="docutils literal notranslate"><span class="pre">django.request</span></code></a></li>
+<li><a class="reference internal" href="#django-server"><code class="docutils literal notranslate"><span class="pre">django.server</span></code></a></li>
+<li><a class="reference internal" href="#django-template"><code class="docutils literal notranslate"><span class="pre">django.template</span></code></a></li>
+<li><a class="reference internal" href="#django-db-backends"><code class="docutils literal notranslate"><span class="pre">django.db.backends</span></code></a></li>
+<li><a class="reference internal" href="#django-security"><code class="docutils literal notranslate"><span class="pre">django.security.*</span></code></a></li>
+<li><a class="reference internal" href="#django-db-backends-schema"><code class="docutils literal notranslate"><span class="pre">django.db.backends.schema</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#handlers">Handlers</a></li>
+<li><a class="reference internal" href="#filters">Filters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    
+  
+
+  
+  <h2>Browse</h2>
+  <ul>
+    
+    
+    <li>Prev: <a href="../forms/validation/index.html">Form and field validation</a></li>
+    
+    
+    <li>Next: <a href="../middleware/index.html">Middleware</a></li>
+    
+    <li><a href="../../contents/index.html">Table of contents</a></li>
+    
+    <li><a href="../../genindex/index.html">General Index</a></li>
+    
+    <li><a href="../../py-modindex/index.html">Python Module Index</a></li>
+    
+    
+  </ul>
+  
+
+  
+  <h2>You are here:</h2>
+  <ul>
+    <li>
+      <a href="../../index.html">Django 4.1 documentation</a>
+      
+      <ul><li><a href="../index.html">API Reference</a>
+      
+      <ul><li>Logging</li></ul>
+      </li></ul>
+    </li>
+  </ul>
+  
+
+  
+  <h2 id="getting-help-sidebar">Getting help</h2>
+  <dl class="list-links">
+    <dt><a href="../../faq/index.html">FAQ</a></dt>
+    <dd>Try the FAQ — it's got answers to many common questions.</dd>
+
+    <dt><a href="https://docs.djangoproject.com/en/stable/genindex/">Index</a>, <a href="https://docs.djangoproject.com/en/stable/py-modindex/">Module Index</a>, or <a href="https://docs.djangoproject.com/en/stable/contents/">Table of Contents</a></dt>
+    <dd>Handy when looking for specific information.</dd>
+
+    <dt><a href="https://groups.google.com/group/django-users/">django-users mailing list</a></dt>
+    <dd>Search for information in the archives of the django-users mailing list, or post a question.</dd>
+
+    <dt><a href="irc://irc.libera.chat/django">#django IRC channel</a></dt>
+    <dd>Ask a question in the #django IRC channel, or search the IRC logs to see if it’s been asked before.</dd>
+
+    <dt><a href="https://discord.gg/xcRH6mN4fa">Django Discord Server</a></dt>
+    <dd>Join the Django Discord Community.</dd>
+
+    <dt><a href="https://forum.djangoproject.com/">Official Django Forum</a></dt>
+    <dd>Join the community on the Django Forum.</dd>
+
+    <dt><a href="https://code.djangoproject.com/">Ticket tracker</a></dt>
+    <dd>Report bugs with Django or Django documentation in our ticket tracker.</dd>
+  </dl>
+  
+
+  
+  <h2>Download:</h2>
+  <p>
+    Offline (Django 4.1):
+    <a href="https://media.djangoproject.com/docs/django-docs-4.1-en.zip">HTML</a> |
+    <a href="https://media.readthedocs.org/pdf/django/4.1.x/django.pdf">PDF</a> |
+    <a href="https://media.readthedocs.org/epub/django/4.1.x/django.epub">ePub</a>
+    <br>
+    <span class="quiet">
+      Provided by <a href="https://readthedocs.org/">Read the Docs</a>.
+    </span>
+  </p>
+  
+</div>
+
+      
+
+    </div>
+
+     
+     
+
+    
+    
+    
+
+    <!-- SVGs -->
+    <svg xmlns="http://www.w3.org/2000/svg">
+      <symbol viewBox="0 0 24 24" id="icon-auto"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2V4a8 8 0 1 0 0 16z"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icon-moon"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icon-sun"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol>
+    </svg>
+    <!-- END SVGs -->
+
+    
+      <div role="contentinfo">
+  <div class="subfooter">
+    <div class="container">
+      <h1 class="visuallyhidden">Django Links</h1>
+      <div class="column-container">
+        <div class="col-learn-more">
+          <h2>Learn More</h2>
+          <ul>
+            <li><a href="https://www.djangoproject.com/start/overview/">About Django</a></li>
+            
+            <li><a href="https://www.djangoproject.com/start/">Getting Started with Django</a></li>
+            <li><a href="https://docs.djangoproject.com/en/dev/internals/organization/">Team
+              Organization</a></li>
+            <li><a href="https://www.djangoproject.com/foundation/">Django Software Foundation</a></li>
+            <li><a href="https://www.djangoproject.com/conduct/">Code of Conduct</a></li>
+            <li><a href="https://www.djangoproject.com/diversity/">Diversity Statement</a></li>
+          </ul>
+        </div>
+
+        <div class="col-get-involved">
+          <h2>Get Involved</h2>
+          <ul>
+            <li><a href="https://www.djangoproject.com/community/">Join a Group</a></li>
+            <li><a href="https://docs.djangoproject.com/en/dev/internals/contributing/">Contribute
+              to Django</a></li>
+            <li><a
+              href="https://docs.djangoproject.com/en/dev/internals/contributing/bugs-and-features/">Submit
+              a Bug</a></li>
+            <li><a
+              href="https://docs.djangoproject.com/en/dev/internals/security/#reporting-security-issues">Report
+              a Security Issue</a></li>
+          </ul>
+        </div>
+
+        <div class="col-get-help">
+          <h2>Get Help</h2>
+          <ul>
+            <li><a href="https://docs.djangoproject.com/en/stable/faq/">Getting Help FAQ</a>
+            </li>
+            <li><a href="irc://irc.libera.chat/django">#django IRC channel</a></li>
+            <li><a href="https://discord.gg/xcRH6mN4fa" target="_blank">Django Discord</a></li>
+            <li><a href="https://forum.djangoproject.com/" target="_blank">Official Django Forum</a></li>
+          </ul>
+        </div>
+
+        <div class="col-follow-us">
+          <h2>Follow Us</h2>
+          <ul>
+            <li><a href="https://github.com/django">GitHub</a></li>
+            <li><a href="https://twitter.com/djangoproject">Twitter</a></li>
+            <li><a href="https://www.djangoproject.com/rss/weblog/">News RSS</a></li>
+            <li><a href="https://groups.google.com/forum/#!forum/django-users">Django Users Mailing List</a></li>
+          </ul>
+        </div>
+
+        <div class="col-support-us">
+          <h2>Support Us</h2>
+          <ul>
+            <li><a href="https://www.djangoproject.com/fundraising/">Sponsor Django</a></li>
+            <li><a href="https://django.threadless.com/" target="_blank">Official merchandise store</a></li>
+            <li><a href="https://docs.djangoproject.com/foundation/donate/#benevity-giving">Benevity Workplace Giving Program</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="container">
+      <div class="footer-logo">
+        <a class="logo" href="https://www.djangoproject.com/">Django</a>
+      </div>
+      <ul class="thanks">
+        <li>
+          <span>Hosting by</span> <a class="in-kind-donors" href="https://www.djangoproject.com/fundraising/#in-kind-donors">In-kind
+          donors</a>
+        </li>
+        <li class="design"><span>Design by</span> <a class="threespot" href="https://www.threespot.com/">Threespot</a>
+          <span class="ampersand">&amp;</span> <a class="andrevv" href="http://andrevv.com/">andrevv</a></li>
+      </ul>
+      <p class="copyright">&copy; 2005-2023
+        <a href="https://www.djangoproject.com/foundation/"> Django Software
+          Foundation</a> and individual contributors. Django is a
+        <a href="https://www.djangoproject.com/trademarks/">registered
+          trademark</a> of the Django Software Foundation.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+    
+
+    
+    <script>
+    function extless(input) {
+        return input.replace(/(.*)\.[^.]+$/, '$1');
+    }
+    var require = {
+        shim: {
+            'jquery': [],
+            'jquery.inview': ["jquery"],
+            'jquery.payment': ["jquery"],
+            'jquery.flot': ["jquery"],
+            'jquery.unveil': ["jquery"],
+            'stripe': {
+              exports: 'Stripe'
+            }
+        },
+        paths: {
+            "jquery": extless("../../../../../static.djangoproject.com/js/lib/jquery/dist/jquery.min.87e69028f78d.js"),
+            "jquery.inview": extless("../../../../../static.djangoproject.com/js/lib/jquery.inview/jquery.inview.min.4edba1c65592.js"),
+            "jquery.payment": extless("../../../../../static.djangoproject.com/js/lib/jquery.payment/lib/jquery.payment.e99c05ca79ae.js"),
+            "jquery.unveil": extless("../../../../../static.djangoproject.com/js/lib/unveil/jquery.unveil.min.ac79eb277093.js"),
+            "jquery.flot": extless("../../../../../static.djangoproject.com/js/lib/jquery-flot/jquery.flot.min.9964206e9d7f.js"),
+            "clipboard": extless("../../../../../static.djangoproject.com/js/lib/clipboard/dist/clipboard.min.bd70fd596a23.js"),
+            "mod/floating-warning": extless("../../../../../static.djangoproject.com/js/mod/floating-warning.a21b2abd2884.js"),
+            "mod/list-collapsing": extless("../../../../../static.djangoproject.com/js/mod/list-collapsing.c1a08d3ef9e9.js"),
+            "mod/list-feature": extless("../../../../../static.djangoproject.com/js/mod/list-feature.73529480f25b.js"),
+            "mod/mobile-menu": extless("../../../../../static.djangoproject.com/js/mod/mobile-menu.6012f4745df8.js"),
+            "mod/version-switcher": extless("../../../../../static.djangoproject.com/js/mod/version-switcher.c56ff7ed5481.js"),
+            "mod/search-key": extless("../../../../../static.djangoproject.com/js/mod/search-key.ae7292327b47.js"),
+            "mod/stripe-change-card": extless("../../../../../static.djangoproject.com/js/mod/stripe-change-card.682c710317a8.js"),
+            "mod/switch-dark-mode": extless("../../../../../static.djangoproject.com/js/mod/switch-dark-mode.a0e0dca32970.js"),
+            "mod/console-tabs": extless("../../../../../static.djangoproject.com/js/mod/console-tabs.70ce882faaf3.js"),
+            "stripe-checkout": "https://checkout.stripe.com/checkout",
+            "stripe": "https://js.stripe.com/v3/?" // ? needed due to require.js
+        }
+    };
+    </script>
+    <script data-main="https://static.djangoproject.com/js/main.48270eac7c0b.js" src="../../../../../static.djangoproject.com/js/lib/require.177879fbe7dd.js"></script>
+    
+
+
+  </body>
+
+<!-- Mirrored from docs.djangoproject.com/en/4.1/ref/logging/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Mar 2023 18:02:37 GMT -->
+</html>

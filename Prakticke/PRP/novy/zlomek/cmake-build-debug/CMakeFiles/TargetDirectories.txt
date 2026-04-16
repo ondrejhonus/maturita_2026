@@ -1,0 +1,3 @@
+C:/Users/megaagri/Desktop/Maturitniotazky/PRP_PVY_PGR_prakticka/prakticka/C++/novy/zlomek/cmake-build-debug/CMakeFiles/zlomek.dir
+C:/Users/megaagri/Desktop/Maturitniotazky/PRP_PVY_PGR_prakticka/prakticka/C++/novy/zlomek/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/megaagri/Desktop/Maturitniotazky/PRP_PVY_PGR_prakticka/prakticka/C++/novy/zlomek/cmake-build-debug/CMakeFiles/rebuild_cache.dir

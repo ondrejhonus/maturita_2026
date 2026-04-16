@@ -1,0 +1,21 @@
+HTTrack3.49-2+htsswf+htsjava launched on Mon, 06 Mar 2023 19:12:25 at https://www.w3schools.com/mysql/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://www.w3schools.com/mysql/ -O1 "D:\mysqldocs\MySQL docs" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+19:16:08	Error: 	"Bad Request" (400) at link https://www.googletagmanager.com/gtm.js?id= (from https://www.w3schools.com/mysql/)
+19:16:08	Error: 	"Not Found" (404) at link https://www.w3schools.com/mysql/python/ (from https://www.w3schools.com/mysql/)
+19:16:08	Error: 	"Not Found" (404) at link https://www.w3schools.com/mysql/numpy/ (from https://www.w3schools.com/mysql/)
+19:16:08	Error: 	"Not Found" (404) at link https://www.w3schools.com/mysql/pandas/ (from https://www.w3schools.com/mysql/)
+19:16:08	Error: 	"Not Found" (404) at link https://www.w3schools.com/mysql/scipy/ (from https://www.w3schools.com/mysql/)
+19:22:13	Error: 	"Not Found" (404) at link https://www.w3schools.com/mysql/React.js (from https://www.w3schools.com/mysql/)
+19:22:13	Error: 	"Not Found" (404) at link https://www.w3schools.com/mysql/Node.js (from https://www.w3schools.com/mysql/)
+19:22:49	Error: 	"Not Found" (404) at link https://www.w3schools.com/mysql/trysql.asp?filename=trysql_func_mysql_round3 (from https://www.w3schools.com/mysql/func_mysql_round.asp)
+19:23:11	Error: 	"Not Found" (404) at link https://www.w3schools.com/mysql/api.exercise.set (from https://www.w3schools.com/mysql/exercise.asp?filename=exercise_select1)
+19:23:11	Error: 	"Not Found" (404) at link https://www.w3schools.com/mysql/exercise.asp?filename=exercise_ (from https://www.w3schools.com/mysql/exercise.asp?filename=exercise_select1)
+
+HTTrack Website Copier/3.49-2 mirror complete in 10 minutes 50 seconds : 809 links scanned, 798 files written (37036111 bytes overall) [27151510 bytes received at 41771 bytes/sec], 32696204 bytes transferred using HTTP compression in 711 files, ratio 68%
+(10 errors, 0 warnings, 0 messages)

@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from docs.djangoproject.com/en/4.1/ref/contrib/gis/layermapping/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Mar 2023 18:02:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="ROBOTS" content="ALL" />
+    <meta name="MSSmartTagsPreventParsing" content="true" />
+    <meta name="Copyright" content="Django Software Foundation" />
+    <meta name="keywords" content="Python, Django, framework, open-source" />
+    <meta name="description" content="" />
+
+    
+  
+    
+      
+    
+  
+  <link rel="canonical" href="index.html">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="el"
+       href="https://docs.djangoproject.com/el/4.1/ref/contrib/gis/layermapping/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="en"
+       href="index.html">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="es"
+       href="https://docs.djangoproject.com/es/4.1/ref/contrib/gis/layermapping/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="fr"
+       href="https://docs.djangoproject.com/fr/4.1/ref/contrib/gis/layermapping/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="id"
+       href="https://docs.djangoproject.com/id/4.1/ref/contrib/gis/layermapping/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="it"
+       href="https://docs.djangoproject.com/it/4.1/ref/contrib/gis/layermapping/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="ja"
+       href="https://docs.djangoproject.com/ja/4.1/ref/contrib/gis/layermapping/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="ko"
+       href="https://docs.djangoproject.com/ko/4.1/ref/contrib/gis/layermapping/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="pl"
+       href="https://docs.djangoproject.com/pl/4.1/ref/contrib/gis/layermapping/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="pt-br"
+       href="https://docs.djangoproject.com/pt-br/4.1/ref/contrib/gis/layermapping/">
+  
+    
+      
+    
+    <link rel="alternate"
+       hreflang="zh-hans"
+       href="https://docs.djangoproject.com/zh-hans/4.1/ref/contrib/gis/layermapping/">
+  
+
+  <link rel="search"
+        type="application/opensearchdescription+xml"
+        href="../../../../search/description/index.html"
+        title="Django documentation">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="../../../../../../../static.djangoproject.com/img/icon-touch.e4872c4da341.png">
+    <link rel="icon" sizes="192x192" href="../../../../../../../static.djangoproject.com/img/icon-touch.e4872c4da341.png">
+    <link rel="shortcut icon" href="https://static.djangoproject.com/img/favicon.6dbf28c0650e.ico">
+    <meta name="msapplication-TileColor" content="#113228">
+    <meta name="msapplication-TileImage" content="../../../../../../../static.djangoproject.com/img/icon-tile.b01ac0ef9f67.png">
+    <meta name="theme-color" content="#0C4B33">
+
+    
+    <meta property="og:title" content="Django" />
+    <meta property="og:description" content="The web framework for perfectionists with deadlines." />
+    <meta property="og:image" content="../../../../../../../static.djangoproject.com/img/logos/django-logo-negative.1d528e2cb5fb.png" />
+    <meta property="og:image:alt" content="Django logo" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="546" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:url" content="index.html" />
+    <meta property="og:site_name" content="Django Project" />
+
+    <meta property="twitter:creator" content="djangoproject" />
+    <meta property="twitter:site" content="djangoproject" />
+    <meta property="twitter:card" content="summary">
+    
+
+    <title>LayerMapping data import utility | Django documentation | Django</title>
+
+    <link rel="stylesheet" href="../../../../../../../static.djangoproject.com/css/output.1adc4207e45f.css" >
+    <script src="../../../../../../../static.djangoproject.com/js/lib/webfontloader/webfontloader.e75218f5f090.js"></script>
+    <script>
+    WebFont.load({
+      custom: {
+        families: ['FontAwesome', 'Fira+Mono'],
+      },
+      google: {
+        families: ['Roboto:400italic,700italic,300,700,400:latin'
+        ]
+      },
+      classes: false,
+      events: false,
+      timeout: 1000
+    });
+    </script>
+    <script src="../../../../../../../static.djangoproject.com/js/lib/modernizr.3b36762e418a.js"></script>
+    <script src="../../../../../../../static.djangoproject.com/js/mod/switch-dark-mode.a0e0dca32970.js"></script>
+    
+  </head>
+
+  <body id="generic" class="">
+
+    <div role="banner" id="top">
+  <div class="container">
+    <a class="logo" href="https://www.djangoproject.com/">Django</a>
+    <p class="meta">The web framework for perfectionists with deadlines.</p>
+    <div class="mobile-toggle">
+      
+
+<button class="theme-toggle">
+  <div class="visually-hidden theme-label-when-auto">Toggle theme (current theme: auto)</div>
+  <div class="visually-hidden theme-label-when-light">Toggle theme (current theme: light)</div>
+  <div class="visually-hidden theme-label-when-dark">Toggle theme (current theme: dark)</div>
+
+  <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+  <svg aria-hidden="true" class="theme-icon-when-auto">
+    <use xlink:href="#icon-auto" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-dark">
+    <use xlink:href="#icon-moon" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-light">
+    <use xlink:href="#icon-sun" />
+  </svg>
+</button>
+
+    </div>
+    <div role="navigation">
+      <ul>
+        <li>
+          <a href="https://www.djangoproject.com/start/overview/">Overview</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/download/">Download</a>
+        </li>
+        <li class="active">
+          <a href="https://docs.djangoproject.com/">Documentation</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/weblog/">News</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/community/">Community</a>
+        </li>
+        <li>
+          <a href="https://github.com/django/django" target="_blank" rel="noopener">Code</a>
+        </li>
+        <li>
+          <a href="https://code.djangoproject.com/">Issues</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/foundation/">About</a>
+        </li>
+        <li>
+          <a href="https://www.djangoproject.com/fundraising/">&#9829; Donate</a>
+        </li>
+        <li>
+          
+
+<button class="theme-toggle">
+  <div class="visually-hidden theme-label-when-auto">Toggle theme (current theme: auto)</div>
+  <div class="visually-hidden theme-label-when-light">Toggle theme (current theme: light)</div>
+  <div class="visually-hidden theme-label-when-dark">Toggle theme (current theme: dark)</div>
+
+  <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+  <svg aria-hidden="true" class="theme-icon-when-auto">
+    <use xlink:href="#icon-auto" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-dark">
+    <use xlink:href="#icon-moon" />
+  </svg>
+  <svg aria-hidden="true" class="theme-icon-when-light">
+    <use xlink:href="#icon-sun" />
+  </svg>
+</button>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+    <div class="copy-banner">
+      <div class="container 
+container--flex container--flex--wrap--mobile
+">
+        
+<h1><a href="../../../../index.html">Documentation</a></h1>
+
+
+<form action="https://docs.djangoproject.com/en/4.1/search/" class="search form-input" role="search">
+  <label class="visuallyhidden" for="id_q">Search:</label>
+    <input type="search" name="q" placeholder="Search 4.1 documentation" id="id_q">
+
+    <button type="submit">
+      <i class="icon icon-search"></i>
+      <span class="visuallyhidden">Search</span>
+    </button>
+</form>
+
+
+      </div>
+    </div>
+    <div id="billboard"></div>
+
+    <div class="container sidebar-right">
+      <div role="main">
+
+        
+          
+        
+
+        
+<div id="version-switcher">
+  <ul id="faq-link">
+    <li class="current-link">
+      <a href="../../../../faq/help/index.html">
+        <span>Getting Help</span>
+      </a>
+    </li>
+  </ul>
+  <ul id="doc-languages" class="language-switcher doc-switcher">
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/el/4.1/ref/contrib/gis/layermapping/">el</a>
+  </li>
+  
+  
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/es/4.1/ref/contrib/gis/layermapping/">es</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/fr/4.1/ref/contrib/gis/layermapping/">fr</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/id/4.1/ref/contrib/gis/layermapping/">id</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/it/4.1/ref/contrib/gis/layermapping/">it</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/ja/4.1/ref/contrib/gis/layermapping/">ja</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/ko/4.1/ref/contrib/gis/layermapping/">ko</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/pl/4.1/ref/contrib/gis/layermapping/">pl</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/pt-br/4.1/ref/contrib/gis/layermapping/">pt-br</a>
+  </li>
+  
+  
+  
+  <li class="other">
+    
+      
+    
+    <a href="https://docs.djangoproject.com/zh-hans/4.1/ref/contrib/gis/layermapping/">zh-hans</a>
+  </li>
+  
+  
+    <li class="current"
+        title="Click on the links on the left to switch to another language.">
+      <span>Language: <strong>en</strong></span>
+    </li>
+  </ul>
+
+  
+  <ul id="doc-versions" class="version-switcher doc-switcher">
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/1.8/ref/contrib/gis/layermapping/">1.8</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/1.10/ref/contrib/gis/layermapping/">1.10</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/1.11/ref/contrib/gis/layermapping/">1.11</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/2.0/ref/contrib/gis/layermapping/">2.0</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/2.1/ref/contrib/gis/layermapping/">2.1</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/2.2/ref/contrib/gis/layermapping/">2.2</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/3.0/ref/contrib/gis/layermapping/">3.0</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/3.1/ref/contrib/gis/layermapping/">3.1</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/3.2/ref/contrib/gis/layermapping/">3.2</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/4.0/ref/contrib/gis/layermapping/">4.0</a>
+    </li>
+    
+    
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/4.2/ref/contrib/gis/layermapping/">4.2</a>
+    </li>
+    
+    
+    
+    <li class="other">
+      
+        
+      
+      <a href="https://docs.djangoproject.com/en/dev/ref/contrib/gis/layermapping/">dev</a>
+    </li>
+    
+    
+    <li class="current"
+        title="This document describes Django 4.1. Click on the links on the left to see other versions.">
+       <span>Documentation version:
+         <strong>4.1</strong>
+       </span>
+    </li>
+  </ul>
+</div>
+
+
+<div id="docs-content">
+<div class="section" id="s-module-django.contrib.gis.utils.layermapping">
+<span id="s-layermapping-data-import-utility"></span><span id="module-django.contrib.gis.utils.layermapping"></span><span id="layermapping-data-import-utility"></span><h1><code class="docutils literal notranslate"><span class="pre">LayerMapping</span></code> data import utility<a class="headerlink" href="#module-django.contrib.gis.utils.layermapping" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="#django.contrib.gis.utils.LayerMapping" title="django.contrib.gis.utils.LayerMapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">LayerMapping</span></code></a> class provides a way to map the contents of
+vector spatial data files (e.g. shapefiles) into GeoDjango models.</p>
+<p>This utility grew out of the author’s personal needs to eliminate
+the code repetition that went into pulling geometries and fields out of
+a vector layer, converting to another coordinate system (e.g. WGS84), and
+then inserting into a GeoDjango model.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use of <a class="reference internal" href="#django.contrib.gis.utils.LayerMapping" title="django.contrib.gis.utils.LayerMapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">LayerMapping</span></code></a> requires GDAL.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">GIS data sources, like shapefiles, may be very large.  If you find
+that <a class="reference internal" href="#django.contrib.gis.utils.LayerMapping" title="django.contrib.gis.utils.LayerMapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">LayerMapping</span></code></a> is using too much memory, set
+<a class="reference internal" href="../../../settings/index.html#std-setting-DEBUG"><code class="xref std std-setting docutils literal notranslate"><span class="pre">DEBUG</span></code></a> to <code class="docutils literal notranslate"><span class="pre">False</span></code> in your settings.  When <a class="reference internal" href="../../../settings/index.html#std-setting-DEBUG"><code class="xref std std-setting docutils literal notranslate"><span class="pre">DEBUG</span></code></a>
+is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, Django <a class="reference internal" href="../../../../faq/models/index.html#faq-see-raw-sql-queries"><span class="std std-ref">automatically logs</span></a>
+<em>every</em> SQL query – and when SQL statements contain geometries, this may
+consume more memory than is typical.</p>
+</div>
+<div class="section" id="s-example">
+<span id="example"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">You need a GDAL-supported data source, like a shapefile (here we’re using
+a simple polygon shapefile, <code class="docutils literal notranslate"><span class="pre">test_poly.shp</span></code>, with three features):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.contrib.gis.gdal</span> <span class="kn">import</span> <span class="n">DataSource</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ds</span> <span class="o">=</span> <span class="n">DataSource</span><span class="p">(</span><span class="s1">&#39;test_poly.shp&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">layer</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">layer</span><span class="o">.</span><span class="n">fields</span><span class="p">)</span> <span class="c1"># Exploring the fields in the layer, we only want the &#39;str&#39; field.</span>
+<span class="go">[&#39;float&#39;, &#39;int&#39;, &#39;str&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">layer</span><span class="p">))</span> <span class="c1"># getting the number of features in the layer (should be 3)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">layer</span><span class="o">.</span><span class="n">geom_type</span><span class="p">)</span> <span class="c1"># Should be &#39;Polygon&#39;</span>
+<span class="go">Polygon</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">layer</span><span class="o">.</span><span class="n">srs</span><span class="p">)</span> <span class="c1"># WGS84 in WKT</span>
+<span class="go">GEOGCS[&quot;GCS_WGS_1984&quot;,</span>
+<span class="go">    DATUM[&quot;WGS_1984&quot;,</span>
+<span class="go">        SPHEROID[&quot;WGS_1984&quot;,6378137,298.257223563]],</span>
+<span class="go">    PRIMEM[&quot;Greenwich&quot;,0],</span>
+<span class="go">    UNIT[&quot;Degree&quot;,0.017453292519943295]]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Now we define our corresponding Django model (make sure to use <a class="reference internal" href="../../../django-admin/index.html#django-admin-migrate"><code class="xref std std-djadmin docutils literal notranslate"><span class="pre">migrate</span></code></a>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.contrib.gis.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">TestGeo</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span> <span class="c1"># corresponds to the &#39;str&#39; field</span>
+    <span class="n">poly</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">PolygonField</span><span class="p">(</span><span class="n">srid</span><span class="o">=</span><span class="mi">4269</span><span class="p">)</span> <span class="c1"># we want our model in a different SRID</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;Name: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Use <a class="reference internal" href="#django.contrib.gis.utils.LayerMapping" title="django.contrib.gis.utils.LayerMapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">LayerMapping</span></code></a> to extract all the features and place them in the
+database:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.contrib.gis.utils</span> <span class="kn">import</span> <span class="n">LayerMapping</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">geoapp.models</span> <span class="kn">import</span> <span class="n">TestGeo</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span> <span class="c1"># The &#39;name&#39; model field maps to the &#39;str&#39; layer field.</span>
+<span class="go">               &#39;poly&#39; : &#39;POLYGON&#39;, # For geometry fields use OGC name.</span>
+<span class="go">               } # The mapping is a dictionary</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lm</span> <span class="o">=</span> <span class="n">LayerMapping</span><span class="p">(</span><span class="n">TestGeo</span><span class="p">,</span> <span class="s1">&#39;test_poly.shp&#39;</span><span class="p">,</span> <span class="n">mapping</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lm</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># Save the layermap, imports the data.</span>
+<span class="go">Saved: Name: 1</span>
+<span class="go">Saved: Name: 2</span>
+<span class="go">Saved: Name: 3</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Here, <a class="reference internal" href="#django.contrib.gis.utils.LayerMapping" title="django.contrib.gis.utils.LayerMapping"><code class="xref py py-class docutils literal notranslate"><span class="pre">LayerMapping</span></code></a> transformed the three geometries from the shapefile
+in their original spatial reference system (WGS84) to the spatial reference
+system of the GeoDjango model (NAD83).  If no spatial reference system is
+defined for the layer, use the <code class="docutils literal notranslate"><span class="pre">source_srs</span></code> keyword with a
+<a class="reference internal" href="../gdal/index.html#django.contrib.gis.gdal.SpatialReference" title="django.contrib.gis.gdal.SpatialReference"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpatialReference</span></code></a> object to specify one.</p>
+</div>
+<div class="section" id="s-layermapping-api">
+<span id="layermapping-api"></span><h2><code class="docutils literal notranslate"><span class="pre">LayerMapping</span></code> API<a class="headerlink" href="#layermapping-api" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="django.contrib.gis.utils.LayerMapping">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><code class="sig-name descname"><span class="pre">LayerMapping</span></code>(<em><span class="n"><span class="pre">model</span></span></em>, <em><span class="n"><span class="pre">data_source</span></span></em>, <em><span class="n"><span class="pre">mapping</span></span></em>, <em><span class="n"><span class="pre">layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em><span class="n"><span class="pre">source_srs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="n"><span class="pre">transaction_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'commit_on_success'</span></span></em>, <em><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em><span class="n"><span class="pre">unique</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em><span class="n"><span class="pre">using</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>)<a class="headerlink" href="#django.contrib.gis.utils.LayerMapping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>The following are the arguments and keywords that may be used during
+instantiation of <code class="docutils literal notranslate"><span class="pre">LayerMapping</span></code> objects.</p>
+<table class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Argument</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">model</span></code></td>
+<td>The geographic model, <em>not</em> an instance.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">data_source</span></code></td>
+<td>The path to the OGR-supported data source file
+(e.g., a shapefile).  Also accepts
+<a class="reference internal" href="../gdal/index.html#django.contrib.gis.gdal.DataSource" title="django.contrib.gis.gdal.DataSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.gis.gdal.DataSource</span></code></a> instances.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">mapping</span></code></td>
+<td>A dictionary: keys are strings corresponding to
+the model field, and values correspond to
+string field names for the OGR feature, or if the
+model field is a geographic then it should
+correspond to the OGR geometry type,
+e.g., <code class="docutils literal notranslate"><span class="pre">'POINT'</span></code>, <code class="docutils literal notranslate"><span class="pre">'LINESTRING'</span></code>, <code class="docutils literal notranslate"><span class="pre">'POLYGON'</span></code>.</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Keyword Arguments</th>
+<th class="head">&#160;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">layer</span></code></td>
+<td>The index of the layer to use from the Data Source
+(defaults to 0)</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">source_srs</span></code></td>
+<td>Use this to specify the source SRS manually (for
+example, some shapefiles don’t come with a <code class="docutils literal notranslate"><span class="pre">'.prj'</span></code>
+file).  An integer SRID, WKT or PROJ strings, and
+<a class="reference internal" href="../gdal/index.html#django.contrib.gis.gdal.SpatialReference" title="django.contrib.gis.gdal.SpatialReference"><code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.gis.gdal.SpatialReference</span></code></a>
+objects are accepted.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">encoding</span></code></td>
+<td>Specifies the character set encoding of the strings
+in the OGR data source.  For example, <code class="docutils literal notranslate"><span class="pre">'latin-1'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'utf-8'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'cp437'</span></code> are all valid encoding
+parameters.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">transaction_mode</span></code></td>
+<td>May be <code class="docutils literal notranslate"><span class="pre">'commit_on_success'</span></code> (default) or
+<code class="docutils literal notranslate"><span class="pre">'autocommit'</span></code>.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">transform</span></code></td>
+<td>Setting this to False will disable coordinate
+transformations.  In other words, geometries will
+be inserted into the database unmodified from their
+original state in the data source.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">unique</span></code></td>
+<td>Setting this to the name, or a tuple of names,
+from the given  model will create models unique
+only to the given name(s). Geometries from
+each feature will be added into the collection
+associated with the unique model.  Forces
+the transaction mode to be <code class="docutils literal notranslate"><span class="pre">'autocommit'</span></code>.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">using</span></code></td>
+<td>Sets the database to use when importing spatial data.
+Default is <code class="docutils literal notranslate"><span class="pre">'default'</span></code>.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="s-save-keyword-arguments">
+<span id="save-keyword-arguments"></span><h3><code class="docutils literal notranslate"><span class="pre">save()</span></code> Keyword Arguments<a class="headerlink" href="#save-keyword-arguments" title="Permalink to this headline">¶</a></h3>
+<dl class="py method">
+<dt class="sig sig-object py" id="django.contrib.gis.utils.LayerMapping.save">
+<code class="sig-prename descclassname"><span class="pre">LayerMapping.</span></code><code class="sig-name descname"><span class="pre">save</span></code>(<em><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em><span class="n"><span class="pre">fid_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em><span class="n"><span class="pre">progress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em><span class="n"><span class="pre">stream</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">sys.stdout</span></span></em>, <em><span class="n"><span class="pre">strict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>)<a class="headerlink" href="#django.contrib.gis.utils.LayerMapping.save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>The <code class="docutils literal notranslate"><span class="pre">save()</span></code> method also accepts keywords.  These keywords are
+used for controlling output logging, error handling, and for importing
+specific feature ranges.</p>
+<table class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Save Keyword Arguments</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">fid_range</span></code></td>
+<td>May be set with a slice or tuple of
+(begin, end) feature ID’s to map from
+the data source.  In other words, this
+keyword enables the user to selectively
+import a subset range of features in the
+geographic data source.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">progress</span></code></td>
+<td>When this keyword is set, status information
+will be printed giving the number of features
+processed and successfully saved.  By default,
+progress information will be printed every 1000
+features processed, however, this default may
+be overridden by setting this keyword with an
+integer for the desired interval.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">silent</span></code></td>
+<td>By default, non-fatal error notifications are
+printed to <code class="docutils literal notranslate"><span class="pre">sys.stdout</span></code>, but this keyword may
+be set to disable these notifications.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">step</span></code></td>
+<td>If set with an integer, transactions will
+occur at every step interval. For example, if
+<code class="docutils literal notranslate"><span class="pre">step=1000</span></code>, a commit would occur after the
+1,000th feature, the 2,000th feature etc.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">stream</span></code></td>
+<td>Status information will be written to this file
+handle.  Defaults to using <code class="docutils literal notranslate"><span class="pre">sys.stdout</span></code>, but
+any object with a <code class="docutils literal notranslate"><span class="pre">write</span></code> method is supported.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">strict</span></code></td>
+<td>Execution of the model mapping will cease upon
+the first error encountered.  The default value
+(<code class="docutils literal notranslate"><span class="pre">False</span></code>)
+behavior is to attempt to continue.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">verbose</span></code></td>
+<td>If set, information will be printed
+subsequent to each model save
+executed on the database.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="s-troubleshooting">
+<span id="troubleshooting"></span><h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="s-running-out-of-memory">
+<span id="running-out-of-memory"></span><h3>Running out of memory<a class="headerlink" href="#running-out-of-memory" title="Permalink to this headline">¶</a></h3>
+<p>As noted in the warning at the top of this section, Django stores all SQL
+queries when <code class="docutils literal notranslate"><span class="pre">DEBUG=True</span></code>.  Set <code class="docutils literal notranslate"><span class="pre">DEBUG=False</span></code> in your settings, and this
+should stop excessive memory use when running <code class="docutils literal notranslate"><span class="pre">LayerMapping</span></code> scripts.</p>
+</div>
+<div class="section" id="s-mysql-max-allowed-packet-error">
+<span id="mysql-max-allowed-packet-error"></span><h3>MySQL: <code class="docutils literal notranslate"><span class="pre">max_allowed_packet</span></code> error<a class="headerlink" href="#mysql-max-allowed-packet-error" title="Permalink to this headline">¶</a></h3>
+<p>If you encounter the following error when using <code class="docutils literal notranslate"><span class="pre">LayerMapping</span></code> and MySQL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OperationalError</span><span class="p">:</span> <span class="p">(</span><span class="mi">1153</span><span class="p">,</span> <span class="s2">&quot;Got a packet bigger than &#39;max_allowed_packet&#39; bytes&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then the solution is to increase the value of the <code class="docutils literal notranslate"><span class="pre">max_allowed_packet</span></code>
+setting in your MySQL configuration.  For example, the default value may
+be something low like one megabyte – the setting may be modified in MySQL’s
+configuration file (<code class="docutils literal notranslate"><span class="pre">my.cnf</span></code>) in the <code class="docutils literal notranslate"><span class="pre">[mysqld]</span></code> section:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">max_allowed_packet</span> <span class="o">=</span> <span class="mi">10</span><span class="n">M</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="browse-horizontal">
+  
+  <div class="left"><a href="../utils/index.html"><i class="icon icon-chevron-left"></i> GeoDjango Utilities</a></div>
+  
+  
+  <div class="right"><a href="../ogrinspect/index.html">OGR Inspection <i class="icon icon-chevron-right"></i></a></div>
+  
+</div>
+
+
+
+        <a href="#top" class="backtotop"><i class="icon icon-chevron-up"></i> Back to Top</a>
+      </div>
+
+      
+<h1 class="visuallyhidden">Additional Information</h1>
+<div role="complementary">
+
+  
+
+
+  <div class="fundraising-sidebar">
+    <h2>Support Django!</h2>
+
+    <div class="small-heart">
+      <img src="https://static.djangoproject.com/img/fundraising-heart.cd6bb84ffd33.svg" alt="Support Django!" />
+    </div>
+
+    <div class="small-cta">
+      <ul class="list-links-small">
+        <li><a href="https://www.djangoproject.com/fundraising/">
+          Gratis Gokken donated to the Django Software Foundation to
+          support Django development. Donate today!
+        </a></li>
+      </ul>
+    </div>
+  </div>
+
+
+
+  
+    <h2>Contents</h2>
+    
+    <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">LayerMapping</span></code> data import utility</a><ul>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#layermapping-api"><code class="docutils literal notranslate"><span class="pre">LayerMapping</span></code> API</a><ul>
+<li><a class="reference internal" href="#save-keyword-arguments"><code class="docutils literal notranslate"><span class="pre">save()</span></code> Keyword Arguments</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#running-out-of-memory">Running out of memory</a></li>
+<li><a class="reference internal" href="#mysql-max-allowed-packet-error">MySQL: <code class="docutils literal notranslate"><span class="pre">max_allowed_packet</span></code> error</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    
+  
+
+  
+  <h2>Browse</h2>
+  <ul>
+    
+    
+    <li>Prev: <a href="../utils/index.html">GeoDjango Utilities</a></li>
+    
+    
+    <li>Next: <a href="../ogrinspect/index.html">OGR Inspection</a></li>
+    
+    <li><a href="../../../../contents/index.html">Table of contents</a></li>
+    
+    <li><a href="../../../../genindex/index.html">General Index</a></li>
+    
+    <li><a href="../../../../py-modindex/index.html">Python Module Index</a></li>
+    
+    
+  </ul>
+  
+
+  
+  <h2>You are here:</h2>
+  <ul>
+    <li>
+      <a href="../../../../index.html">Django 4.1 documentation</a>
+      
+      <ul><li><a href="../../../index.html">API Reference</a>
+      
+      <ul><li><a href="../../index.html"><code class="docutils literal notranslate"><span class="pre">contrib</span></code> packages</a>
+      
+      <ul><li><a href="../index.html">GeoDjango</a>
+      
+      <ul><li><a href="../utils/index.html">GeoDjango Utilities</a>
+      
+      <ul><li><code class="docutils literal notranslate"><span class="pre">LayerMapping</span></code> data import utility</li></ul>
+      </li></ul></li></ul></li></ul></li></ul>
+    </li>
+  </ul>
+  
+
+  
+  <h2 id="getting-help-sidebar">Getting help</h2>
+  <dl class="list-links">
+    <dt><a href="../../../../faq/index.html">FAQ</a></dt>
+    <dd>Try the FAQ — it's got answers to many common questions.</dd>
+
+    <dt><a href="https://docs.djangoproject.com/en/stable/genindex/">Index</a>, <a href="https://docs.djangoproject.com/en/stable/py-modindex/">Module Index</a>, or <a href="https://docs.djangoproject.com/en/stable/contents/">Table of Contents</a></dt>
+    <dd>Handy when looking for specific information.</dd>
+
+    <dt><a href="https://groups.google.com/group/django-users/">django-users mailing list</a></dt>
+    <dd>Search for information in the archives of the django-users mailing list, or post a question.</dd>
+
+    <dt><a href="irc://irc.libera.chat/django">#django IRC channel</a></dt>
+    <dd>Ask a question in the #django IRC channel, or search the IRC logs to see if it’s been asked before.</dd>
+
+    <dt><a href="https://discord.gg/xcRH6mN4fa">Django Discord Server</a></dt>
+    <dd>Join the Django Discord Community.</dd>
+
+    <dt><a href="https://forum.djangoproject.com/">Official Django Forum</a></dt>
+    <dd>Join the community on the Django Forum.</dd>
+
+    <dt><a href="https://code.djangoproject.com/">Ticket tracker</a></dt>
+    <dd>Report bugs with Django or Django documentation in our ticket tracker.</dd>
+  </dl>
+  
+
+  
+  <h2>Download:</h2>
+  <p>
+    Offline (Django 4.1):
+    <a href="https://media.djangoproject.com/docs/django-docs-4.1-en.zip">HTML</a> |
+    <a href="https://media.readthedocs.org/pdf/django/4.1.x/django.pdf">PDF</a> |
+    <a href="https://media.readthedocs.org/epub/django/4.1.x/django.epub">ePub</a>
+    <br>
+    <span class="quiet">
+      Provided by <a href="https://readthedocs.org/">Read the Docs</a>.
+    </span>
+  </p>
+  
+</div>
+
+      
+
+    </div>
+
+     
+     
+
+    
+    
+    
+
+    <!-- SVGs -->
+    <svg xmlns="http://www.w3.org/2000/svg">
+      <symbol viewBox="0 0 24 24" id="icon-auto"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2V4a8 8 0 1 0 0 16z"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icon-moon"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol>
+      <symbol viewBox="0 0 24 24" id="icon-sun"><path d="M0 0h24v24H0z" fill="currentColor"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol>
+    </svg>
+    <!-- END SVGs -->
+
+    
+      <div role="contentinfo">
+  <div class="subfooter">
+    <div class="container">
+      <h1 class="visuallyhidden">Django Links</h1>
+      <div class="column-container">
+        <div class="col-learn-more">
+          <h2>Learn More</h2>
+          <ul>
+            <li><a href="https://www.djangoproject.com/start/overview/">About Django</a></li>
+            
+            <li><a href="https://www.djangoproject.com/start/">Getting Started with Django</a></li>
+            <li><a href="https://docs.djangoproject.com/en/dev/internals/organization/">Team
+              Organization</a></li>
+            <li><a href="https://www.djangoproject.com/foundation/">Django Software Foundation</a></li>
+            <li><a href="https://www.djangoproject.com/conduct/">Code of Conduct</a></li>
+            <li><a href="https://www.djangoproject.com/diversity/">Diversity Statement</a></li>
+          </ul>
+        </div>
+
+        <div class="col-get-involved">
+          <h2>Get Involved</h2>
+          <ul>
+            <li><a href="https://www.djangoproject.com/community/">Join a Group</a></li>
+            <li><a href="https://docs.djangoproject.com/en/dev/internals/contributing/">Contribute
+              to Django</a></li>
+            <li><a
+              href="https://docs.djangoproject.com/en/dev/internals/contributing/bugs-and-features/">Submit
+              a Bug</a></li>
+            <li><a
+              href="https://docs.djangoproject.com/en/dev/internals/security/#reporting-security-issues">Report
+              a Security Issue</a></li>
+          </ul>
+        </div>
+
+        <div class="col-get-help">
+          <h2>Get Help</h2>
+          <ul>
+            <li><a href="https://docs.djangoproject.com/en/stable/faq/">Getting Help FAQ</a>
+            </li>
+            <li><a href="irc://irc.libera.chat/django">#django IRC channel</a></li>
+            <li><a href="https://discord.gg/xcRH6mN4fa" target="_blank">Django Discord</a></li>
+            <li><a href="https://forum.djangoproject.com/" target="_blank">Official Django Forum</a></li>
+          </ul>
+        </div>
+
+        <div class="col-follow-us">
+          <h2>Follow Us</h2>
+          <ul>
+            <li><a href="https://github.com/django">GitHub</a></li>
+            <li><a href="https://twitter.com/djangoproject">Twitter</a></li>
+            <li><a href="https://www.djangoproject.com/rss/weblog/">News RSS</a></li>
+            <li><a href="https://groups.google.com/forum/#!forum/django-users">Django Users Mailing List</a></li>
+          </ul>
+        </div>
+
+        <div class="col-support-us">
+          <h2>Support Us</h2>
+          <ul>
+            <li><a href="https://www.djangoproject.com/fundraising/">Sponsor Django</a></li>
+            <li><a href="https://django.threadless.com/" target="_blank">Official merchandise store</a></li>
+            <li><a href="https://docs.djangoproject.com/foundation/donate/#benevity-giving">Benevity Workplace Giving Program</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="container">
+      <div class="footer-logo">
+        <a class="logo" href="https://www.djangoproject.com/">Django</a>
+      </div>
+      <ul class="thanks">
+        <li>
+          <span>Hosting by</span> <a class="in-kind-donors" href="https://www.djangoproject.com/fundraising/#in-kind-donors">In-kind
+          donors</a>
+        </li>
+        <li class="design"><span>Design by</span> <a class="threespot" href="https://www.threespot.com/">Threespot</a>
+          <span class="ampersand">&amp;</span> <a class="andrevv" href="http://andrevv.com/">andrevv</a></li>
+      </ul>
+      <p class="copyright">&copy; 2005-2023
+        <a href="https://www.djangoproject.com/foundation/"> Django Software
+          Foundation</a> and individual contributors. Django is a
+        <a href="https://www.djangoproject.com/trademarks/">registered
+          trademark</a> of the Django Software Foundation.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+    
+
+    
+    <script>
+    function extless(input) {
+        return input.replace(/(.*)\.[^.]+$/, '$1');
+    }
+    var require = {
+        shim: {
+            'jquery': [],
+            'jquery.inview': ["jquery"],
+            'jquery.payment': ["jquery"],
+            'jquery.flot': ["jquery"],
+            'jquery.unveil': ["jquery"],
+            'stripe': {
+              exports: 'Stripe'
+            }
+        },
+        paths: {
+            "jquery": extless("../../../../../../../static.djangoproject.com/js/lib/jquery/dist/jquery.min.87e69028f78d.js"),
+            "jquery.inview": extless("../../../../../../../static.djangoproject.com/js/lib/jquery.inview/jquery.inview.min.4edba1c65592.js"),
+            "jquery.payment": extless("../../../../../../../static.djangoproject.com/js/lib/jquery.payment/lib/jquery.payment.e99c05ca79ae.js"),
+            "jquery.unveil": extless("../../../../../../../static.djangoproject.com/js/lib/unveil/jquery.unveil.min.ac79eb277093.js"),
+            "jquery.flot": extless("../../../../../../../static.djangoproject.com/js/lib/jquery-flot/jquery.flot.min.9964206e9d7f.js"),
+            "clipboard": extless("../../../../../../../static.djangoproject.com/js/lib/clipboard/dist/clipboard.min.bd70fd596a23.js"),
+            "mod/floating-warning": extless("../../../../../../../static.djangoproject.com/js/mod/floating-warning.a21b2abd2884.js"),
+            "mod/list-collapsing": extless("../../../../../../../static.djangoproject.com/js/mod/list-collapsing.c1a08d3ef9e9.js"),
+            "mod/list-feature": extless("../../../../../../../static.djangoproject.com/js/mod/list-feature.73529480f25b.js"),
+            "mod/mobile-menu": extless("../../../../../../../static.djangoproject.com/js/mod/mobile-menu.6012f4745df8.js"),
+            "mod/version-switcher": extless("../../../../../../../static.djangoproject.com/js/mod/version-switcher.c56ff7ed5481.js"),
+            "mod/search-key": extless("../../../../../../../static.djangoproject.com/js/mod/search-key.ae7292327b47.js"),
+            "mod/stripe-change-card": extless("../../../../../../../static.djangoproject.com/js/mod/stripe-change-card.682c710317a8.js"),
+            "mod/switch-dark-mode": extless("../../../../../../../static.djangoproject.com/js/mod/switch-dark-mode.a0e0dca32970.js"),
+            "mod/console-tabs": extless("../../../../../../../static.djangoproject.com/js/mod/console-tabs.70ce882faaf3.js"),
+            "stripe-checkout": "https://checkout.stripe.com/checkout",
+            "stripe": "https://js.stripe.com/v3/?" // ? needed due to require.js
+        }
+    };
+    </script>
+    <script data-main="https://static.djangoproject.com/js/main.48270eac7c0b.js" src="../../../../../../../static.djangoproject.com/js/lib/require.177879fbe7dd.js"></script>
+    
+
+
+  </body>
+
+<!-- Mirrored from docs.djangoproject.com/en/4.1/ref/contrib/gis/layermapping/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Mar 2023 18:02:46 GMT -->
+</html>

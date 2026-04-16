@@ -1,0 +1,7 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+.snigelweb.com	TRUE	/	FALSE	1999999999	__cf_bm	CWzcOF.esLva4kYgfQL.luauVDuAulpbwz03JhkRsao-1683145201-0-AZ79q60p95pJYkMRqf1ydSY2wqKqv6dE1NbSoz98ua57LYki7YbBUM/HfBdvIquauO2HKjSDWYre4KXlUlkq9xk=
+cdn.snigelweb.com	TRUE	/	FALSE	1999999999	SameSite	None
+www.w3schools.com	TRUE	/	FALSE	1999999999	ASPSESSIONIDAASSQQRT	EJDMDAGBCLOBANLFOHGLNNOG
+www.w3schools.com	TRUE	/	FALSE	1999999999	ASPSESSIONIDQARRRSTT	MPEEFPFBEHAPDCOOEJHANNBP
+
