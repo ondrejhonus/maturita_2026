@@ -1,0 +1,2 @@
+# Empty dependencies file for jizerska50.
+# This may be replaced when dependencies are built.

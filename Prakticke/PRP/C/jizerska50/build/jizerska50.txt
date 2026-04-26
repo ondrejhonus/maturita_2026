@@ -1,0 +1,20 @@
+st. cislo;prijmeni, jmeno (rocnik);narodnost;cas
+19;Hoelgaard, Stian (1991);NOR;2:03:34
+22;Persson, Emil (1995);SWE;2:02:27
+23;Kardin, Oskar (1992);SWE;2:02:38
+24;Thele, Joar Andreas (1993);NOR;2:07:54
+25;Johansson, Marcus (1990);SWE;2:07:53
+27;Novak, Max (1996);SWE;2:03:34
+31;Vesterheim, Magnus (1994);NOR;2:08:44
+33;Jeannerod, Alexis (1991);FRA;2:05:38
+38;Niemi-Impola, Bob (1992);SWE;2:08:06
+40;Srail, Jan (1990);CZE;2:07:53
+45;Persson, Nils (1993);SWE;2:09:41
+47;Stocek, Fabian (1994);CZE;2:08:02
+49;Ekloef, Johannes (1995);SWE;2:04:22
+50;Brigadoi, Mauro (1992);ITA;2:08:44
+60;Karlsson, Anton (1990);SWE;2:05:21
+65;Paus, Herman (2000);NOR;2:06:20
+66;Ferrari, Francesco (1994);ITA;2:08:45
+76;Leray, Matis (1999);FRA;2:08:12
+83;Koskela, Niko (1990);FIN;2:06:19

@@ -1,0 +1,3 @@
+/home/qwertilla/Documents/GitHub/maturita_2026/Prakticke/PRP/C/rychlobrusleni/build/CMakeFiles/rychlobrusleni.dir
+/home/qwertilla/Documents/GitHub/maturita_2026/Prakticke/PRP/C/rychlobrusleni/build/CMakeFiles/edit_cache.dir
+/home/qwertilla/Documents/GitHub/maturita_2026/Prakticke/PRP/C/rychlobrusleni/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,13 @@
+cislo_dvojice jmeno prijmeni (stat) cas
+1 Riccardo Lorello (ITA) 12:56.22
+1 Hald_Viktor Thorup (DEN) 59:59:59
+2 Sigurd Henriksen (NOR) 13:27.29
+2 Bart Swings (BEL) 13:05.60
+3 Stijn van_de_Bunt (NED) 12:45.75
+3 Vladimir Semirunniy (POL) 12:39.08
+4 Davide Ghiotto (ITA) 12:46.72
+4 Jorrit Bergsma (NED) 12:40.48
+5 Ted_Jan Bloemen (CAN) 13:00.01
+5 Metodej Jilek (CZE) 12:33.43
+6 Timothy Loubineaud (FRA) 12:44.20
+6 Sander Eitrem (NOR) 12:47.11

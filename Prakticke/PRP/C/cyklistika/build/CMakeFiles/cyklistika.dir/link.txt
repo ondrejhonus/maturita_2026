@@ -1,0 +1,1 @@
+/usr/bin/cc -g -Wl,--dependency-file=CMakeFiles/cyklistika.dir/link.d CMakeFiles/cyklistika.dir/main.c.o -o cyklistika

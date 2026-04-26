@@ -1,0 +1,3 @@
+/home/qwertilla/Documents/GitHub/maturita_2026/Prakticke/PRP/C/jizerska50/build/CMakeFiles/jizerska50.dir
+/home/qwertilla/Documents/GitHub/maturita_2026/Prakticke/PRP/C/jizerska50/build/CMakeFiles/edit_cache.dir
+/home/qwertilla/Documents/GitHub/maturita_2026/Prakticke/PRP/C/jizerska50/build/CMakeFiles/rebuild_cache.dir

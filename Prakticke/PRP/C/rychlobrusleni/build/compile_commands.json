@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/qwertilla/Documents/GitHub/maturita_2026/Prakticke/PRP/C/rychlobrusleni/build",
+  "command": "/usr/bin/cc   -g -o CMakeFiles/rychlobrusleni.dir/main.c.o -c /home/qwertilla/Documents/GitHub/maturita_2026/Prakticke/PRP/C/rychlobrusleni/main.c",
+  "file": "/home/qwertilla/Documents/GitHub/maturita_2026/Prakticke/PRP/C/rychlobrusleni/main.c",
+  "output": "CMakeFiles/rychlobrusleni.dir/main.c.o"
+}
+]

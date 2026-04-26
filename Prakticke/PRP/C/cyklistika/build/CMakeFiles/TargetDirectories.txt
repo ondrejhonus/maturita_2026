@@ -1,0 +1,3 @@
+/home/qwertilla/Documents/GitHub/maturita_2026/Prakticke/PRP/C/cyklistika/build/CMakeFiles/cyklistika.dir
+/home/qwertilla/Documents/GitHub/maturita_2026/Prakticke/PRP/C/cyklistika/build/CMakeFiles/edit_cache.dir
+/home/qwertilla/Documents/GitHub/maturita_2026/Prakticke/PRP/C/cyklistika/build/CMakeFiles/rebuild_cache.dir
