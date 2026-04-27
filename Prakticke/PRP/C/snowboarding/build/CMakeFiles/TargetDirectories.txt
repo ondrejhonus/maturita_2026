@@ -1,0 +1,3 @@
+/home/qwertilla/Documents/GitHub/maturita_2026/Prakticke/PRP/C/snowboarding/build/CMakeFiles/snowboarding.dir
+/home/qwertilla/Documents/GitHub/maturita_2026/Prakticke/PRP/C/snowboarding/build/CMakeFiles/edit_cache.dir
+/home/qwertilla/Documents/GitHub/maturita_2026/Prakticke/PRP/C/snowboarding/build/CMakeFiles/rebuild_cache.dir

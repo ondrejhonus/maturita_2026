@@ -1,0 +1,1 @@
+/usr/bin/cc -g -Wl,--dependency-file=CMakeFiles/snowboarding.dir/link.d CMakeFiles/snowboarding.dir/main.c.o -o snowboarding
