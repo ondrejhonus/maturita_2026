@@ -1,0 +1,19 @@
+Z binární do desítkové (Sčítání hodnot)
+
+Převod z binární do desítkové soustavy funguje jako obyčejné sčítání. Každá pozice v binárním čísle má svou "váhu", která se zprava doleva zdvojnásobuje – tedy 1, 2, 4, 8, 16 a tak dále. Číslo si prostě čteme zprava. Kde narazíme na jedničku, tam přičteme její váhu k celkovému výsledku. Kde je nula, tu prostě s čistým svědomím přeskočíme.
+
+Příklad pro číslo 1011: Čteme zprava. První jednička má váhu 1, tak si napíšeme jedničku. Druhá jednička má váhu 2, tak ji přičteme. Třetí je nula, tu přeskočíme (jinak by měla váhu 4). Čtvrtá je opět jednička s váhou 8, tak ji přičteme. Když to sečteme (1 + 2 + 8), dostaneme výsledek 11.
+
+Z desítkové do binární (Dělení dvěma)
+
+Tady na to jdeme přes neustálé dělení dvěma. Vezmeš číslo, vydělíš ho dvěma a bokem si zapíšeš zbytek (což bude vždycky buď 0, nebo 1). Ten samotný výsledek dělení pak znovu vydělíš dvěma a opět si poznamenáš zbytek. Tohle opakuješ tak dlouho, dokud ti z dělení nevyjde čistá nula. Úplně nakonec stačí všechny zapsané zbytky přečíst odzadu a máš své binární číslo.
+
+Příklad pro číslo 11: * 11 děleno 2 je 5 (a zbyde 1)
+
+    5 děleno 2 jsou 2 (a zbyde 1)
+
+    2 děleno 2 je 1 (a zbyde 0)
+
+    1 děleno 2 je 0 (a zbyde 1)
+
+Když si teď ty tučně zvýrazněné zbytky přečteš odspoda nahoru (odzadu), vyjde ti krásných 1011.

@@ -1,0 +1,3 @@
+D:/student/IT4/otazka19/cmake-build-debug/CMakeFiles/otazka19.dir
+D:/student/IT4/otazka19/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/student/IT4/otazka19/cmake-build-debug/CMakeFiles/rebuild_cache.dir

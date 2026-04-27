@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kalkulačka</title>
+</head>
+<body>
+    <h1>Kalkulačka</h1>
+    <form action="">
+        <p>
+            <label for="x">Proměnná X: </label>
+            <input type="number" id="x">
+        </p>
+        <p>
+            <label for="y">Proměnná Y: </label>         
+            <input type="number" id="y">
+        </p>
+        <p>
+            <label>Operace: &nbsp;</label>
+            <label for="plus">+ <input type="radio" name="operator" id="plus" value="+" checked></label>
+            <label for="minus">- <input type="radio" name="operator" id="minus" value="-"></label>
+            <label for="krat">* <input type="radio" name="operator" id="krat" value="*"></label>
+            <label for="deleno">/ <input type="radio" name="operator" id="deleno" value="/"></label>
+        </p>
+        <p>
+            <input type="button" id="vypocet" value="Odeslat">
+        </p>
+    </form>
+
+    <p id="vysledek_text" style="font-size: 1.2em;"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
