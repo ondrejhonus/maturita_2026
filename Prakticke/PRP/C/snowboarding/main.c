@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define DELIM "|\n"
 #define SIZE 100
+#define MAX_RACERS 15
 #define INPUT_FILE "snowboarding.txt"
 
 typedef struct {
@@ -18,65 +18,25 @@ typedef struct {
   TIME total_time;
 } RACER;
 
-RACER* read_file(int* count) {
+int read_file(RACER racers[]) {
   FILE* fr = fopen(INPUT_FILE, "r");
-  *count = 0;
-  char line[SIZE];
-  char* pch;
+  int count = 0;
 
-  RACER* racers = NULL;
-  RACER* temp_racers = NULL;
+  char header[SIZE];
+  fgets(header, sizeof(header), fr);
 
-  int col = 0;
-
-  if (fr == NULL) {
-    perror("File not found.");
-  } else {
-    while (fgets(line, SIZE, fr) != NULL) {
-      col = 0;
-      if (*count != 0) {
-        temp_racers = (RACER*)realloc(racers, (*count + 1) * sizeof(RACER));
-        if (temp_racers != NULL) {
-          racers = temp_racers;
-          pch = strtok(line, DELIM);
-          while (pch != NULL) {
-            switch (col) {
-              case 0:
-                strcpy(racers[*count - 1].name, pch);
-                break;
-              case 1:
-                strcpy(racers[*count - 1].state, pch);
-                break;
-              case 2:
-                sscanf(pch, "%d.%d", &racers[*count - 1].blue_time.s,
-                       &racers[*count - 1].blue_time.hun);
-                break;
-              case 3:
-                sscanf(pch, "%d.%d", &racers[*count - 1].red_time.s,
-                       &racers[*count - 1].red_time.hun);
-                break;
-              case 4:
-                sscanf(pch, "%d:%d.%d", &racers[*count - 1].total_time.m,
-                       &racers[*count - 1].total_time.s,
-                       &racers[*count - 1].total_time.hun);
-                break;
-              default:
-                break;
-            }
-            col++;
-            pch = strtok(NULL, DELIM);
-          }
-        } else {
-          perror("Realloc error");
-          free(racers);
-          break;
-        }
-      }
-      (*count)++;
-    }
+  while (count < MAX_RACERS &&
+         fscanf(fr, "%[^|]|%[^|]|%d.%d|%d.%d|%d:%d.%d\n", &racers[count].name,
+                &racers[count].state, &racers[count].blue_time.s,
+                &racers[count].blue_time.hun, &racers[count].red_time.s,
+                &racers[count].red_time.hun, &racers[count].total_time.m,
+                &racers[count].total_time.s,
+                &racers[count].total_time.hun) == 9) {
+    count++;
   }
-  (*count)--;
-  return racers;
+
+  if (fclose(fr) == EOF) perror("File could not be closed");
+  return count;
 }
 
 void swap(RACER* a, RACER* b) {
@@ -87,7 +47,7 @@ void swap(RACER* a, RACER* b) {
 
 int time_to_hun(TIME t) { return t.m * 60 * 100 + t.s * 100 + t.hun; }
 
-void bubble_sort(RACER* racer, int count) {
+void bubble_sort(RACER racer[], int count) {
   for (size_t i = 0; i < count - 1; i++) {
     for (size_t j = 0; j < count - i - 1; j++) {
       if (time_to_hun(racer[j].total_time) >
@@ -98,7 +58,7 @@ void bubble_sort(RACER* racer, int count) {
   }
 }
 
-void display_racers(RACER* racers, int count) {
+void display_racers(RACER racers[], int count) {
   printf(
       "------------------------------------------------------------------------"
       "-----\n");
@@ -116,9 +76,9 @@ void display_racers(RACER* racers, int count) {
   }
 }
 
-int main(int, char**) {
-  int count = 0;
-  RACER* racers = read_file(&count);
+int main() {
+  RACER racers[MAX_RACERS];
+  int count = read_file(racers);
   bubble_sort(racers, count);
   display_racers(racers, count);
 }
