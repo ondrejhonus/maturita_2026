@@ -4,7 +4,7 @@
 
 #define INPUT_FILE "rychlobrusleni10000m.txt"
 #define SIZE 100
-#define DELIMITERS "() \n"
+#define MAX_RACERS 30
 
 typedef struct {
   int m, sec, hun;
@@ -26,7 +26,7 @@ void swap(DATA* a, DATA* b) {
 
 int time_to_hun(TIME t) { return t.m * 6000 + t.sec * 100 + t.hun; }
 
-void bubble_sort(DATA* racers, int count) {
+void bubble_sort(DATA racers[], int count) {
   for (unsigned int i = 0; i < count - 1; i++) {
     for (unsigned int j = 0; j < count - i - 1; j++) {
       if (time_to_hun(racers[j].time) > time_to_hun(racers[j + 1].time)) {
@@ -36,67 +36,27 @@ void bubble_sort(DATA* racers, int count) {
   }
 }
 
-DATA* read_file(int* count) {
+int read_file(DATA racers[]) {
   FILE* fr = fopen(INPUT_FILE, "r");
-  char line[SIZE];
-  char* pch = NULL;
-  DATA* racer = NULL;
-  DATA* more_racers = NULL;
-  int col = 0;
-  *count = 0;
+  int count = 0;
 
-  if (fr == NULL) {
-    perror("File could not be opened!");
-  } else {
-    while (fgets(line, SIZE, fr)) {
-      col = 0;
-      if (*count != 0) {
-        more_racers = (DATA*)realloc(racer, (*count + 1) * sizeof(DATA));
-        if (more_racers != NULL) {
-          racer = more_racers;
-          pch = strtok(line, DELIMITERS);
-          while (pch != NULL) {
-            switch (col) {
-              case 0:
-                racer[*count - 1].start_num = atoi(pch);
-                break;
-              case 1:
-                strcpy(racer[*count - 1].name, pch);
-                break;
-              case 2:
-                strcpy(racer[*count - 1].surname, pch);
-                break;
-              case 3:
-                strcpy(racer[*count - 1].country, pch);
-                break;
-              case 4:
-                sscanf(pch, "%d:%d.%d", &racer[*count - 1].time.m,
-                       &racer[*count - 1].time.sec,
-                       &racer[*count - 1].time.hun);
-                break;
-              default:
-                break;
-            }
-            pch = strtok(NULL, DELIMITERS);
-            col++;
-          }
+  char header[SIZE];
+  fgets(header, sizeof(header), fr);
 
-        } else {
-          free(racer);
-          puts("Error (re)allocating memory");
-          break;
-        }
-      }
-      (*count)++;
-    }
-    printf("%s", fclose(fr) == EOF ? "File couldn't be opened\n"
-                                   : "File succesfully closed\n");
+  // 1 Riccardo Lorello (ITA) 12:56.22
+  while (count < MAX_RACERS &&
+         fscanf(fr, "%d %[^ ] %[^ ] (%[^)]) %d:%d.%d\n",
+                &racers[count].start_num, &racers[count].name,
+                &racers[count].surname, &racers[count].country,
+                &racers[count].time.m, &racers[count].time.sec,
+                &racers[count].time.hun) == 7) {
+    count++;
   }
-  (*count)--;
-  return racer;
+  fclose(fr);
+  return count;
 }
 
-void print_racers(DATA* racers, int count) {
+void print_racers(DATA racers[], int count) {
   printf("R Y C H L O B R U S L E N I   2 0 2 6\n10 000m muzi\n");
   printf("---------------------------------------------------\n");
   printf("poradi        jmeno     prijmeni   stat       cas\n");
@@ -108,8 +68,8 @@ void print_racers(DATA* racers, int count) {
 }
 
 int main(int, char**) {
-  int count = 0;
-  DATA* racers = read_file(&count);
+  DATA racers[MAX_RACERS];
+  int count = read_file(racers);
   bubble_sort(racers, count);
   print_racers(racers, count);
 }

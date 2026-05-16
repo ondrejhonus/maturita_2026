@@ -5,6 +5,7 @@
 #define INPUT_FILE "cyklistika.txt"
 #define DELIMITERS ";\n"
 #define SIZE 100
+#define MAX_RACERS 20
 
 typedef struct {
   int h, m, sec, hun;
@@ -19,64 +20,24 @@ typedef struct {
   TIME time;
 } RACER;
 
-RACER* read_file(int* count) {
+int read_file(RACER racers[]) {
   FILE* fr = fopen(INPUT_FILE, "r");
-  RACER* racers = NULL;
-  RACER* more_racers = NULL;
 
-  *count = 0;
-  int col = 0;
+  int count = 0;
 
-  char* pch = NULL;
-  char line[SIZE];
+  char header[SIZE];
+  fgets(header, sizeof(header), fr);
 
-  if (fr == NULL) {
-    perror("File could not be openeed.\n");
-  } else {
-    while (fgets(line, SIZE, fr) != NULL) {
-      col = 0;
-      if (count != 0) {
-        more_racers = (RACER*)realloc(racers, (*count) * sizeof(RACER));
-        if (more_racers != NULL) {
-          racers = more_racers;
-          pch = strtok(line, DELIMITERS);
-          while (pch != NULL) {
-            switch (col) {
-              case 0:
-                racers[*count - 1].number = atoi(pch);
-                break;
-              case 1:
-                strcpy(racers[*count - 1].surname, pch);
-                break;
-              case 2:
-                strcpy(racers[*count - 1].name, pch);
-                break;
-              case 3:
-                racers[*count - 1].year = atoi(pch);
-                break;
-              case 4:
-                strcpy(racers[*count - 1].club, pch);
-                break;
-              case 5:
-                sscanf(pch, "%d:%d:%d.%d", &racers[*count - 1].time.h,
-                       &racers[*count - 1].time.m, &racers[*count - 1].time.sec,
-                       &racers[*count - 1].time.hun);
-                break;
-            }
-            pch = strtok(NULL, DELIMITERS);
-            col++;
-          }
-        } else {
-          free(racers);
-          puts("Error parsin.");
-          break;
-        }
-      }
-      (*count)++;
-    }
+  while (count < MAX_RACERS &&
+         fscanf(fr, "%d;%[^;];%[^;];%d;%[^;];%d:%d:%d.%d\n",
+                &racers[count].number, &racers[count].surname,
+                &racers[count].name, &racers[count].year, &racers[count].club,
+                &racers[count].time.h, &racers[count].time.m,
+                &racers[count].time.sec, &racers[count].time.hun) == 9) {
+    count++;
   }
-  (*count)--;
-  return racers;
+  fclose(fr);
+  return count;
 }
 
 int time_to_hun(TIME t) {
@@ -89,7 +50,7 @@ void swap(RACER* a, RACER* b) {
   *b = temp;
 }
 
-void bubble_sort(RACER* racers, int count) {
+void bubble_sort(RACER racers[], int count) {
   for (size_t i = 0; i < count - 1; i++) {
     for (size_t j = 0; j < count - i - 1; j++) {
       if (time_to_hun(racers[j].time) > time_to_hun(racers[j + 1].time)) {
@@ -120,8 +81,8 @@ void display_racers(RACER* racer, int count) {
 }
 
 int main(int, char**) {
-  int count = 0;
-  RACER* racers = read_file(&count);
+  RACER racers[MAX_RACERS];
+  int count = read_file(racers);
   bubble_sort(racers, count);
   display_racers(racers, count);
 }

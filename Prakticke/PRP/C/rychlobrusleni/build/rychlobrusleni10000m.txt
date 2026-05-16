@@ -1,6 +1,6 @@
 cislo_dvojice jmeno prijmeni (stat) cas
 1 Riccardo Lorello (ITA) 12:56.22
-1 Hald_Viktor Thorup (DEN) 59:59:59
+1 Hald_Viktor Thorup (DEN) 59:59.59
 2 Sigurd Henriksen (NOR) 13:27.29
 2 Bart Swings (BEL) 13:05.60
 3 Stijn van_de_Bunt (NED) 12:45.75
